@@ -350,7 +350,6 @@
 			function scrollCheck() {
 				const wH = window.innerHeight;
 				const wT = Math.floor(window.scrollY);
-				
                 const cutline = wT + wH;
 
                 for (let i = 0, len = psValue.length; i < len; i++) {
@@ -374,8 +373,6 @@
 
 				//service.html
                 if (v === 'service') {
-
-					console.log(nowPs);
 					service(cutline, nowPs);
                 }
 			}
@@ -384,6 +381,7 @@
 				const parallax = doc.querySelector('.ui-parallax');
 				const wrap = doc.querySelector('.ui-parallax-item.n' + n);
 				const wrapPrev = doc.querySelector('.ui-parallax-item.n' + (n - 1 < 0 ? 0 : n-1));
+				const wrapNext = doc.querySelector('.ui-parallax-item.n' + (n + 1));
                 const item = wrap.querySelector('.word-item');
                 const word = item.querySelectorAll('.word');
                 const line = item.querySelector('.line');
@@ -393,17 +391,23 @@
                 let minH =  Math.floor(wrap.offsetHeight);
                 let unit;
 				let cutpoint;
+				const isOn = wrap.classList.contains('on');
+				const isReady = wrap.classList.contains('ready');
 
 				switch (n) {
 					case 1:
 						unit = (minH - wH) / 10;
-
+						if (cutline < minH) {
+							wrapNext.classList.remove('ready');
+						} 
 						if (cutline > wH) {
-							if (!wrap.classList.contains('on')) {
+							if (!isOn) {
 								wrap.classList.add('on');
+								wrapNext.classList.remove('ready');
 							}
 						} else {
-							if (!!wrap.classList.contains('on')) {
+							if (!!isOn) {
+								wrapNext.classList.remove('ready');
 								wrap.classList.remove('on');
 							}
 						}
@@ -445,14 +449,25 @@
 
 					case 2:
 						unit = (minH - wH) / 10;
-						
+
+						if (cutline > maxH - wH) {
+							if (!isOn) {
+								wrap.classList.add('ready');
+							}
+						} 
+						if (cutline < maxH + minH) {
+							wrapNext.classList.remove('ready');
+						} 
 						if (cutline > maxH) {
-							if (!wrap.classList.contains('on')) {
+							if (!isOn) {
 								wrapPrev.classList.add('off');
+								wrap.classList.remove('ready');
+								wrap.classList.remove('off');
 								wrap.classList.add('on');
 							}
 						} else {
-							if (!!wrap.classList.contains('on')) {
+							if (!!isOn) {
+								wrapPrev.classList.remove('ready');
 								wrapPrev.classList.remove('off');
 								wrap.classList.remove('on');
 							}
@@ -484,16 +499,27 @@
 					case 3:
 						unit = (minH - wH) / 10;
 						
+						if (cutline > maxH - wH) {
+							if (!isOn) {
+								wrap.classList.add('ready');
+							}
+						} 
+						if (cutline < maxH + minH) {
+							wrapNext.classList.remove('ready');
+							Global.number.counterReset('counter1');
+						} 
 						if (cutline > maxH) {
-							if (!wrap.classList.contains('on')) {
+							if (!isOn) {
 								wrapPrev.classList.add('off');
+								wrap.classList.remove('ready');
+								wrap.classList.remove('off');
 								wrap.classList.add('on');
 							}
 						} else {
-							if (!!wrap.classList.contains('on')) {
+							if (!!isOn) {
+								wrapPrev.classList.remove('ready');
 								wrapPrev.classList.remove('off');
 								wrap.classList.remove('on');
-								Global.number.counterReset('counter1');
 							}
 						}
 
@@ -521,16 +547,27 @@
 					case 4 :
 						unit = (minH - wH) / 10;
 						
+						if (cutline > maxH - wH) {
+							if (!isReady) {
+								wrap.classList.add('ready');
+							}
+						} 
+						if (cutline < maxH + minH) {
+							wrapNext.classList.remove('ready');
+							Global.number.counterReset('counter2');
+						} 
 						if (cutline > maxH) {
-							if (!wrap.classList.contains('on')) {
+							if (!isOn) {
 								wrapPrev.classList.add('off');
+								wrap.classList.remove('ready');
+								wrap.classList.remove('off');
 								wrap.classList.add('on');
 							}
 						} else {
-							if (!!wrap.classList.contains('on')) {
-								wrap.classList.remove('on');
+							if (!!isOn) {
+								wrapPrev.classList.remove('ready');
 								wrapPrev.classList.remove('off');
-								Global.number.counterReset('counter2');
+								wrap.classList.remove('on');
 							}
 						}
 
@@ -544,16 +581,27 @@
 					case 5:
 						unit = (minH - wH) / 10;
 						
+						if (cutline > maxH - wH) {
+							if (!isReady) {
+								wrap.classList.add('ready');
+							}
+						} 
+						if (cutline < maxH + minH) {
+							wrapNext.classList.remove('ready');
+							Global.number.recounterReset('counter3');
+						} 
 						if (cutline > maxH) {
-							if (!wrap.classList.contains('on')) {
+							if (!isOn) {
 								wrapPrev.classList.add('off');
+								wrap.classList.remove('ready');
+								wrap.classList.remove('off');
 								wrap.classList.add('on');
 							}
 						} else {
-							if (!!wrap.classList.contains('on')) {
+							if (!!isOn) {
+								wrapPrev.classList.remove('ready');
 								wrapPrev.classList.remove('off');
 								wrap.classList.remove('on');
-								Global.number.recounterReset('counter3');
 							}
 						}
 
@@ -567,14 +615,25 @@
 					case 6:
 						unit = (minH - wH) / 10;
 						
-						if (cutline > maxH) {
-							if (!wrap.classList.contains('on')) {
-								wrapPrev.classList.add('off');
-								wrap.classList.add('on');
+						if (cutline > maxH - wH) {
+							if (!isReady) {
+								wrap.classList.add('ready');
 								Global.motion.vibration();
 							}
+						} 
+						if (cutline < maxH + minH) {
+							wrapNext.classList.remove('ready');
+						} 
+						if (cutline > maxH) {
+							if (!isOn) {
+								wrapPrev.classList.add('off');
+								wrap.classList.remove('ready');
+								wrap.classList.remove('off');
+								wrap.classList.add('on');
+							}
 						} else {
-							if (!!wrap.classList.contains('on')) {
+							if (!!isOn) {
+								wrapPrev.classList.remove('ready');
 								wrapPrev.classList.remove('off');
 								wrap.classList.remove('on');
 							}
@@ -590,14 +649,25 @@
 					case 7:
 						unit = (minH - wH) / 10;
 						
+						if (cutline > maxH - wH) {
+							if (!isReady) {
+								wrap.classList.add('ready');
+								Global.motion.vibration();
+							}
+						} 
+						if (cutline < maxH + minH) {
+							wrapNext.classList.remove('ready');
+						} 
 						if (cutline > maxH) {
-							if (!wrap.classList.contains('on')) {
+							if (!isOn) {
 								wrapPrev.classList.add('off');
+								wrap.classList.remove('ready');
+								wrap.classList.remove('off');
 								wrap.classList.add('on');
-								
 							}
 						} else {
-							if (!!wrap.classList.contains('on')) {
+							if (!!isOn) {
+								wrapPrev.classList.remove('ready');
 								wrapPrev.classList.remove('off');
 								wrap.classList.remove('on');
 							}
@@ -630,15 +700,25 @@
 						const card = item.querySelector('.card-list');
 						let cardw = 1010;
 
-						console.log(psValue, cutline, maxH , wH , unit);
-
+						if (cutline > maxH - wH) {
+							if (!isReady) {
+								wrap.classList.add('ready');
+								Global.motion.vibration();
+							}
+						} 
+						if (cutline < maxH + minH) {
+							wrapNext.classList.remove('ready');
+						} 
 						if (cutline > maxH) {
-							if (!wrap.classList.contains('on')) {
+							if (!isOn) {
 								wrapPrev.classList.add('off');
+								wrap.classList.remove('ready');
+								wrap.classList.remove('off');
 								wrap.classList.add('on');
 							}
 						} else {
-							if (!!wrap.classList.contains('on')) {
+							if (!!isOn) {
+								wrapPrev.classList.remove('ready');
 								wrapPrev.classList.remove('off');
 								wrap.classList.remove('on');
 							}
@@ -653,10 +733,10 @@
 						if (cutline > cutpoint + (unit * 4)) {
 							card.style.transform = 'translateX('+ (cardw * -2) +'px)';
 						}
-						if (cutline > cutpoint + (unit * 7)) {
+						if (cutline > cutpoint + (unit * 6)) {
 							card.style.transform = 'translateX('+ (cardw * -3) +'px)';
 						}
-						if (cutline > cutpoint + (unit * 10)) {
+						if (cutline > cutpoint + (unit * 8)) {
 							card.style.transform = 'translateX('+ (cardw * -4) +'px)';
 						}
 						break;
@@ -664,18 +744,30 @@
 					case 9:
 						unit = (pH - maxH - wH) / 10;
 
+						if (cutline > maxH - wH) {
+							if (!isReady) {
+								wrap.classList.add('ready');
+							}
+						} 
+						if (cutline < maxH + minH) {
+							wrapNext.classList.remove('ready');
+						} 
 						if (cutline > maxH) {
-							if (!wrap.classList.contains('on')) {
+							if (!isOn) {
 								wrapPrev.classList.add('off');
+								wrap.classList.remove('ready');
+								wrap.classList.remove('off');
 								wrap.classList.add('on');
 							}
 						} else {
-							if (!!wrap.classList.contains('on')) {
+							if (!!isOn) {
+								wrapPrev.classList.remove('ready');
 								wrapPrev.classList.remove('off');
 								wrap.classList.remove('on');
 							}
 						}
-						
+
+
 						break;
 					
 				}
