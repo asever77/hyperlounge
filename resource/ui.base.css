@@ -733,9 +733,9 @@ body[data-n="6"] .ui-parallax-item.n7.on .word-wrap{
 .srv-icon img{position: absolute; transition: top .5s , left .5s ;}
 
 
-/* service 7 */
+/* service 8 */
 .ui-parallax-item.n8{
-    height: 200vh; 
+    height:400vh; 
     background:#f4f4f4;
 	z-index: 12;
 }
@@ -743,6 +743,53 @@ body[data-n="7"] .ui-parallax-item.n8 .word-wrap{
 	top: 0;
 }
 body[data-n="7"] .ui-parallax-item.n8.on .word-wrap{
+    position: fixed;
+}
+.boxlist .word.n1{
+    margin-left:10rem;
+    margin-bottom:2vmin;
+}
+.boxlist {
+    position: absolute;
+    top:20vh;
+    left:50%;
+    transform: translate(-55rem, 0);
+}
+.boxlist .word.n1{
+    font-size:5vmin;
+    color:#000;
+    font-weight:700;
+}
+.card-list{
+    display: flex;
+    transform: translateX(0);
+    transition: transform .3s ease-in;
+}
+.card-list-item + .card-list-item{
+    margin-left:80px;
+}
+.card-list-item{
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:0 7rem;
+    min-width:93rem;
+    width:93rem;
+    background:#fff;
+    border-radius:7.2rem;
+    height: 40rem;;
+}
+
+/* service 9 */
+.ui-parallax-item.n9{
+    height: 200vh; 
+    background:black;
+	z-index: 12;
+}
+body[data-n="8"] .ui-parallax-item.n9 .word-wrap{
+	top: 0;
+}
+body[data-n="8"] .ui-parallax-item.n9.on .word-wrap{
     position: fixed;
 }
 
