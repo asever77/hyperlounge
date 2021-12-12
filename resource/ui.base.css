@@ -46,6 +46,35 @@
     url('./fonts/SpoqaHanSansNeo-Thin.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'Spoqa Han Sans Neo';
+    src: local('Helvetica Neue'),
+    url('./fonts/HelveticaNeueLTPro-Bd.woff2') format('woff2'),
+    url('./fonts/HelveticaNeueLTPro-Bd.woff') format('woff'),
+    url('./fonts/HelveticaNeueLTPro-Bd.ttf') format('truetype');
+    unicode-range: U+0041-005A, U+0061-007A;
+    font-weight: 700;
+}
+@font-face {
+    font-family: 'Spoqa Han Sans Neo';
+    src: local('Helvetica Neue'),
+    url('./fonts/HelveticaNeueLTPro-Md.woff2') format('woff2'),
+    url('./fonts/HelveticaNeueLTPro-Md.woff') format('woff'),
+    url('./fonts/HelveticaNeueLTPro-Md.ttf') format('truetype');
+    unicode-range: U+0041-005A, U+0061-007A;
+    font-weight: 400;
+}
+@font-face {
+    font-family: 'Spoqa Han Sans Neo';
+    src: local('Helvetica Neue'),
+    url('./fonts/HelveticaNeueLTPro-Lt.woff2') format('woff2'),
+    url('./fonts/HelveticaNeueLTPro-Lt.woff') format('woff'),
+    url('./fonts/HelveticaNeueLTPro-Lt.ttf') format('truetype');
+    unicode-range: U+0041-005A, U+0061-007A;
+    font-weight: 100;
+}
+
+
 /* default */
 html,
 body {
@@ -498,7 +527,7 @@ body.step0 .ui-parallax-item.n1 .unit-wrap{
     color:#fff;
     z-index: 1;
     font-weight: 700;
-    letter-spacing: -1.9vmin;
+    letter-spacing: -1.6vmin;
 }
 .hello .unit{
     display: inline-block;
