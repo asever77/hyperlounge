@@ -356,454 +356,19 @@
 
 			history.scrollRestoration = "manual";
 			Global.parallax.options.page = v;
+			el_body.removeAttribute('class');
+			el_body.classList.add('step0');
 
             for (let i = 0, len = el_wraps.length; i < len; i++) {
                 const that = el_wraps[i];
                 const areaT = Math.floor(window.pageYOffset);
+				
 				Global.parallax.options.psValue.push((that.getBoundingClientRect().top + areaT).toFixed(0));
 				psValue.push((that.getBoundingClientRect().top + areaT).toFixed(0));
             }
 
 			Global.parallax.act();
 			el_area.addEventListener('scroll', Global.parallax.act);
-
-            // scrollCheck();
-			// el_area.removeEventListener('scroll', scrollCheck);
-			// el_area.addEventListener('scroll', scrollCheck);
-
-			function scrollCheck() {
-				const wH = window.innerHeight;
-				const wT = Math.floor(window.pageYOffset);
-                const cutline = wT + wH;
-
-                for (let i = 1, len = psValue.length; i < len; i++) {
-					console.log(cutline, psValue[i]);
-                    if (cutline <= psValue[0]) {
-                        nowPs = 0;
-                        break;
-                    } 
-                    
-                    if (cutline > psValue[len - 1]) {
-                        nowPs = len - 1;
-                        break;
-                    }
-
-                    if (cutline < psValue[i]){
-                        nowPs = i;
-                        break;
-                    }
-                }
-                
-                el_body.dataset.n = nowPs - 1;
-
-				//service.html
-                if (v === 'service') {
-					service(cutline, nowPs);
-                }
-			}
-		
-            function service(cutline, n){
-				const parallax = doc.querySelector('.ui-parallax');
-				const wrap = doc.querySelector('.ui-parallax-item.n' + n);
-				const wrapPrev = doc.querySelector('.ui-parallax-item.n' + (n - 1 < 0 ? 0 : n-1));
-				const wrapNext = doc.querySelector('.ui-parallax-item.n' + (n + 1));
-
-				const item = wrap.querySelector('.unit-item');
-                const unit = item.querySelectorAll('.unit');
-                const line = item.querySelector('.line');
-				const vw = window.innerWidth;
-				const pH = parallax.offsetHeight;
-                const maxH = Math.floor(psValue[n - 1]) + wH;
-                let minH =  Math.floor(wrap.offsetHeight);
-                let scene;
-				let cutpoint;
-				const isOn = wrap.classList.contains('on');
-				const isReady = wrap.classList.contains('ready');
-
-				switch (n) {
-					case 1:
-						scene = (minH - wH) / 10;
-						if (cutline < minH) {
-							wrapNext.classList.remove('ready');
-						} 
-						if (cutline > wH) {
-							if (!isOn) {
-								wrap.classList.add('on');
-								wrapNext.classList.remove('ready');
-							}
-						} else {
-							if (!!isOn) {
-								wrapNext.classList.remove('ready');
-								wrap.classList.remove('on');
-							}
-						}
-				
-						unit[0].classList.remove('on');
-						unit[1].classList.remove('on');
-						unit[2].classList.remove('on');
-						unit[3].classList.remove('on');
-						unit[4].classList.remove('on');
-						line.style.width = 0;
-						
-						if (cutline > wH + (scene * 3)) {
-							unit[0].classList.remove('on');
-							unit[1].classList.remove('on');
-							unit[2].classList.remove('on');
-							unit[3].classList.remove('on');
-							unit[4].classList.remove('on');
-						} 
-						if (cutline > wH + (scene * 4)) {
-							unit[0].classList.add('on');
-							unit[1].classList.remove('on');
-							unit[2].classList.remove('on');
-							unit[3].classList.remove('on');
-							unit[4].classList.remove('on');
-						} 
-						if (cutline > wH + (scene * 5)) {
-							unit[1].classList.add('on');
-							unit[2].classList.remove('on');
-							unit[3].classList.remove('on');
-							unit[4].classList.remove('on');
-						} 
-						if (cutline > wH + (scene * 6)) {
-							unit[2].classList.add('on');
-							unit[3].classList.remove('on');
-							unit[4].classList.remove('on');
-						} 
-						if (cutline > wH + (scene * 7)) {
-							unit[3].classList.add('on');
-							unit[4].classList.remove('on');
-						} 
-						if (cutline > wH + (scene * 8)) {
-							unit[4].classList.add('on');
-							line.style.width = (vw / 2) - (item.querySelector('.hello').offsetWidth / 2) + 'px';
-						} 
-						break;
-
-					case 2:
-						scene = (minH - wH) / 10;
-
-						if (cutline > maxH - wH) {
-							if (!isOn) {
-								wrap.classList.add('ready');
-							}
-						} 
-						if (cutline < maxH + minH) {
-							wrapNext.classList.remove('ready');
-						} 
-						if (cutline > maxH) {
-							if (!isOn) {
-								wrapPrev.classList.add('off');
-								wrap.classList.remove('ready');
-								wrap.classList.remove('off');
-								wrap.classList.add('on');
-							}
-						} else {
-							if (!!isOn) {
-								wrapPrev.classList.remove('ready');
-								wrapPrev.classList.remove('off');
-								wrap.classList.remove('on');
-							}
-						}
-
-						cutpoint = maxH;
-						unit[0].classList.remove('on');
-						unit[1].classList.remove('on');
-						unit[2].classList.remove('on');
-						line.style.width = 0;
-
-						if (cutline > cutpoint + (scene * 2)) {
-							unit[0].classList.add('on');
-							unit[1].classList.remove('on');
-							unit[2].classList.remove('on');
-						} 
-						if (cutline > cutpoint + (scene * 5)) {
-							unit[1].classList.add('on');
-							unit[2].classList.remove('on');
-						} 
-						if (cutline > cutpoint + (scene * 8)) {
-							unit[2].classList.add('on');
-							line.style.width = (vw / 2.3) + 'px';
-						} 
-						break;
-
-					case 3:
-						scene = (minH - wH) / 10;
-						
-						if (cutline > maxH - wH) {
-							if (!isOn) {
-								wrap.classList.add('ready');
-							}
-						} 
-						if (cutline < maxH + minH) {
-							wrapNext.classList.remove('ready');
-							Global.number.counterReset('counter1');
-						} 
-						if (cutline > maxH) {
-							if (!isOn) {
-								wrapPrev.classList.add('off');
-								wrap.classList.remove('ready');
-								wrap.classList.remove('off');
-								wrap.classList.add('on');
-							}
-						} else {
-							if (!!isOn) {
-								wrapPrev.classList.remove('ready');
-								wrapPrev.classList.remove('off');
-								wrap.classList.remove('on');
-							}
-						}
-
-						cutpoint = maxH;
-						unit[0].classList.remove('on');
-						unit[1].classList.remove('on');
-						unit[2].classList.remove('on');
-						line.style.width = 0;
-
-						if (cutline > cutpoint + (scene * 2)) {
-							unit[0].classList.add('on');
-							unit[1].classList.remove('on');
-							unit[2].classList.remove('on');
-						} 
-						if (cutline > cutpoint + (scene * 5)) {
-							unit[1].classList.add('on');
-							unit[2].classList.remove('on');
-						} 
-						if (cutline > cutpoint + (scene * 8)) {
-							unit[2].classList.add('on');
-							line.style.width = (vw / 2.7) + 'px';
-						} 
-						break;
-
-					case 4 :
-						scene = (minH - wH) / 10;
-						
-						if (cutline > maxH - wH) {
-							if (!isReady) {
-								wrap.classList.add('ready');
-							}
-						} 
-						if (cutline < maxH + minH) {
-							wrapNext.classList.remove('ready');
-							Global.number.counterReset('counter2');
-						} 
-						if (cutline > maxH) {
-							if (!isOn) {
-								wrapPrev.classList.add('off');
-								wrap.classList.remove('ready');
-								wrap.classList.remove('off');
-								wrap.classList.add('on');
-							}
-						} else {
-							if (!!isOn) {
-								wrapPrev.classList.remove('ready');
-								wrapPrev.classList.remove('off');
-								wrap.classList.remove('on');
-							}
-						}
-
-						cutpoint = maxH;
-
-						if (cutline > cutpoint + (scene * 2)) {
-							Global.number.counter('counter1', 100);
-						} 
-						break;
-
-					case 5:
-						scene = (minH - wH) / 10;
-						
-						if (cutline > maxH - wH) {
-							if (!isReady) {
-								wrap.classList.add('ready');
-							}
-						} 
-						if (cutline < maxH + minH) {
-							wrapNext.classList.remove('ready');
-							Global.number.recounterReset('counter3');
-						} 
-						if (cutline > maxH) {
-							if (!isOn) {
-								wrapPrev.classList.add('off');
-								wrap.classList.remove('ready');
-								wrap.classList.remove('off');
-								wrap.classList.add('on');
-							}
-						} else {
-							if (!!isOn) {
-								wrapPrev.classList.remove('ready');
-								wrapPrev.classList.remove('off');
-								wrap.classList.remove('on');
-							}
-						}
-
-						cutpoint = maxH;
-
-						if (cutline > cutpoint + (scene * 1)) {
-							Global.number.counter('counter2',900);
-						} 
-						break;
-
-					case 6:
-						scene = (minH - wH) / 10;
-						
-						if (cutline > maxH - wH) {
-							if (!isReady) {
-								wrap.classList.add('ready');
-								Global.motion.vibration();
-							}
-						} 
-						if (cutline < maxH + minH) {
-							wrapNext.classList.remove('ready');
-						} 
-						if (cutline > maxH) {
-							if (!isOn) {
-								wrapPrev.classList.add('off');
-								wrap.classList.remove('ready');
-								wrap.classList.remove('off');
-								wrap.classList.add('on');
-							}
-						} else {
-							if (!!isOn) {
-								wrapPrev.classList.remove('ready');
-								wrapPrev.classList.remove('off');
-								wrap.classList.remove('on');
-							}
-						}
-
-						cutpoint = maxH;
-
-						if (cutline > cutpoint + (scene * 2)) {
-							Global.number.recounter('counter3', 100);
-						} 
-						break;
-
-					case 7:
-						scene = (minH - wH) / 10;
-						
-						if (cutline > maxH - wH) {
-							if (!isReady) {
-								wrap.classList.add('ready');
-								Global.motion.vibration();
-							}
-						} 
-						if (cutline < maxH + minH) {
-							wrapNext.classList.remove('ready');
-						} 
-						if (cutline > maxH) {
-							if (!isOn) {
-								wrapPrev.classList.add('off');
-								wrap.classList.remove('ready');
-								wrap.classList.remove('off');
-								wrap.classList.add('on');
-							}
-						} else {
-							if (!!isOn) {
-								wrapPrev.classList.remove('ready');
-								wrapPrev.classList.remove('off');
-								wrap.classList.remove('on');
-							}
-						}
-
-						cutpoint = maxH;
-						unit[0].classList.remove('on');
-						unit[1].classList.remove('on');
-						unit[2].classList.remove('on');
-						
-						
-
-						if (cutline > cutpoint + (scene * 2)) {
-							unit[0].classList.add('on');
-							unit[1].classList.remove('on');
-							unit[2].classList.remove('on');
-						} 
-						if (cutline > cutpoint + (scene * 4)) {
-							unit[1].classList.add('on');
-							unit[2].classList.remove('on');
-						} 
-						if (cutline > cutpoint + (scene * 7)) {
-							unit[2].classList.add('on');
-						} 
-						break;
-
-					case 8:
-						scene = (minH - wH) / 10;
-
-						const card = item.querySelector('.card-list');
-						let cardw = 1010;
-
-						if (cutline > maxH - wH) {
-							if (!isReady) {
-								wrap.classList.add('ready');
-								Global.motion.vibration();
-							}
-						} 
-						if (cutline < maxH + minH) {
-							wrapNext.classList.remove('ready');
-						} 
-						if (cutline > maxH) {
-							if (!isOn) {
-								wrapPrev.classList.add('off');
-								wrap.classList.remove('ready');
-								wrap.classList.remove('off');
-								wrap.classList.add('on');
-							}
-						} else {
-							if (!!isOn) {
-								wrapPrev.classList.remove('ready');
-								wrapPrev.classList.remove('off');
-								wrap.classList.remove('on');
-							}
-						}
-						
-						cutpoint = maxH;
-						card.style.transform = 'translateX('+ (cardw * 0) +')';
-
-						if (cutline > cutpoint + (scene * 2)) {
-							card.style.transform = 'translateX('+ (cardw * -1) +'px)';
-						} 
-						if (cutline > cutpoint + (scene * 4)) {
-							card.style.transform = 'translateX('+ (cardw * -2) +'px)';
-						}
-						if (cutline > cutpoint + (scene * 6)) {
-							card.style.transform = 'translateX('+ (cardw * -3) +'px)';
-						}
-						if (cutline > cutpoint + (scene * 8)) {
-							card.style.transform = 'translateX('+ (cardw * -4) +'px)';
-						}
-						break;
-
-					case 9:
-						scene = (pH - maxH - wH) / 10;
-
-						if (cutline > maxH - wH) {
-							if (!isReady) {
-								wrap.classList.add('ready');
-							}
-						} 
-						if (cutline < maxH + minH) {
-							wrapNext.classList.remove('ready');
-						} 
-						if (cutline > maxH) {
-							if (!isOn) {
-								wrapPrev.classList.add('off');
-								wrap.classList.remove('ready');
-								wrap.classList.remove('off');
-								wrap.classList.add('on');
-							}
-						} else {
-							if (!!isOn) {
-								wrapPrev.classList.remove('ready');
-								wrapPrev.classList.remove('off');
-								wrap.classList.remove('on');
-							}
-						}
-
-
-						break;
-					
-				}
-                  
-            }
 		},
 		act: function(){
             const el_body = doc.querySelector('body');
@@ -815,24 +380,23 @@
 			let nowPs = 0; 
 
 			for (let i = 1, len = psValue.length; i < len; i++) {
-				if (cutline <= psValue[0]) {
-					nowPs = 0;
-					break;
-				} 
-				
-				if (cutline > psValue[len - 1]) {
-					nowPs = len - 1;
-					break;
-				}
-
 				if (cutline < psValue[i]){
 					nowPs = i;
+					break;
+				} else if (cutline > psValue[len - 1]) {
+					nowPs = len;
 					break;
 				}
 			}
 			
 			el_body.dataset.n = nowPs - 1;
+			const clsname = el_body.getAttribute('class');
 
+			if (clsname !== 'step' + (nowPs - 1)) {
+				el_body.classList.remove(clsname);
+				el_body.classList.add('step' + (nowPs - 1));
+			}
+			
 			//service.html
 			if (page === 'service') {
 				service(cutline, nowPs);
@@ -843,7 +407,7 @@
 				const wrap = doc.querySelector('.ui-parallax-item.n' + n);
 				const wrapPrev = doc.querySelector('.ui-parallax-item.n' + (n - 1 < 0 ? 0 : n-1));
 				const wrapNext = doc.querySelector('.ui-parallax-item.n' + (n + 1));
-
+				const header = doc.querySelector('.base-header');
 				const item = wrap.querySelector('.unit-item');
                 const unit = item.querySelectorAll('.unit');
                 const line = item.querySelector('.line');
@@ -855,21 +419,22 @@
 				let cutpoint;
 				const isOn = wrap.classList.contains('on');
 				const isReady = wrap.classList.contains('ready');
+				const isReadyNext = wrapNext.classList.contains('ready');
 
 				switch (n) {
 					case 1:
 						scene = (minH - wH) / 10;
 						if (cutline < minH) {
-							wrapNext.classList.remove('ready');
+							if (isReadyNext) {
+								wrapNext.classList.remove('ready');
+							}
 						} 
 						if (cutline > wH) {
 							if (!isOn) {
 								wrap.classList.add('on');
-								wrapNext.classList.remove('ready');
 							}
 						} else {
 							if (!!isOn) {
-								wrapNext.classList.remove('ready');
 								wrap.classList.remove('on');
 							}
 						}
@@ -920,23 +485,24 @@
 						scene = (minH - wH) / 10;
 
 						if (cutline > maxH - wH) {
-							if (!isOn) {
+							if (!isReady) {
 								wrap.classList.add('ready');
 							}
 						} 
 						if (cutline < maxH + minH) {
-							wrapNext.classList.remove('ready');
+							if (isReadyNext) {
+								wrapNext.classList.remove('ready');
+							}
 						} 
+
 						if (cutline > maxH) {
 							if (!isOn) {
 								wrapPrev.classList.add('off');
-								wrap.classList.remove('ready');
 								wrap.classList.remove('off');
 								wrap.classList.add('on');
 							}
 						} else {
 							if (!!isOn) {
-								wrapPrev.classList.remove('ready');
 								wrapPrev.classList.remove('off');
 								wrap.classList.remove('on');
 							}
@@ -953,13 +519,13 @@
 							unit[1].classList.remove('on');
 							unit[2].classList.remove('on');
 						} 
-						if (cutline > cutpoint + (scene * 5)) {
+						if (cutline > cutpoint + (scene * 4)) {
 							unit[1].classList.add('on');
 							unit[2].classList.remove('on');
 						} 
-						if (cutline > cutpoint + (scene * 8)) {
+						if (cutline > cutpoint + (scene * 6)) {
 							unit[2].classList.add('on');
-							line.style.width = (vw / 2.3) + 'px';
+							line.style.width = (vw / 2.6) + 'px';
 						} 
 						break;
 
@@ -967,24 +533,26 @@
 						scene = (minH - wH) / 10;
 						
 						if (cutline > maxH - wH) {
-							if (!isOn) {
+							if (!isReady) {
 								wrap.classList.add('ready');
 							}
 						} 
 						if (cutline < maxH + minH) {
-							wrapNext.classList.remove('ready');
-							Global.number.counterReset('counter1');
+							if (isReadyNext) {
+								wrapNext.classList.remove('ready');
+								Global.number.counterReset('counter1');
+								header.classList.remove('type-b');
+							}
 						} 
 						if (cutline > maxH) {
 							if (!isOn) {
+								
 								wrapPrev.classList.add('off');
-								wrap.classList.remove('ready');
 								wrap.classList.remove('off');
 								wrap.classList.add('on');
 							}
 						} else {
 							if (!!isOn) {
-								wrapPrev.classList.remove('ready');
 								wrapPrev.classList.remove('off');
 								wrap.classList.remove('on');
 							}
@@ -1001,11 +569,11 @@
 							unit[1].classList.remove('on');
 							unit[2].classList.remove('on');
 						} 
-						if (cutline > cutpoint + (scene * 5)) {
+						if (cutline > cutpoint + (scene * 4)) {
 							unit[1].classList.add('on');
 							unit[2].classList.remove('on');
 						} 
-						if (cutline > cutpoint + (scene * 8)) {
+						if (cutline > cutpoint + (scene * 6)) {
 							unit[2].classList.add('on');
 							line.style.width = (vw / 2.7) + 'px';
 						} 
@@ -1020,19 +588,23 @@
 							}
 						} 
 						if (cutline < maxH + minH) {
-							wrapNext.classList.remove('ready');
-							Global.number.counterReset('counter2');
+							if (isReadyNext) {
+								wrapNext.classList.remove('ready');
+								Global.number.counterReset('counter2');
+								header.classList.add('type-b');
+								header.classList.remove('type-c');
+							}
 						} 
 						if (cutline > maxH) {
 							if (!isOn) {
 								wrapPrev.classList.add('off');
-								wrap.classList.remove('ready');
 								wrap.classList.remove('off');
 								wrap.classList.add('on');
+								header.classList.add('type-b');
 							}
 						} else {
 							if (!!isOn) {
-								wrapPrev.classList.remove('ready');
+								
 								wrapPrev.classList.remove('off');
 								wrap.classList.remove('on');
 							}
@@ -1051,11 +623,17 @@
 						if (cutline > maxH - wH) {
 							if (!isReady) {
 								wrap.classList.add('ready');
-							}
+								header.classList.add('type-c');							}
 						} 
 						if (cutline < maxH + minH) {
+							if (isReadyNext) {
+								wrapNext.classList.remove('ready');
+								header.classList.add('type-c');	
+								header.classList.remove('type-b');	
+							}
 							wrapNext.classList.remove('ready');
 							Global.number.recounterReset('counter3');
+							
 						} 
 						if (cutline > maxH) {
 							if (!isOn) {
@@ -1086,11 +664,18 @@
 							if (!isReady) {
 								wrap.classList.add('ready');
 								Global.motion.vibration();
+								header.classList.remove('type-c');
+								header.classList.add('type-b');	
 							}
 						} 
 						if (cutline < maxH + minH) {
-							wrapNext.classList.remove('ready');
-						} 
+							if (isReadyNext) {
+								wrapNext.classList.remove('ready');
+								header.classList.add('type-b');	
+								header.classList.remove('type-c');	
+							}
+						}
+
 						if (cutline > maxH) {
 							if (!isOn) {
 								wrapPrev.classList.add('off');
@@ -1123,7 +708,9 @@
 							}
 						} 
 						if (cutline < maxH + minH) {
-							wrapNext.classList.remove('ready');
+							if (isReadyNext) {
+								wrapNext.classList.remove('ready');
+							}
 						} 
 						if (cutline > maxH) {
 							if (!isOn) {
@@ -1174,7 +761,9 @@
 							}
 						} 
 						if (cutline < maxH + minH) {
-							wrapNext.classList.remove('ready');
+							if (isReadyNext) {
+								wrapNext.classList.remove('ready');
+							}
 						} 
 						if (cutline > maxH) {
 							if (!isOn) {
@@ -1216,9 +805,7 @@
 								wrap.classList.add('ready');
 							}
 						} 
-						if (cutline < maxH + minH) {
-							wrapNext.classList.remove('ready');
-						} 
+						
 						if (cutline > maxH) {
 							if (!isOn) {
 								wrapPrev.classList.add('off');

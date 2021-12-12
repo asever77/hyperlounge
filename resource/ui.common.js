@@ -4,7 +4,9 @@
 	
 	netive.common = {
 		init: function(){
-			
+			const el_body = doc.querySelector('body');
+			const el_html = doc.querySelector('html');
+
 			netive.ajax.init({ 
 				area: document.querySelector('.base-body'), 
 				url: 'service.html', 
@@ -12,18 +14,27 @@
 				effect: true,
 				callback: function(){
                     netive.parallax.init('service');
+					el_html.classList.add('page-service');
 				}
 			});
 
             const el_nav = doc.querySelector('.nav-link');
             const el_navbtn = el_nav.querySelectorAll('button');
+			const el_appstore = doc.querySelector('#appstoreToggle');
+
+			el_appstore.addEventListener('click', appStoreDiv);
 
             for (let i = 0, len = el_navbtn.length; i < len; i++) {
                 const that = el_navbtn[i];
 
                 that.addEventListener('click', pageGO);
             }
-           
+
+			function appStoreDiv() {
+				const wrap = doc.querySelector('.appstore-wrap');
+
+				wrap.classList.toggle('on');
+			}
 
             function pageGO() {
                 const that = this;
@@ -33,13 +44,10 @@
                     page: true, 
                     effect: true,
                     callback: function(){
-                        //netive.common.pageInit(fristHref);
-                        const el_body = doc.querySelector('body');
-                        el_body.classList.remove('page-service');
-                        el_body.classList.remove('page-overview');
-                        el_body.classList.remove('page-apply');
-
-                        el_body.classList.add('page-' + that.dataset.link);
+                        el_html.classList.remove('page-service');
+                        el_html.classList.remove('page-overview');
+                        el_html.classList.remove('page-apply');
+                        el_html.classList.add('page-' + that.dataset.link);
 
 						window.removeEventListener('scroll', netive.parallax.act);
 						
