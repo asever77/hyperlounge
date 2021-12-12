@@ -839,12 +839,20 @@
 			function act(that) {
 				function vib(){
 					timer = setTimeout(function(){
-						const l = Math.floor( ( Math.random() * (20 - 1) + 1 ) );
-						const t = Math.floor( ( Math.random() * (20 - 1) + 1 ) );
+						let l = Math.floor( ( Math.random() * (20 - 1) + 1 ) );
+						let t = Math.floor( ( Math.random() * (20 - 1) + 1 ) );
+						
+						if ( l > 10) {
+							l = l * -1;
+						}
+						if ( t > 10) {
+							t = t * -1;
+						}
+
 						that.style.left = l + 'px';
 						that.style.top = t + 'px';
 						vib();
-					}, 200);
+					}, 1000);
 				}
 				vib();
 			}

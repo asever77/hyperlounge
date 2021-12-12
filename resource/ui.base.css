@@ -915,7 +915,7 @@ body.step6 .ui-parallax-item.n7.on .unit-wrap{
 .srv-icon.n8{transform: translate(-44rem, -4rem);}
 .srv-icon.n9{transform: translate(56rem, -19rem);}
 .srv-icon.n10{transform: translate(33rem, -24rem);}
-.srv-icon img{position: absolute; transition: top .5s , left .5s ;}
+.srv-icon img{position: absolute; transition: top 1s , left 1s ;}
 
 
 /* service 8 */
@@ -1162,17 +1162,37 @@ body.step7 .ui-parallax-item.n8.on .unit-wrap{
     .infotxt3{
         font-size:7vw;
     }
-    .srv-icon{position: absolute; width:12rem; height:12rem; top:50%; left:50%; margin:-6rem 0 0 -6rem;}
-    .srv-icon.n1{transform: translate(-57rem, -22rem);}
-    .srv-icon.n2{transform: translate(45rem, 2rem);}
-    .srv-icon.n3{transform: translate(-51rem, 24rem);}
-    .srv-icon.n4{transform: translate(-25rem, 22rem);}
-    .srv-icon.n5{transform: translate(58rem, 25rem);}
-    .srv-icon.n6{transform: translate(-29rem, -27rem);}
-    .srv-icon.n7{transform: translate(29rem, 22rem);}
-    .srv-icon.n8{transform: translate(-44rem, -4rem);}
-    .srv-icon.n9{transform: translate(56rem, -19rem);}
-    .srv-icon.n10{transform: translate(33rem, -24rem);}
+    .srv-icon{position: absolute; width:15vw; height:15vw; top:50%; left:50%; margin:-7.5vw 0 0 -7.5vw;}
+    .srv-icon img{width: 100%;}
+    .srv-icon.n1{transform: translate(-7vw, -20vh);}
+    .srv-icon.n2{transform: translate(39vw, 12vh);}
+    .srv-icon.n4{transform: translate(-25vw, 30vh);}
+    .srv-icon.n3{transform: translate(-38vw, 9vh);}
+    .srv-icon.n5{transform: translate(3vw, 19vh);}
+    .srv-icon.n6{transform: translate(-17vw, -37vh);}
+    .srv-icon.n7{transform: translate(20vw, 36vh);}
+    .srv-icon.n8{transform: translate(32vw, -15vh);}
+    .srv-icon.n9{transform: translate(-37vw, -12vh);}
+    .srv-icon.n10{transform: translate(21vw, -29vh);}
+
+    .boxlist .unit.n1{
+        display: none;
+    } 
+
+    .card-list{
+        transform: translateX(0) !important;
+        flex-direction: column;
+    }
+    .card-list-item{
+        min-width:90vw;
+        width:100%;
+        flex-direction: column;
+        
+    }
+    .card-list-item .img{
+        width:50vw;
+    }
+    .card-list-item .img img{width:100%;}
 }
 
 
