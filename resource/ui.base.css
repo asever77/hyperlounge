@@ -1035,12 +1035,15 @@ body.step7 .ui-parallax-item.n8.on .unit-wrap{
 .btn-close{
     display: none;
 }
+.m-only{display:none;}
 @media screen and (max-width: 979px) {
+    .m-only{display: block;}
     .base-header .logo{
         width:13.9rem;
         height:1.6rem;
         margin-top:.3rem;
     }
+    
     .base-header .logo svg{
         width:13.9rem;
         height:1.6rem;
@@ -1060,6 +1063,7 @@ body.step7 .ui-parallax-item.n8.on .unit-wrap{
         right:0;
     }
     .base-nav-wrap {
+        max-width:100%;
         right:-100vw;
         position:fixed;
         width:100vw;
@@ -1175,24 +1179,103 @@ body.step7 .ui-parallax-item.n8.on .unit-wrap{
     .srv-icon.n9{transform: translate(-37vw, -12vh);}
     .srv-icon.n10{transform: translate(21vw, -29vh);}
 
+    .boxlist {
+        position: relative;
+        top: 0;
+        left: 0;
+        margin:0 auto;
+        transform: translate(0,0);
+    }
     .boxlist .unit.n1{
         display: none;
     } 
 
     .card-list{
+        display: block;
         transform: translateX(0) !important;
-        flex-direction: column;
     }
     .card-list-item{
-        min-width:90vw;
-        width:100%;
-        flex-direction: column;
-        
+        display: block;
+        margin: 0 auto;
+        min-width: 90vw;
+        max-width: 90vw;
+        width: 100%;
+        padding: 5vh 5vw 0;
+        text-align: center;
+        min-height: 0;
+        border-radius: 10vw;
+        height: auto;
+    }
+    .card-list-item.last{
+        padding-bottom:0;
+    }
+    .card-list-item + .card-list-item{
+        margin:5vw auto 0;
+    }
+    .card-list-item .tit-s{
+        font-size:4vw;
+    }
+    .card-list-item .tit{
+        font-size:7vw;
     }
     .card-list-item .img{
-        width:50vw;
+        min-width: 50vw;
+        width: 50vw;
+        display: flex;
+        margin: 0 auto;
+        align-items: center;
+        height: 70vw;
     }
-    .card-list-item .img img{width:100%;}
+    .card-list-item.last .img{
+        height: 70vw;
+    }
+    .card-list-item .img img{
+        display: block;
+        width:100%;
+    }
+    .ui-parallax-item.n8 {
+        height: auto;
+       
+    }
+    .ui-parallax-item.n8 .unit-wrap{
+        position: relative !important;
+        height:auto !important;
+        padding:10vh 0;
+    }
+    .unit-wrap .register{
+        font-size:8vw;
+    }
+    .btn-base{
+        font-size:1.6rem;
+        height: 4rem;
+        padding: 0 2rem;
+    }
+    .base-footer{
+        padding:2rem 0;
+    }
+    .base-footer .logo{
+        margin-bottom:2rem;
+    }
+    .base-footer .logo svg{
+        width:16.7rem;
+        height: 1.6rem;
+    }
+    .base-footer .address{
+        font-size: 1.2rem;
+        
+    }
+    .base-footer .group{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+    .base-footer .sns svg{
+        width:2.4rem;
+        height: 2.4rem;
+    }
+    .base-footer .link{
+        font-size: 1.2rem;
+        margin-top:2rem;
+    }
 }
 
 
