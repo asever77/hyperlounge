@@ -70,6 +70,11 @@
                             netive.parallax.init('service');
                         }
 
+						window.scrollTo({
+							top: 0,
+							left: 0,
+							behavior: 'smooth'
+						});
                         console.log(that.dataset.link);
                        
                     }
