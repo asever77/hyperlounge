@@ -347,7 +347,7 @@ select::-ms-expand {
     background:linear-gradient(141deg, #181818 25%, #000 92%);
 	z-index: 13;
 }
-body.step0 .ui-parallax-item.n1 .unit-wrap{
+body[data-n="0"] .ui-parallax-item.n1 .unit-wrap{
     position: fixed;
     top: 0;
     bottom:auto;
@@ -391,11 +391,11 @@ body.step0 .ui-parallax-item.n1 .unit-wrap{
     background:linear-gradient(141deg, #181818 25%, #000 92%);
 	z-index: 12;
 }
-body.step1 .ui-parallax-item.n2 .unit-wrap{
+body[data-n="1"] .ui-parallax-item.n2 .unit-wrap{
 	top: 0;
     bottom:auto;
 }
-body.step1 .ui-parallax-item.n2.on .unit-wrap{
+body[data-n="1"] .ui-parallax-item.n2.on .unit-wrap{
     position: fixed;
 }
 .infotxt1{
@@ -449,11 +449,11 @@ body.step1 .ui-parallax-item.n2.on .unit-wrap{
     background:linear-gradient(141deg, #181818 25%, #000 92%);
 	z-index: 11;
 }
-body.step2 .ui-parallax-item.n3 .unit-wrap{
+body[data-n="2"] .ui-parallax-item.n3 .unit-wrap{
 	top: 0;
     bottom:auto;
 }
-body.step2 .ui-parallax-item.n3.on .unit-wrap{
+body[data-n="2"] .ui-parallax-item.n3.on .unit-wrap{
     position: fixed;
 }
 .infotxt2{
@@ -476,7 +476,7 @@ body.step2 .ui-parallax-item.n3.on .unit-wrap{
 .infotxt2 .unit.on{
     opacity: 1;
 }
-body.step2 .ui-parallax-item.n3.on .glimmer{
+body[data-n="2"] .ui-parallax-item.n3.on .glimmer{
 	opacity: 1;
 }
 .ui-parallax-item.n3 .img{
@@ -503,12 +503,12 @@ body.step2 .ui-parallax-item.n3.on .glimmer{
     background:white;
 	z-index: 10;
 }
-body.step4 .ui-parallax-item.n4.on .unit-wrap,
-body.step3 .ui-parallax-item.n4.off .unit-wrap {
+body[data-n="4"] .ui-parallax-item.n4.on .unit-wrap,
+body[data-n="3"] .ui-parallax-item.n4.off .unit-wrap {
 	background:#ee3224;
 }
-body.step4 .ui-parallax-item.n4.on .unit-wrap .numerical,
-body.step3 .ui-parallax-item.n4.off .unit-wrap .numerical{
+body[data-n="4"] .ui-parallax-item.n4.on .unit-wrap .numerical,
+body[data-n="3"] .ui-parallax-item.n4.off .unit-wrap .numerical{
 	opacity: 0;
 }
 .ui-parallax-item.n4.ready .unit-wrap{
@@ -518,7 +518,7 @@ body.step3 .ui-parallax-item.n4.off .unit-wrap .numerical{
 	position: fixed;
 	transition: background-color .5s ease-out;
 }
-body.step3 .ui-parallax-item.n4.on .unit-wrap{
+body[data-n="3"] .ui-parallax-item.n4.on .unit-wrap{
     position: fixed;
 }
 .numerical{
@@ -568,8 +568,8 @@ body.step3 .ui-parallax-item.n4.on .unit-wrap{
 .ui-parallax-item.n5.on .unit-wrap{
 	background:#ee3224;
 }
-body.step6 .ui-parallax-item.n5.on .unit-wrap,
-body.step5 .ui-parallax-item.n5.on .unit-wrap {
+body[data-n="6"] .ui-parallax-item.n5.on .unit-wrap,
+body[data-n="5"] .ui-parallax-item.n5.on .unit-wrap {
     background-color: #fff;
 }
 .ui-parallax-item.n5 .unit-wrap{
@@ -578,7 +578,7 @@ body.step5 .ui-parallax-item.n5.on .unit-wrap {
 	position: fixed;
 	transition: background-color .5s ease-out;
 }
-body.step4 .ui-parallax-item.n5.on .unit-wrap{
+body[data-n="4"] .ui-parallax-item.n5.on .unit-wrap{
     position: fixed;
 }
 .ui-parallax-item.n .unit-wrap{
@@ -589,10 +589,10 @@ body.step4 .ui-parallax-item.n5.on .unit-wrap{
 /* .ui-parallax-item.n5.off .unit-wrap{
 	position: absolute;
 } */
-body.step5 .numerical2 .unit{
+body[data-n="5"] .numerical2 .unit{
 	opacity: 0;
 }
-body.step4 .numerical2 .unit{
+body[data-n="4"] .numerical2 .unit{
 	opacity: 1;
 }
 .numerical2{
@@ -636,11 +636,11 @@ body.step4 .numerical2 .unit{
     height: 160vh; 
 	z-index: 12;
 }
-body.step4 .ui-parallax-item.n6 .unit-wrap{
+body[data-n="4"] .ui-parallax-item.n6 .unit-wrap{
 	opacity:0;
 	transition: opacity .3s ease-in;
 }
-body.step5 .ui-parallax-item.n6 .unit-wrap{
+body[data-n="5"] .ui-parallax-item.n6 .unit-wrap{
 	position: fixed;
 	top: 0;
     bottom:auto;
@@ -655,11 +655,11 @@ body.step5 .ui-parallax-item.n6 .unit-wrap{
 	position: absolute;
 	background: white;
 }
-body.step5 .ui-parallax-item.n6.on .unit-wrap{
+body[data-n="5"] .ui-parallax-item.n6.on .unit-wrap{
     position: fixed;
 }
 
-body.step5 .ui-parallax-item.n6 .unit-wrap{
+body[data-n="5"] .ui-parallax-item.n6 .unit-wrap{
 	top: 0;
     bottom:auto;
 }
@@ -705,11 +705,11 @@ body.step5 .ui-parallax-item.n6 .unit-wrap{
     background:white;
 	z-index: 12;
 }
-body.step6 .ui-parallax-item.n7 .unit-wrap{
+body[data-n="6"] .ui-parallax-item.n7 .unit-wrap{
 	top: 0;
     bottom:auto;
 }
-body.step6 .ui-parallax-item.n7.on .unit-wrap{
+body[data-n="6"] .ui-parallax-item.n7.on .unit-wrap{
     position: fixed;
 }
 .infotxt3{
@@ -752,11 +752,11 @@ body.step6 .ui-parallax-item.n7.on .unit-wrap{
     background:#f4f4f4;
 	z-index: 12;
 }
-body.step7 .ui-parallax-item.n8 .unit-wrap{
+body[data-n="7"] .ui-parallax-item.n8 .unit-wrap{
 	top: 0;
     bottom:auto;
 }
-body.step7 .ui-parallax-item.n8.on .unit-wrap{
+body[data-n="7"] .ui-parallax-item.n8.on .unit-wrap{
     position: fixed;
 }
 .boxlist .unit.n1{
@@ -800,11 +800,11 @@ body.step7 .ui-parallax-item.n8.on .unit-wrap{
     background:black;
 	z-index: 12;
 }
-body.step8 .ui-parallax-item.n9 .unit-wrap{
+body[data-n="8"] .ui-parallax-item.n9 .unit-wrap{
 	top: 0;
     bottom:auto;
 }
-body.step8 .ui-parallax-item.n9.on .unit-wrap{
+body[data-n="8"] .ui-parallax-item.n9.on .unit-wrap{
     position: fixed;
 }
 

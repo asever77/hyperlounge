@@ -11,7 +11,7 @@
 				page: true, 
 				effect: true,
 				callback: function(){
-                    netive.scroll.parallax('service');
+                    netive.parallax.init('service');
 				}
 			});
 
@@ -41,9 +41,10 @@
 
                         el_body.classList.add('page-' + that.dataset.link);
 
-
+						window.removeEventListener('scroll', netive.parallax.act);
+						
                         if (that.dataset.link === 'service') {
-                            netive.scroll.parallax('service');
+                            netive.parallax.init('service');
                         }
 
                         console.log(that.dataset.link);
