@@ -1024,7 +1024,7 @@ body.step7 .ui-parallax-item.n8.on .unit-wrap{
         width:13.9rem;
         height:1.6rem;
     }
-    .base-header{
+    .nav-open .base-header{
         mix-blend-mode: normal;
     }
     .nav-open .base-nav-wrap{
@@ -1033,7 +1033,7 @@ body.step7 .ui-parallax-item.n8.on .unit-wrap{
     .base-nav-wrap {
         right:-100vw;
         position:fixed;
-        width:100%;
+        width:100vw;
         height:100%;
         background:#fff;
         z-index: 10;
@@ -1085,9 +1085,65 @@ body.step7 .ui-parallax-item.n8.on .unit-wrap{
         border-right: .4rem solid #ee3224;
         left: -.4rem;
     }
+    .ui-parallax-item.n2 .line::before {
+        border-bottom: .4rem solid transparent;
+        border-left: .4rem solid #ee3224;
+        right: -.4rem;
+    }
+
     .ui-parallax-item.n1 .line{
         margin-top:5vmin;
     }
+
+    .ui-parallax-item.n2 .img{
+        left:65vw;
+        width:60vw;
+    }
+    .ui-parallax-item.n3 .img{
+        left:35vw;
+        width:60vw;
+    }
+    .ui-parallax-item.n3 .img img,
+    .ui-parallax-item.n2 .img img{
+        width:100%;
+    }
+    .infotxt1{
+        transform: translate(-40vw, -20vh);
+        font-size:7vw;
+    }
+    .infotxt2{
+        transform: translate(5vw, -20vh);
+        font-size:7vw;
+    }
+    .numerical3,
+    .numerical2,
+    .numerical{
+        font-size:5vw;
+    }
+    .numerical3 .unit.n1,
+    .numerical2 .unit.n1,
+    .numerical .unit.n1{
+        font-size:5vw;
+    }
+    .numerical3 .unit.n2 > div,
+    .numerical2 .unit.n2 > div,
+    .numerical .unit.n2 > div{
+        font-size:15vw;
+    }
+    .infotxt3{
+        font-size:7vw;
+    }
+    .srv-icon{position: absolute; width:12rem; height:12rem; top:50%; left:50%; margin:-6rem 0 0 -6rem;}
+    .srv-icon.n1{transform: translate(-57rem, -22rem);}
+    .srv-icon.n2{transform: translate(45rem, 2rem);}
+    .srv-icon.n3{transform: translate(-51rem, 24rem);}
+    .srv-icon.n4{transform: translate(-25rem, 22rem);}
+    .srv-icon.n5{transform: translate(58rem, 25rem);}
+    .srv-icon.n6{transform: translate(-29rem, -27rem);}
+    .srv-icon.n7{transform: translate(29rem, 22rem);}
+    .srv-icon.n8{transform: translate(-44rem, -4rem);}
+    .srv-icon.n9{transform: translate(56rem, -19rem);}
+    .srv-icon.n10{transform: translate(33rem, -24rem);}
 }
 
 
