@@ -328,6 +328,19 @@
 
 	Global.scroll = {
 		parallax: function(v) {
+			// position: fixed 사용시 ie 떨림 현상 방지
+			if( navigator.userAgent.match(/Trident\/7\./) ){
+				console.log('ie');
+				document.querySelector('body').addEventListener("mousewheel", function(){
+					event.preventDefault();
+
+					var wheelDelta = event.wheelDelta,
+						currentScrollPosition = window.pageYOffset;
+
+					window.scrollTo(0, currentScrollPosition - wheelDelta);
+				});
+			}
+			
 			const el_area = window;
 			const el_parallax = doc.querySelector('.ui-parallax');
 			const el_wraps = el_parallax.querySelectorAll('.ui-parallax-item');
@@ -336,11 +349,14 @@
 
             let psValue = [];
             let nowPs = 0; 
-           
+
+			el_body.classList.add('step0'); 
+			history.scrollRestoration = "manual";
+
             for (let i = 0, len = el_wraps.length; i < len; i++) {
                 const that = el_wraps[i];
-                const areaT = Math.floor(window.scrollY);
-
+                const areaT = Math.floor(window.pageYOffset);
+				console.log(window.pageYOffset,that.getBoundingClientRect().top);
                 psValue.push((that.getBoundingClientRect().top + areaT).toFixed(0))
             }
            
@@ -349,10 +365,11 @@
 
 			function scrollCheck() {
 				const wH = window.innerHeight;
-				const wT = Math.floor(window.scrollY);
+				const wT = Math.floor(window.pageYOffset);
                 const cutline = wT + wH;
 
-                for (let i = 0, len = psValue.length; i < len; i++) {
+                for (let i = 1, len = psValue.length; i < len; i++) {
+					console.log(cutline, psValue[i]);
                     if (cutline <= psValue[0]) {
                         nowPs = 0;
                         break;
@@ -371,6 +388,12 @@
                 
                 el_body.dataset.n = nowPs - 1;
 
+				const clsname = el_body.getAttribute('class');
+				if (clsname !== 'step' + (nowPs - 1)) {
+					el_body.classList.remove(clsname);
+					el_body.classList.add('step' + (nowPs - 1)); 
+				}
+				
 				//service.html
                 if (v === 'service') {
 					service(cutline, nowPs);
@@ -382,21 +405,22 @@
 				const wrap = doc.querySelector('.ui-parallax-item.n' + n);
 				const wrapPrev = doc.querySelector('.ui-parallax-item.n' + (n - 1 < 0 ? 0 : n-1));
 				const wrapNext = doc.querySelector('.ui-parallax-item.n' + (n + 1));
-                const item = wrap.querySelector('.word-item');
-                const word = item.querySelectorAll('.word');
+
+				const item = wrap.querySelector('.unit-item');
+                const unit = item.querySelectorAll('.unit');
                 const line = item.querySelector('.line');
 				const vw = window.innerWidth;
 				const pH = parallax.offsetHeight;
                 const maxH = Math.floor(psValue[n - 1]) + wH;
                 let minH =  Math.floor(wrap.offsetHeight);
-                let unit;
+                let scene;
 				let cutpoint;
 				const isOn = wrap.classList.contains('on');
 				const isReady = wrap.classList.contains('ready');
 
 				switch (n) {
 					case 1:
-						unit = (minH - wH) / 10;
+						scene = (minH - wH) / 10;
 						if (cutline < minH) {
 							wrapNext.classList.remove('ready');
 						} 
@@ -411,44 +435,51 @@
 								wrap.classList.remove('on');
 							}
 						}
-
-						word[0].classList.remove('on');
-						word[1].classList.remove('on');
-						word[2].classList.remove('on');
-						word[3].classList.remove('on');
-						word[4].classList.remove('on');
+				
+						unit[0].classList.remove('on');
+						unit[1].classList.remove('on');
+						unit[2].classList.remove('on');
+						unit[3].classList.remove('on');
+						unit[4].classList.remove('on');
 						line.style.width = 0;
-
-						if (cutline > wH + (unit * 4)) {
-							word[0].classList.add('on');
-							word[1].classList.remove('on');
-							word[2].classList.remove('on');
-							word[3].classList.remove('on');
-							word[4].classList.remove('on');
+						
+						if (cutline > wH + (scene * 3)) {
+							unit[0].classList.remove('on');
+							unit[1].classList.remove('on');
+							unit[2].classList.remove('on');
+							unit[3].classList.remove('on');
+							unit[4].classList.remove('on');
 						} 
-						if (cutline > wH + (unit * 5)) {
-							word[1].classList.add('on');
-							word[2].classList.remove('on');
-							word[3].classList.remove('on');
-							word[4].classList.remove('on');
+						if (cutline > wH + (scene * 4)) {
+							unit[0].classList.add('on');
+							unit[1].classList.remove('on');
+							unit[2].classList.remove('on');
+							unit[3].classList.remove('on');
+							unit[4].classList.remove('on');
 						} 
-						if (cutline > wH + (unit * 6)) {
-							word[2].classList.add('on');
-							word[3].classList.remove('on');
-							word[4].classList.remove('on');
+						if (cutline > wH + (scene * 5)) {
+							unit[1].classList.add('on');
+							unit[2].classList.remove('on');
+							unit[3].classList.remove('on');
+							unit[4].classList.remove('on');
 						} 
-						if (cutline > wH + (unit * 7)) {
-							word[3].classList.add('on');
-							word[4].classList.remove('on');
+						if (cutline > wH + (scene * 6)) {
+							unit[2].classList.add('on');
+							unit[3].classList.remove('on');
+							unit[4].classList.remove('on');
 						} 
-						if (cutline > wH + (unit * 8)) {
-							word[4].classList.add('on');
+						if (cutline > wH + (scene * 7)) {
+							unit[3].classList.add('on');
+							unit[4].classList.remove('on');
+						} 
+						if (cutline > wH + (scene * 8)) {
+							unit[4].classList.add('on');
 							line.style.width = (vw / 2) - (item.querySelector('.hello').offsetWidth / 2) + 'px';
 						} 
 						break;
 
 					case 2:
-						unit = (minH - wH) / 10;
+						scene = (minH - wH) / 10;
 
 						if (cutline > maxH - wH) {
 							if (!isOn) {
@@ -474,30 +505,28 @@
 						}
 
 						cutpoint = maxH;
-						word[0].classList.remove('on');
-						word[1].classList.remove('on');
-						word[2].classList.remove('on');
+						unit[0].classList.remove('on');
+						unit[1].classList.remove('on');
+						unit[2].classList.remove('on');
 						line.style.width = 0;
 
-						console.log(cutpoint, maxH, minH)
-
-						if (cutline > cutpoint + (unit * 2)) {
-							word[0].classList.add('on');
-							word[1].classList.remove('on');
-							word[2].classList.remove('on');
+						if (cutline > cutpoint + (scene * 2)) {
+							unit[0].classList.add('on');
+							unit[1].classList.remove('on');
+							unit[2].classList.remove('on');
 						} 
-						if (cutline > cutpoint + (unit * 5)) {
-							word[1].classList.add('on');
-							word[2].classList.remove('on');
+						if (cutline > cutpoint + (scene * 5)) {
+							unit[1].classList.add('on');
+							unit[2].classList.remove('on');
 						} 
-						if (cutline > cutpoint + (unit * 8)) {
-							word[2].classList.add('on');
+						if (cutline > cutpoint + (scene * 8)) {
+							unit[2].classList.add('on');
 							line.style.width = (vw / 2.3) + 'px';
 						} 
 						break;
 
 					case 3:
-						unit = (minH - wH) / 10;
+						scene = (minH - wH) / 10;
 						
 						if (cutline > maxH - wH) {
 							if (!isOn) {
@@ -524,28 +553,28 @@
 						}
 
 						cutpoint = maxH;
-						word[0].classList.remove('on');
-						word[1].classList.remove('on');
-						word[2].classList.remove('on');
+						unit[0].classList.remove('on');
+						unit[1].classList.remove('on');
+						unit[2].classList.remove('on');
 						line.style.width = 0;
 
-						if (cutline > cutpoint + (unit * 2)) {
-							word[0].classList.add('on');
-							word[1].classList.remove('on');
-							word[2].classList.remove('on');
+						if (cutline > cutpoint + (scene * 2)) {
+							unit[0].classList.add('on');
+							unit[1].classList.remove('on');
+							unit[2].classList.remove('on');
 						} 
-						if (cutline > cutpoint + (unit * 5)) {
-							word[1].classList.add('on');
-							word[2].classList.remove('on');
+						if (cutline > cutpoint + (scene * 5)) {
+							unit[1].classList.add('on');
+							unit[2].classList.remove('on');
 						} 
-						if (cutline > cutpoint + (unit * 8)) {
-							word[2].classList.add('on');
+						if (cutline > cutpoint + (scene * 8)) {
+							unit[2].classList.add('on');
 							line.style.width = (vw / 2.7) + 'px';
 						} 
 						break;
 
 					case 4 :
-						unit = (minH - wH) / 10;
+						scene = (minH - wH) / 10;
 						
 						if (cutline > maxH - wH) {
 							if (!isReady) {
@@ -573,13 +602,13 @@
 
 						cutpoint = maxH;
 
-						if (cutline > cutpoint + (unit * 2)) {
+						if (cutline > cutpoint + (scene * 2)) {
 							Global.number.counter('counter1', 100);
 						} 
 						break;
 
 					case 5:
-						unit = (minH - wH) / 10;
+						scene = (minH - wH) / 10;
 						
 						if (cutline > maxH - wH) {
 							if (!isReady) {
@@ -607,13 +636,13 @@
 
 						cutpoint = maxH;
 
-						if (cutline > cutpoint + (unit * 1)) {
+						if (cutline > cutpoint + (scene * 1)) {
 							Global.number.counter('counter2',900);
 						} 
 						break;
 
 					case 6:
-						unit = (minH - wH) / 10;
+						scene = (minH - wH) / 10;
 						
 						if (cutline > maxH - wH) {
 							if (!isReady) {
@@ -641,13 +670,13 @@
 
 						cutpoint = maxH;
 
-						if (cutline > cutpoint + (unit * 2)) {
+						if (cutline > cutpoint + (scene * 2)) {
 							Global.number.recounter('counter3', 100);
 						} 
 						break;
 
 					case 7:
-						unit = (minH - wH) / 10;
+						scene = (minH - wH) / 10;
 						
 						if (cutline > maxH - wH) {
 							if (!isReady) {
@@ -674,28 +703,28 @@
 						}
 
 						cutpoint = maxH;
-						word[0].classList.remove('on');
-						word[1].classList.remove('on');
-						word[2].classList.remove('on');
+						unit[0].classList.remove('on');
+						unit[1].classList.remove('on');
+						unit[2].classList.remove('on');
 						
 						
 
-						if (cutline > cutpoint + (unit * 2)) {
-							word[0].classList.add('on');
-							word[1].classList.remove('on');
-							word[2].classList.remove('on');
+						if (cutline > cutpoint + (scene * 2)) {
+							unit[0].classList.add('on');
+							unit[1].classList.remove('on');
+							unit[2].classList.remove('on');
 						} 
-						if (cutline > cutpoint + (unit * 4)) {
-							word[1].classList.add('on');
-							word[2].classList.remove('on');
+						if (cutline > cutpoint + (scene * 4)) {
+							unit[1].classList.add('on');
+							unit[2].classList.remove('on');
 						} 
-						if (cutline > cutpoint + (unit * 7)) {
-							word[2].classList.add('on');
+						if (cutline > cutpoint + (scene * 7)) {
+							unit[2].classList.add('on');
 						} 
 						break;
 
 					case 8:
-						unit = (minH - wH) / 10;
+						scene = (minH - wH) / 10;
 
 						const card = item.querySelector('.card-list');
 						let cardw = 1010;
@@ -727,22 +756,22 @@
 						cutpoint = maxH;
 						card.style.transform = 'translateX('+ (cardw * 0) +')';
 
-						if (cutline > cutpoint + (unit * 2)) {
+						if (cutline > cutpoint + (scene * 2)) {
 							card.style.transform = 'translateX('+ (cardw * -1) +'px)';
 						} 
-						if (cutline > cutpoint + (unit * 4)) {
+						if (cutline > cutpoint + (scene * 4)) {
 							card.style.transform = 'translateX('+ (cardw * -2) +'px)';
 						}
-						if (cutline > cutpoint + (unit * 6)) {
+						if (cutline > cutpoint + (scene * 6)) {
 							card.style.transform = 'translateX('+ (cardw * -3) +'px)';
 						}
-						if (cutline > cutpoint + (unit * 8)) {
+						if (cutline > cutpoint + (scene * 8)) {
 							card.style.transform = 'translateX('+ (cardw * -4) +'px)';
 						}
 						break;
 
 					case 9:
-						unit = (pH - maxH - wH) / 10;
+						scene = (pH - maxH - wH) / 10;
 
 						if (cutline > maxH - wH) {
 							if (!isReady) {

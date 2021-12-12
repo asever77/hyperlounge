@@ -111,6 +111,8 @@
     document.addEventListener("DOMContentLoaded", function(){
 
         netive.common.init(); 
+
+		
         
     });
 
