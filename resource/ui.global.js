@@ -11,7 +11,7 @@
 
 	const Global = win[global];
 	const UA = navigator.userAgent.toLowerCase();
-	const deviceSize = [1920, 1600, 1440, 1280, 1024, 960, 840, 720, 600, 480, 400, 360];
+	const deviceSize = [980];
 	const deviceInfo = ['android', 'iphone', 'ipod', 'ipad', 'blackberry', 'windows ce', 'windows','samsung', 'lg', 'mot', 'sonyericsson', 'nokia', 'opeara mini', 'opera mobi', 'webos', 'iemobile', 'kfapwi', 'rim', 'bb10'];
 	//const filter = "win16|win32|win64|mac|macintel";
 
@@ -73,7 +73,7 @@
 
 			return pagename[0]
 		},
-		breakPoint: [600, 905],
+		breakPoint: 980,
 		effect: { //http://cubic-bezier.com - css easing effect
 			linear: '0.250, 0.250, 0.750, 0.750',
 			ease: '0.250, 0.100, 0.250, 1.000',
@@ -124,9 +124,6 @@
 				device.os = device.os ? device.os[0] : '';
 				device.os = device.os.toLowerCase();
 
-				device.breakpoint = device.width >= deviceSize[5] ? true : false;
-				device.colClass = device.width >= deviceSize[5] ? 'col-12' : device.width > deviceSize[8] ? 'col-8' : 'col-4';
-
 				if (browser.ie) {
 					browser.ie = browser.ie = parseInt( browser.ie[1] || browser.ie[2] );
 					( 11 > browser.ie ) ? support.pointerevents = false : '';
@@ -140,24 +137,18 @@
 				const clsMobile = device.mobile ? device.app ? 'ui-a ui-m' : 'ui-m' : 'ui-d';
 				const el_html = doc.querySelector('html');
 
-				el_html.classList.remove('col-12', 'col-8', 'col-4');
-				el_html.classList.add(device.colClass, clsBrowser, clsMobileSystem, clsMobile);
+				el_html.classList.add(clsMobile);
 			
 				const w = window.innerWidth;
 
 				clearTimeout(timerWin);
 				timerWin = setTimeout(function(){
-					el_html.classList.remove('size-tablet');
 					el_html.classList.remove('size-desktop');
 					el_html.classList.remove('size-mobile');
-						el_html.classList.remove('size-desktop');
 
-					if (w < Global.state.breakPoint[0]) {
+					if (w < Global.state.breakPoint) {
 						Global.state.browser.size = 'mobile';
 						el_html.classList.add('size-mobile');
-					} else if (w < Global.state.breakPoint[1]) {
-						Global.state.browser.size = 'tablet';
-						el_html.classList.add('size-tablet');
 					} else {
 						Global.state.browser.sizee = 'desktop';
 						el_html.classList.add('size-desktop');
@@ -167,8 +158,6 @@
 			win.addEventListener('resize', act);
 			act();
 		},
-
-
 	}
 	Global.parts.resizeState();
 
@@ -332,6 +321,7 @@
 			page : 'service'
 		},
 		init: function(v) {
+			
 			// position: fixed 사용시 ie 떨림 현상 방지
 			if( navigator.userAgent.match(/Trident\/7\./) ){
 				console.log('ie');
@@ -349,26 +339,33 @@
 			const el_parallax = doc.querySelector('.ui-parallax');
 			const el_wraps = el_parallax.querySelectorAll('.ui-parallax-item');
             const el_body = doc.querySelector('body');
-            const wH = window.innerHeight;
-
             let psValue = [];
-            let nowPs = 0; 
 
 			history.scrollRestoration = "manual";
 			Global.parallax.options.page = v;
 			el_body.removeAttribute('class');
 			el_body.classList.add('step0');
+			
+			function calc(){
+				console.log('resize');
+				Global.parallax.options.psValue = [];
+				win.scrollTop = 0;
+				for (let i = 0, len = el_wraps.length; i < len; i++) {
+					const that = el_wraps[i];
+					const areaT = Math.floor(window.pageYOffset);
+					
+					Global.parallax.options.psValue.push((that.getBoundingClientRect().top + areaT).toFixed(0));
+					psValue.push((that.getBoundingClientRect().top + areaT).toFixed(0));
+				}
 
-            for (let i = 0, len = el_wraps.length; i < len; i++) {
-                const that = el_wraps[i];
-                const areaT = Math.floor(window.pageYOffset);
-				
-				Global.parallax.options.psValue.push((that.getBoundingClientRect().top + areaT).toFixed(0));
-				psValue.push((that.getBoundingClientRect().top + areaT).toFixed(0));
-            }
-
+				console.log()
+			}
+			calc();
+            
+			win.addEventListener('resize', calc);
 			Global.parallax.act();
 			el_area.addEventListener('scroll', Global.parallax.act);
+			
 		},
 		act: function(){
             const el_body = doc.querySelector('body');

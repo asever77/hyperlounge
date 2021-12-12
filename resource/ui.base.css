@@ -479,7 +479,7 @@ select::-ms-expand {
 
 /* service 1 */
 .ui-parallax-item.n1 {
-    height: 200vh; 
+    height: 300vh; 
     background:linear-gradient(141deg, #181818 25%, #000 92%);
 	z-index: 13;
 }
@@ -523,7 +523,7 @@ body.step0 .ui-parallax-item.n1 .unit-wrap{
 
 /* service 2 */
 .ui-parallax-item.n2 {
-    height: 200vh; 
+    height: 300vh; 
     background:linear-gradient(141deg, #181818 25%, #000 92%);
 	z-index: 12;
     transition: background .2s ease-out;
@@ -582,7 +582,7 @@ body.step1 .ui-parallax-item.n2.on .unit-wrap{
 
 /* service 3 */
 .ui-parallax-item.n3{
-    height: 200vh; 
+    height: 300vh; 
     background:linear-gradient(141deg, #181818 25%, #000 92%);
 	z-index: 11;
 }
@@ -843,7 +843,7 @@ body.step5 .ui-parallax-item.n6 .unit-wrap{
 
 /* service 7 */
 .ui-parallax-item.n7{
-    height: 200vh; 
+    height: 300vh; 
     background:white;
 	z-index: 12;
 }
@@ -907,7 +907,7 @@ body.step7 .ui-parallax-item.n8.on .unit-wrap{
     position: absolute;
     top:46%;
     left:50%;
-    transform: translate(-48rem, -50%);
+    transform: translate(-46.5rem, -50%);
 }
 .boxlist .unit.n1{
     font-size:6rem;
@@ -998,10 +998,97 @@ body.step7 .ui-parallax-item.n8.on .unit-wrap{
     color:#fff;
 }
 
-
-
-
-
+.base-body{
+    position: relative;
+    z-index: 0;
+}
+.base-nav .logo-b,
+.btn-close{
+    display: none;
+}
+@media screen and (max-width: 979px) {
+    .base-header .logo{
+        width:13.9rem;
+        height:1.6rem;
+        margin-top:.3rem;
+    }
+    .base-header .logo svg{
+        width:13.9rem;
+        height:1.6rem;
+    }
+    .base-nav .logo-b{
+        display: block;
+        position: absolute;
+        top:2.3rem;
+        left:1.6rem;
+        width:13.9rem;
+        height:1.6rem;
+    }
+    .base-header{
+        mix-blend-mode: normal;
+    }
+    .nav-open .base-nav-wrap{
+        right:0;
+    }
+    .base-nav-wrap {
+        right:-100vw;
+        position:fixed;
+        width:100%;
+        height:100%;
+        background:#fff;
+        z-index: 10;
+        top:0;
+        transition: right .2s ease-out;
+    }
+    .base-header .nav-link {
+        padding-top: 20vh;
+    }
+    .base-header .nav-link button{
+        color:#000;
+        font-size:3.2rem;
+        font-weight: 700;
+        width:100%;
+        margin: 0 0 2rem;
+        text-align: center;
+        padding:0;;
+    }
+    .nav-link {
+        margin:0;
+    }
+    .base-nav-wrap{
+        flex-direction:column;
+    }
+    .btn-close {
+        display: block;
+        position: absolute;
+        width:4.6rem;
+        height:4.6rem;
+        top:.8rem;
+        right:.8rem;
+    }
+    .btn-menu {
+        display: block;
+        position: absolute;
+        width:4.6rem;
+        height:4.6rem;
+        top:.8rem;
+        right:.8rem;
+    }
+    .base-nav-wrap .appstore{
+        margin-top:4rem;
+    }
+    .ui-parallax-item .line{
+        height:.4rem;
+    }
+    .ui-parallax-item.n1 .line::before {
+        border-top: .4rem solid transparent;
+        border-right: .4rem solid #ee3224;
+        left: -.4rem;
+    }
+    .ui-parallax-item.n1 .line{
+        margin-top:5vmin;
+    }
+}
 
 
 

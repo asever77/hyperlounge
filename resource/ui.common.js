@@ -3,6 +3,16 @@
 	'use strict';
 	
 	netive.common = {
+		naveOpen: function(){
+			const el_html = doc.querySelector('html');
+
+			el_html.classList.add('nav-open');
+		},
+		naveClose: function(){
+			const el_html = doc.querySelector('html');
+
+			el_html.classList.remove('nav-open');
+		},
 		init: function(){
 			const el_body = doc.querySelector('body');
 			const el_html = doc.querySelector('html');
@@ -21,7 +31,11 @@
             const el_nav = doc.querySelector('.nav-link');
             const el_navbtn = el_nav.querySelectorAll('button');
 			const el_appstore = doc.querySelector('#appstoreToggle');
-
+			const btn_menu = doc.querySelector('.btn-menu');
+			const btn_close = doc.querySelector('.btn-close');
+			
+			btn_menu.addEventListener('click', netive.common.naveOpen);
+			btn_close.addEventListener('click', netive.common.naveClose);
 			el_appstore.addEventListener('click', appStoreDiv);
 
             for (let i = 0, len = el_navbtn.length; i < len; i++) {
