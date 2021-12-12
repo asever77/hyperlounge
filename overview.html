@@ -1,1 +1,109 @@
-overview
+<style>
+    .overview-content {max-width:940px;margin:0 auto}
+    .overview-content ~ .overview-content {margin-top:240px}
+    .overview-title {font-size:96px;color:#000;letter-spacing:-2px;font-weight:700;line-height:115px}
+    .overview-have-item {display:flex;align-items:center;margin-top:160px}
+    .overview-have-item .overview-have-img,
+    .overview-have-item  .overview-have-content {width:50%}
+    .overview-have-item .overview-have-img {text-align:center}
+    .overview-have-item  .overview-have-content {padding-left:30px}
+    .overview-have-item .overview-have-img img {max-width:100%}
+    .overview-have-item .overview-have-tit {font-size:48px;line-height:56px;color:#000;font-weight:700;letter-spacing:0}
+    .overview-have-item .overview-have-desc {font-size:20px;line-height:32px;letter-spacing:-.3px;color:#000;margin-top:24px}
+    .overview-team-desc {font-size:20px;line-height:24px;color:#000;margin-top:20px}
+    .box-team {margin-top:80px}
+    .team-member {display:flex;flex-wrap:wrap}
+    .team-member .team-item {width:calc((100% - 100px) / 3);margin:40px 50px 0 0;border-top:2px solid #000;padding-top:16px}
+    .team-member .team-item:nth-of-type(3n) {margin-right:0}
+    .team-member .team-name {font-size:24px;line-height:32px;color:#000;font-weight:700;letter-spacing:0}
+    .team-member .team-name .team-position {font-size:16px;color:#888;margin-left:10px;font-weight:100}
+    .team-member .team-career {font-size:17px;color:#888;line-height:28px;margin-top:16px}
+    .contact-data {display:flex;margin-top:80px}
+    .contact-data .contact-item {display:flex}
+    .contact-data .contact-item ~ .contact-item {margin-left:100px}
+    .contact-data .contact-tit {font-size:16px;color:#000;font-weight:700;margin-right:40px;line-height:24px}
+    .contact-data .contact-value {font-size:16px;line-height:24px;color:#888}
+    .contact-map {margin-top:40px;height:420px}
+    .contact-map iframe {width:100% !important;height:100% !important}
+</style>
+<div class="overview-content">
+    <h3 class="overview-title">What we have?</h3>
+    <div class="overview-have-item">
+        <div class="overview-have-img"><img src="./resource/img/img-overview-01.png" alt=""></div>
+        <div class="overview-have-content">
+            <p class="overview-have-tit">경영 지표<br>분석 및 모듈화 기술</p>
+            <p class="overview-have-desc">산업군별로 핵심 분석을 선정의하여 표준화하고, 필요 데이터의 파악 및 추출, 분석, 시각화 등 핵심 프로세스를 모듈화하여 빠르게 제공하는 노하우를 보유하고 있습니다.</p>
+        </div>
+    </div>
+    <div class="overview-have-item">
+        <div class="overview-have-img"><img src="./resource/img/img-overview-02.png" alt=""></div>
+        <div class="overview-have-content">
+            <p class="overview-have-tit">Tag 체계 구현 기술</p>
+            <p class="overview-have-desc"> 비정형 기술 기반의 데이터 추출과 정형 기술기반의 데이터 분석을 접합하여, 별도의 데이터 cleansing 및 매핑 작업 없이 경영자에게 제공할 경영분석을 구현하는 ELT 기술을 보유하고 있습니다.</p>
+        </div>
+    </div>
+    <div class="overview-have-item">
+        <div class="overview-have-img"><img src="./resource/img/img-overview-03.png" alt=""></div>
+        <div class="overview-have-content">
+            <p class="overview-have-tit">고객 중심 <br>UX 설계 및 디자인</p>
+            <p class="overview-have-desc">고객 중심의 UX 설계, 복잡하고 어려운 기업 경영 정보의 시각화, 사용자 니즈 분석 및 Pain Point 해결 등을 통해 고객 친화적인 서비스를 구축하는 노하우를 보유하고 있습니다.</p>
+        </div>
+    </div>
+</div>
+<div class="overview-content">
+    <h3 class="overview-title">TEAM</h3>
+    <p class="overview-team-desc">우리는 컨설팅, 데이터, 플랫폼, UX 전문가들이 모인 회사입니다.</p>
+    <div class="box-team">
+        <div class="team-img">이미지</div>
+        <div class="team-member">
+            <div class="team-item">
+                <p class="team-name">김정인<span class="team-position">CEO</span></p>
+                <p class="team-career">서울대 기계공학박사<br>
+                    현대카드 총괄부사장<br>
+                    어피니티 Operation 아시아 총괄<br>
+                    맥킨지 파트너</p>
+            </div>
+            <div class="team-item">
+                <p class="team-name">도문주<span class="team-position">CFO</span></p>
+                <p class="team-career">연세대 경영학과<br>
+                    현대캐피탈 해외전략실장<br>
+                    현대라이프생명보험 경영관리실장<br>
+                    현대카드/캐피탈/커머셜 전략기획실장</p>
+            </div>
+            <div class="team-item">
+                <p class="team-name">김익현<span class="team-position">CDO</span></p>
+                <p class="team-career">애자일소다 AI S/W 본부장<br>
+                    티맥스데이터 DB사업본부 팀장</p>
+            </div>
+            <div class="team-item">
+                <p class="team-name">이용재<span class="team-position">CTO</span></p>
+                <p class="team-career">서울대 전기공학<br>
+                    티맥스데이터 연구소장<br>
+                    데이콤 AI 개발</p>
+            </div>
+            <div class="team-item">
+                <p class="team-name">이정훈<span class="team-position">CCO</span></p>
+                <p class="team-career">화해 제품디자인 팀장<br>
+                    알바천국 디자인 팀장<br>
+                    다음커뮤니케이션 검색UI 팀장<br>
+                    SK커뮤니케이션즈 디자인실 과장</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="overview-content">
+    <h3 class="overview-title">CONTACT</h3>
+    <div class="contact-data">
+        <dl class="contact-item">
+            <dt class="contact-tit">주소</dt>
+            <dd class="contact-value">서울특별시 성동구 광나루로 130,서울숲 IT캐슬 1401호</dd>
+        </dl>
+        <dl class="contact-item">
+            <dt class="contact-tit">문의</dt>
+            <dd class="contact-value">service@hyperlounge.ai</dd>
+        </dl>
+    </div>
+    <div class="contact-map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3163.228403161023!2d127.04887545093817!3d37.54968223275156!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca58c4636ba5d%3A0xee7e5604dba670fa!2z7ZWY7J207Y2865287Jq07KeA!5e0!3m2!1sko!2skr!4v1639304223560!5m2!1sko!2skr" width="940" height="420" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+</div>
