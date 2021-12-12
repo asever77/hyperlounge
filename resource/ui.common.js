@@ -45,7 +45,7 @@
             }
 
 			function appStoreDiv() {
-				const wrap = doc.querySelector('.appstore-wrap');
+				const wrap = doc.querySelector('.appstore');
 
 				wrap.classList.toggle('on');
 			}
@@ -63,6 +63,7 @@
                         el_html.classList.remove('page-apply');
                         el_html.classList.add('page-' + that.dataset.link);
 
+						netive.common.naveClose();
 						window.removeEventListener('scroll', netive.parallax.act);
 						
                         if (that.dataset.link === 'service') {

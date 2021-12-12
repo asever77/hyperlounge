@@ -398,8 +398,8 @@
 			if (page === 'service') {
 				service(cutline, nowPs);
 			}
-		
-            function service(cutline, n){
+
+			function service(cutline, n){
 				const parallax = doc.querySelector('.ui-parallax');
 				const wrap = doc.querySelector('.ui-parallax-item.n' + n);
 				const wrapPrev = doc.querySelector('.ui-parallax-item.n' + (n - 1 < 0 ? 0 : n-1));
@@ -416,7 +416,7 @@
 				let cutpoint;
 				const isOn = wrap.classList.contains('on');
 				const isReady = wrap.classList.contains('ready');
-				const isReadyNext = wrapNext.classList.contains('ready');
+				const isReadyNext = wrapNext ? wrapNext.classList.contains('ready') : '';
 
 				switch (n) {
 					case 1:
@@ -795,7 +795,7 @@
 						break;
 
 					case 9:
-						scene = (pH - maxH - wH) / 10;
+						//scene = (pH - maxH - wH) / 10;
 
 						if (cutline > maxH - wH) {
 							if (!isReady) {
@@ -825,6 +825,7 @@
             }
 		}
 	}
+
 	Global.motion = {
 		vibration: function(){
 			const icons = doc.querySelectorAll('.srv-icon');

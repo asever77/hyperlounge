@@ -362,11 +362,11 @@ select::-ms-expand {
     left:50%;
     margin-left:33rem;
 }
-.appstore-wrap.on .btn-store.n1{
+.appstore.on .btn-store.n1{
     top:5rem;
     opacity:1;
 }
-.appstore-wrap.on .btn-store.n2{
+.appstore.on .btn-store.n2{
     top:10rem;
     opacity:1;
 }
@@ -389,12 +389,18 @@ select::-ms-expand {
     z-index: 0;
     background: url(./img/ic-googleplay-white@2x.png) no-repeat 50% 50% / 92px;
 }
+.appstore-wrap .btn-store:hover,
+.appstore-wrap .btn-store:focus{
+    background-color:rgba(102, 102, 102, .6);
+    border:rgba(102, 102, 102, .6);
 
+}
 .btn-store{
     height: 4rem;
     border-radius: 2rem;
     width:14rem;
     border:1px solid #fff;
+    transition: background .2s ease-in, border .2s ease-in;
 }
 .btn-store img{
     display: block;
@@ -1021,10 +1027,18 @@ body.step7 .ui-parallax-item.n8.on .unit-wrap{
     font-weight: 700;
     border-radius: 3rem;
     padding:0 4rem;
+    transition: background .2s ease-in, border .2s ease-in;
 }
 .btn-base.primary{
     background:#ee3224;
     color:#fff;
+}
+
+.appstore.on .btn-base,
+.btn-base.primary:hover,
+.btn-base.primary:active{
+    background:#fff;
+    color:#ee3224;
 }
 
 .base-body{
@@ -1036,6 +1050,8 @@ body.step7 .ui-parallax-item.n8.on .unit-wrap{
     display: none;
 }
 .m-only{display:none;}
+
+
 @media screen and (max-width: 979px) {
     .m-only{display: block;}
     .base-header .logo{
@@ -1141,11 +1157,11 @@ body.step7 .ui-parallax-item.n8.on .unit-wrap{
         width:100%;
     }
     .infotxt1{
-        transform: translate(-40vw, -20vh);
+        transform: translate(-40vw, -35vw);
         font-size:7vw;
     }
     .infotxt2{
-        transform: translate(5vw, -20vh);
+        transform: translate(5vw, -35vw);
         font-size:7vw;
     }
     .numerical3,
