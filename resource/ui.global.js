@@ -419,16 +419,17 @@
 					const that = item[i];
 					const itemTop = that.getBoundingClientRect().top + st;
 					const n = st - (itemTop - vh);
-					const nn = 200 - n;
+					const s = 100;
+					const nn = s - n;
 					
 					if (i === 0) {
 						if (st + (itemTop) > itemTop) {
 							that.style.transform = 'translateY('+ (st /2) +'px)';
 						}
 					} else {
-						if (st > itemTop - vh && st < itemTop - vh + 200 ) {
+						if (st > itemTop - vh && st < itemTop - vh + s ) {
 							that.style.transform = 'translateY('+ nn +'px)';
-						} else if (st > itemTop - vh + 200 )  {
+						} else if (st > itemTop - vh + s )  {
 							that.style.transform = 'translateY(0px)';
 						}
 					}

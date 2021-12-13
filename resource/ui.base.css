@@ -1405,7 +1405,8 @@ body.step7 .srv-item.n8.on .unit-wrap{
     }
 
     /* overview */
-    .overview-content ~ .overview-content {margin-top:12rem}
+    .overview-item ~ .overview-item {margin-top:12rem;}
+    .overview-content { padding:0 1.6rem}
     .overview-title {font-size:3.2rem;line-height:3.8rem}
     .overview-have-item {margin-top:8rem;display:block}
     .overview-have-item .overview-have-img {padding:0 1rem}
