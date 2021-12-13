@@ -385,7 +385,7 @@
 					break;
 				}
 			}
-			
+			console.log(nowPs);
 			el_body.dataset.n = nowPs - 1;
 			const clsname = el_body.getAttribute('class');
 
@@ -398,6 +398,43 @@
 			if (page === 'service') {
 				service(cutline, nowPs);
 			}
+			if (page === 'overview') {
+				overview(cutline, nowPs);
+			}
+
+			function overview(cutline, n){
+				const parallax = doc.querySelector('.ui-parallax');
+				const wrap = doc.querySelector('.ui-parallax-item.n' + n);
+				const header = doc.querySelector('.base-header');
+				const st = window.scrollY || document.documentElement.scrollTop;
+				const maxH = Math.floor(psValue[n - 1]) + wH;
+                let minH =  Math.floor(wrap.offsetHeight);
+                let scene;
+				const overTit = wrap.querySelector('.overview-title');
+				const overCont = wrap.querySelector('.overview-have-item');
+				const item = parallax.querySelectorAll('.unit-item');
+				const vh = window.innerHeight;
+				
+				for (let i = 0, len = item.length; i < len; i++) {
+					const that = item[i];
+					const itemTop = that.getBoundingClientRect().top + st;
+					const n = st - (itemTop - vh);
+					const nn = 200 - n;
+					
+					if (i === 0) {
+						if (st + (itemTop) > itemTop) {
+							that.style.transform = 'translateY('+ (st /2) +'px)';
+						}
+					} else {
+						if (st > itemTop - vh && st < itemTop - vh + 200 ) {
+							that.style.transform = 'translateY('+ nn +'px)';
+						} else if (st > itemTop - vh + 200 )  {
+							that.style.transform = 'translateY(0px)';
+						}
+					}
+				}
+                  
+            }
 
 			function service(cutline, n){
 				const parallax = doc.querySelector('.ui-parallax');

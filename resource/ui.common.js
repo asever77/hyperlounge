@@ -19,12 +19,13 @@
 
 			netive.ajax.init({ 
 				area: document.querySelector('.base-body'), 
-				url: 'service.html', 
+				url: 'overview.html', 
 				page: true, 
 				effect: true,
 				callback: function(){
-                    netive.parallax.init('service');
-					el_html.classList.add('page-service');
+                    netive.parallax.init('overview');
+					el_html.classList.add('page-overview');
+					//el_html.classList.add('page-service');
 				}
 			});
 
