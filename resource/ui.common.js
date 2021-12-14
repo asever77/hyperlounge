@@ -16,6 +16,7 @@
 		init: function(){
 			const el_body = doc.querySelector('body');
 			const el_html = doc.querySelector('html');
+			const el_header = doc.querySelector('.base-header');
 
 			netive.ajax.init({ 
 				area: document.querySelector('.base-body'), 
@@ -59,16 +60,24 @@
                     page: true, 
                     effect: true,
                     callback: function(){
+						el_body.dataset.n = 0;
+						el_body.removeAttribute('class');
+						el_body.classList.add('step0');
                         el_html.classList.remove('page-service');
                         el_html.classList.remove('page-overview');
                         el_html.classList.remove('page-apply');
                         el_html.classList.add('page-' + that.dataset.link);
-
+						el_header.classList.remove('type-b');
+						el_header.classList.remove('type-c');
 						netive.common.naveClose();
 						window.removeEventListener('scroll', netive.parallax.act);
 						
                         if (that.dataset.link === 'service') {
                             netive.parallax.init('service');
+                        }
+
+						if (that.dataset.link === 'overview') {
+                            netive.parallax.init('overview');
                         }
 
 						window.scrollTo({

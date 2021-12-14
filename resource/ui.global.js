@@ -339,7 +339,6 @@
 			const el_parallax = doc.querySelector('.ui-parallax');
 			const el_wraps = el_parallax.querySelectorAll('.ui-parallax-item');
             const el_body = doc.querySelector('body');
-            let psValue = [];
 
 			history.scrollRestoration = "manual";
 			Global.parallax.options.page = v;
@@ -347,15 +346,19 @@
 			el_body.classList.add('step0');
 			
 			function calc(){
-				console.log('resize');
 				Global.parallax.options.psValue = [];
 				win.scrollTop = 0;
 				for (let i = 0, len = el_wraps.length; i < len; i++) {
 					const that = el_wraps[i];
-					const areaT = Math.floor(window.pageYOffset);
+					let areaT = Math.floor(window.pageYOffset);
+
+					if (v === 'overview' && i === 2) {
+						
+						areaT = areaT - 140;
+						console.log(areaT);
+					}
 					
 					Global.parallax.options.psValue.push((that.getBoundingClientRect().top + areaT).toFixed(0));
-					psValue.push((that.getBoundingClientRect().top + areaT).toFixed(0));
 				}
 
 				console.log()

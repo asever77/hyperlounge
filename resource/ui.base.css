@@ -304,6 +304,8 @@ select::-ms-expand {
 	mix-blend-mode: difference;
 }
 .base-header-wrap{
+    position: relative;
+    z-index: 1;
     width:100%;
     max-width:98rem;
     padding: 0 2rem;
@@ -336,6 +338,45 @@ select::-ms-expand {
     padding:1rem 4rem;
     font-weight: 500;
 }
+.page-overview .base-header{mix-blend-mode: normal;}
+.page-overview .base-header::after{
+    content:"";
+    display:block;
+    width:100%;
+    background:#fff;
+    height:8rem;
+    position: fixed;
+    top:-8rem;
+    left:0;
+    transition: top .2s ease-out;
+}
+.page-overview .step2 .base-header::after,
+.page-overview .step3 .base-header::after,
+.page-overview .step4 .base-header::after{
+    top:0;
+}
+.page-overview .step2 .logo g,
+.page-overview .step3 .logo g,
+.page-overview .step4 .logo g{fill:#000;}
+.page-overview .step2 .base-header .nav-link button,
+.page-overview .step3 .base-header .nav-link button,
+.page-overview .step4 .base-header .nav-link button{color:#000;}
+.page-overview .step2 .appstore .btn-base,
+.page-overview .step3 .appstore .btn-base,
+.page-overview .step4 .appstore .btn-base{color:#fff; background:#000;}
+.page-overview .step2 .appstore.on .btn-base,
+.page-overview .step2 .appstore.on .btn-base,
+.page-overview .step3 .appstore.on .btn-base,
+.page-overview .step3 .appstore .btn-base:hover,
+.page-overview .step4 .appstore .btn-base:hover,
+.page-overview .step4 .appstore .btn-base:hover{background:#ee3224}
+
+.page-overview .step2 .appstore-wrap .btn-store.n1,
+.page-overview .step3 .appstore-wrap .btn-store.n1,
+.page-overview .step4 .appstore-wrap .btn-store.n1{background-image: url(./img/ic-appstore-black@2x.png); border-color:#000; background-color:#fff;}
+.page-overview .step2 .appstore-wrap .btn-store.n2,
+.page-overview .step3 .appstore-wrap .btn-store.n2,
+.page-overview .step4 .appstore-wrap .btn-store.n2{background-image: url(./img/ic-googleplay-black@2x.png); border-color:#000; background-color:#fff;}
 
 .page-service .nav-link .n1,
 .page-overview .nav-link .n2,
@@ -381,13 +422,13 @@ select::-ms-expand {
     top:0;
     left:0;
     z-index: 1;
-    background: url(./img/ic-appstore-white@2x.png) no-repeat 50% 45% / 92px;
+    background:#000 url(./img/ic-appstore-white@2x.png) no-repeat 50% 45% / 92px;
 }
 .appstore-wrap .btn-store.n2{
     top:0;
     left:0;
     z-index: 0;
-    background: url(./img/ic-googleplay-white@2x.png) no-repeat 50% 50% / 92px;
+    background:#000 url(./img/ic-googleplay-white@2x.png) no-repeat 50% 50% / 92px;
 }
 .appstore-wrap .btn-store:hover,
 .appstore-wrap .btn-store:focus{
@@ -1058,7 +1099,7 @@ body.step7 .srv-item.n8.on .unit-wrap{
     width:100%;
     position: relative;
     height: 100vh;
-    background: url(./img/overview_bg.jpg) no-repeat 50% 0 / cover;
+    background: url(./img/img_sample_01.jpg) no-repeat 50% 0 / cover;
     background-attachment:fixed;
     display: flex;
     justify-content: center;
