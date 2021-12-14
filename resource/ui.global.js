@@ -372,6 +372,7 @@
 		},
 		act: function(){
             const el_body = doc.querySelector('body');
+			const el_html = doc.querySelector('html');
 			const wH = window.innerHeight;
 			const wT = Math.floor(window.pageYOffset);
 			const cutline = wT + wH;
@@ -388,7 +389,7 @@
 					break;
 				}
 			}
-			console.log(nowPs);
+			
 			el_body.dataset.n = nowPs - 1;
 			const clsname = el_body.getAttribute('class');
 
@@ -401,20 +402,20 @@
 			if (page === 'service') {
 				service(cutline, nowPs);
 			}
-			if (page === 'overview') {
-				overview(cutline, nowPs);
+			if (page === 'overview' || page === 'apply') {
+
+				if (wT > wH - 120) {
+					el_html.classList.add('is-bar');
+				} else {
+					el_html.classList.remove('is-bar');
+				}
+
+				overview();
 			}
 
-			function overview(cutline, n){
+			function overview(){
 				const parallax = doc.querySelector('.ui-parallax');
-				const wrap = doc.querySelector('.ui-parallax-item.n' + n);
-				const header = doc.querySelector('.base-header');
 				const st = window.scrollY || document.documentElement.scrollTop;
-				const maxH = Math.floor(psValue[n - 1]) + wH;
-                let minH =  Math.floor(wrap.offsetHeight);
-                let scene;
-				const overTit = wrap.querySelector('.overview-title');
-				const overCont = wrap.querySelector('.overview-have-item');
 				const item = parallax.querySelectorAll('.unit-item');
 				const vh = window.innerHeight;
 				
@@ -422,7 +423,7 @@
 					const that = item[i];
 					const itemTop = that.getBoundingClientRect().top + st;
 					const n = st - (itemTop - vh);
-					const s = 100;
+					const s = 150;
 					const nn = s - n;
 					
 					if (i === 0) {

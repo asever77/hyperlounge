@@ -20,12 +20,12 @@
 
 			netive.ajax.init({ 
 				area: document.querySelector('.base-body'), 
-				url: 'overview.html', 
+				url: 'apply.html', 
 				page: true, 
 				effect: true,
 				callback: function(){
-                    netive.parallax.init('overview');
-					el_html.classList.add('page-overview');
+                    netive.parallax.init('apply');
+					el_html.classList.add('page-apply');
 					//el_html.classList.add('page-service');
 				}
 			});
@@ -63,6 +63,7 @@
 						el_body.dataset.n = 0;
 						el_body.removeAttribute('class');
 						el_body.classList.add('step0');
+						el_html.classList.remove('is-bar');
                         el_html.classList.remove('page-service');
                         el_html.classList.remove('page-overview');
                         el_html.classList.remove('page-apply');
@@ -71,14 +72,8 @@
 						el_header.classList.remove('type-c');
 						netive.common.naveClose();
 						window.removeEventListener('scroll', netive.parallax.act);
-						
-                        if (that.dataset.link === 'service') {
-                            netive.parallax.init('service');
-                        }
-
-						if (that.dataset.link === 'overview') {
-                            netive.parallax.init('overview');
-                        }
+                    
+						netive.parallax.init(that.dataset.link);
 
 						window.scrollTo({
 							top: 0,
