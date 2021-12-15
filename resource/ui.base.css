@@ -2213,7 +2213,10 @@ body.step7 .srv-item.n8.on .unit-wrap {
 
     .page-overview .step2 .base-header .base-nav button path,
     .page-overview .step3 .base-header .base-nav button path,
-    .page-overview .step4 .base-header .base-nav button path {
+    .page-overview .step4 .base-header .base-nav button path,
+    .page-apply .step2 .base-header .base-nav button path,
+    .page-apply .step3 .base-header .base-nav button path,
+    .page-apply .step4 .base-header .base-nav button path {
         fill: #000;
     }
 
@@ -2221,7 +2224,8 @@ body.step7 .srv-item.n8.on .unit-wrap {
         margin-bottom: 12rem;
     }
 
-    .page-overview .base-header::after {
+    .page-overview .base-header::after,
+    .page-apply .base-header::after {
         height: 6rem;
     }
 
@@ -2240,7 +2244,7 @@ body.step7 .srv-item.n8.on .unit-wrap {
         justify-content: center;
         align-items: flex-end;
         text-align: center;
-        padding-bottom: 3 0vh;
+        padding-bottom: 22vh;
     }
 
     .apply-item .hero h2 {
