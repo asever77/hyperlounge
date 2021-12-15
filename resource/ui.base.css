@@ -359,7 +359,7 @@ select::-ms-expand {
 .is-bar .base-header .nav-link button{color:#000;}
 .is-bar .appstore .btn-base{color:#fff; background:#000;}
 .is-bar .appstore.on .btn-base,
-.is-bar .appstore .btn-base:hover{background:#ee3224}
+.is-bar .appstore .btn-base:hover{background:#ee3224; color:#fff;}
 .is-bar .appstore-wrap .btn-store.n1{background-image: url(./img/ic-appstore-black@2x.png); border-color:#000; background-color:#fff;}
 .is-bar .appstore-wrap .btn-store.n2{background-image: url(./img/ic-googleplay-black@2x.png); border-color:#000; background-color:#fff;}
 
@@ -1111,7 +1111,7 @@ body.step7 .srv-item.n8.on .unit-wrap{
     width:100%;
     position: relative;
     height: 100vh;
-    background: url(./img/img_sample_01.jpg) no-repeat 50% 0 / cover;
+    background:#131416 url(./img/img_sample_01.jpg) no-repeat 50% 0 / cover;
     background-attachment:fixed;
     display: flex;
     justify-content: center;
@@ -1218,7 +1218,7 @@ body.step7 .srv-item.n8.on .unit-wrap{
     width:100%;
     position: relative;
     height: 100vh;
-    background: url(./img/img_sample_03.jpg) no-repeat 50% 0 / cover;
+    background:#614a3a url(./img/img_sample_03.jpg) no-repeat 50% 0 / cover;
     background-attachment:fixed;
     display: flex;
     justify-content: center;
