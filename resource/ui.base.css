@@ -475,6 +475,15 @@ select::-ms-expand {
     font-size:1.4rem;
     padding:0 2rem;
 }
+.base-footer-wrap .sns a path{
+    transition: fill .2s ease-out;
+}
+.base-footer-wrap .sns a:hover path + path{
+    fill:#ee3224;
+}
+.base-footer-wrap a:hover{
+    color:#fff;
+}
 .base-footer-wrap a{
     color:#747474;
     display: inline-block;
@@ -1394,41 +1403,46 @@ body.step7 .srv-item.n8.on .unit-wrap{
     .base-nav-wrap .appstore{
         margin-top:4rem;
     }
-    .srv-item .line{
+    .page-service .srv-item .line{
         height:.4rem;
     }
-    .srv-item.n1 .line::before {
+    .page-service .srv-item.n1 .line::before {
         border-top: .4rem solid transparent;
         border-right: .4rem solid #ee3224;
         left: -.4rem;
     }
-    .srv-item.n2 .line::before {
+    .page-service .srv-item.n2 .line::before {
         border-bottom: .4rem solid transparent;
         border-left: .4rem solid #ee3224;
         right: -.4rem;
     }
+    .page-service .srv-item.n3 .line::before {
+        border-bottom: .4rem solid transparent;
+        border-right: .4rem solid #ee3224;
+        left: -.4rem;
+    }
 
-    .srv-item.n1 .line{
+    .page-service .srv-item.n1 .line{
         margin-top:5vmin;
     }
 
-    .srv-item.n2 .img{
+    .page-service .srv-item.n2 .img{
         left:65vw;
         width:60vw;
     }
-    .srv-item.n3 .img{
+    .page-service .srv-item.n3 .img{
         left:35vw;
         width:60vw;
     }
-    .srv-item.n3 .img img,
-    .srv-item.n2 .img img{
+    .page-service .srv-item.n3 .img img,
+    .page-service .srv-item.n2 .img img{
         width:100%;
     }
-    .infotxt1{
+    .page-service .infotxt1{
         transform: translate(-40vw, -35vw);
         font-size:7vw;
     }
-    .infotxt2{
+    .page-service .infotxt2{
         transform: translate(5vw, -35vw);
         font-size:7vw;
     }
@@ -1617,6 +1631,17 @@ body.step7 .srv-item.n8.on .unit-wrap{
     }
     .page-overview .base-header::after {height: 6rem;}
 
+    .ui-parallax-item.n1 .unit-item::after{
+        content:"";
+        display:block;
+        width:1.4rem;
+        height:.2rem;
+        border-radius: .1rem;
+        background:rgba(255,255,255,.5);
+        position: fixed;
+        bottom:4rem;
+        left:50%;
+    }
 }
 
 
