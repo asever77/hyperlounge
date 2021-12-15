@@ -1311,7 +1311,16 @@ body.step7 .srv-item.n8.on .unit-wrap {
     background: #ee3224;
     color: #fff;
 }
-
+.size-mobile .appstore .btn-base.primary {
+    background-color:#ee3224 !important;
+    color:#fff !important;
+    padding:0 !important;
+}
+.size-mobile .appstore.on .btn-base.primary {
+    background-color:#fff !important;
+    border:1px solid #ee3224 !important;
+    color:#ee3224 !important;
+}
 .appstore.on .btn-base,
 .btn-base.primary:hover,
 .btn-base.primary:active {
