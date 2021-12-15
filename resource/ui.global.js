@@ -5,19 +5,15 @@
 
 	'use strict';
 
-	const global = 'netive';
+	const global = 'HyperloungeUI';
 
 	win[global] = {};
 
 	const Global = win[global];
 	const UA = navigator.userAgent.toLowerCase();
-	const deviceSize = [980];
 	const deviceInfo = ['android', 'iphone', 'ipod', 'ipad', 'blackberry', 'windows ce', 'windows','samsung', 'lg', 'mot', 'sonyericsson', 'nokia', 'opeara mini', 'opera mobi', 'webos', 'iemobile', 'kfapwi', 'rim', 'bb10'];
-	//const filter = "win16|win32|win64|mac|macintel";
 
 	//components state 
-	Global.callback = {};
-
 	Global.state = {
 		device: {
 			info: (function() {
@@ -108,7 +104,6 @@
 	}
 	
 	Global.parts = {
-		//resize state
 		resizeState: function() {
 			let timerWin;
 
@@ -160,81 +155,6 @@
 		},
 	}
 	Global.parts.resizeState();
-
-	
-	Global.loading = {
-		timerShow : {},
-		timerHide : {},
-		options : {
-			selector: null,
-			message : null,
-			styleClass : 'orbit' //time
-		},
-		show : function(option){
-			//const opt = {...this.options, ...option};
-			//const opt = Object.assign({}, this.options, option);
-			//Global.option.join(this.options, option);
-            // const {selector, styleClass, message} = opt;
-
-            const selector = option !== undefined && option.selector !== undefined ? option.selector : null;
-            const styleClass = option !== undefined && option.styleClass !== undefined ? option.styleClass : 'orbit';
-            const message = option !== undefined && option.message !== undefined ? option.message : null;
-			
-			console.log(selector, styleClass, message);
-			const el = (selector !== null) ? selector : doc.querySelector('body');
-			const el_loadingHides = doc.querySelectorAll('.ui-loading:not(.visible)');
-
-			for (let i = 0, len = el_loadingHides.length; i < len; i++) {
-				el_loadingHides[i].remove();
-			}
-
-			let htmlLoading = '';
-
-			(selector === null) ?
-				htmlLoading += '<div class="ui-loading '+ styleClass +'">':
-				htmlLoading += '<div class="ui-loading type-area '+ styleClass +'">';
-			htmlLoading += '<div class="ui-loading-wrap">';
-
-			(message !== null) ?
-				htmlLoading += '<strong class="ui-loading-message"><span>'+ message +'</span></strong>':
-				htmlLoading += '';
-
-			htmlLoading += '</div>';
-			htmlLoading += '</div>';
-
-			clearTimeout(this.timerShow);
-			clearTimeout(this.timerHide);
-			this.timerShow = setTimeout(showLoading, 300);
-			
-			function showLoading(){
-				!el.querySelector('.ui-loading') && el.insertAdjacentHTML('beforeend', htmlLoading);
-				htmlLoading = null;		
-
-				const el_loadings = doc.querySelectorAll('.ui-loading');
-
-                for (let i = 0, len = el_loadings.length; i < len; i++) {
-					el_loadings[i].classList.add('visible');
-					el_loadings[i].classList.remove('close');
-				}
-			}
-		},
-		hide: function(){
-			clearTimeout(this.timerShow);
-			this.timerHide = setTimeout(function(){
-				const el_loadings = doc.querySelectorAll('.ui-loading');
-
-                for (let i = 0, len = el_loadings.length; i < len; i++) {
-                    const that = el_loadings[i];
-
-					that.classList.add('close');
-					setTimeout(function(){
-						that.classList.remove('visible')
-						that.remove();
-					},300);
-				}
-			},300);
-		}
-	}
 
 	Global.ajax = {
 		options : {
@@ -321,10 +241,8 @@
 			page : 'service'
 		},
 		init: function(v) {
-			
 			// position: fixed 사용시 ie 떨림 현상 방지
 			if( navigator.userAgent.match(/Trident\/7\./) ){
-				console.log('ie');
 				document.querySelector('body').addEventListener("mousewheel", function(){
 					event.preventDefault();
 
@@ -353,32 +271,31 @@
 					let areaT = Math.floor(window.pageYOffset);
 
 					if (v === 'overview' && i === 2) {
-						
 						areaT = areaT - 140;
-						console.log(areaT);
 					}
 					
 					Global.parallax.options.psValue.push((that.getBoundingClientRect().top + areaT).toFixed(0));
 				}
-
-				console.log()
 			}
-			calc();
-            
-			win.addEventListener('resize', calc);
-			Global.parallax.act();
-			el_area.addEventListener('scroll', Global.parallax.act);
-			
+			setTimeout(function(){
+				calc();
+				win.addEventListener('resize', calc);
+				Global.parallax.act();
+				el_area.addEventListener('scroll', Global.parallax.act);
+			},100);
 		},
 		act: function(){
             const el_body = doc.querySelector('body');
 			const el_html = doc.querySelector('html');
+			const clsname = el_body.getAttribute('class');
+			const arrow = doc.querySelector('.scroll-arrow');
 			const wH = window.innerHeight;
 			const wT = Math.floor(window.pageYOffset);
 			const cutline = wT + wH;
 			const psValue = Global.parallax.options.psValue;
 			const page = Global.parallax.options.page;
 			let nowPs = 0; 
+
 
 			for (let i = 1, len = psValue.length; i < len; i++) {
 				if (cutline < psValue[i]){
@@ -391,14 +308,12 @@
 			}
 			
 			el_body.dataset.n = nowPs - 1;
-			const clsname = el_body.getAttribute('class');
-
+			
 			if (clsname !== 'step' + (nowPs - 1)) {
 				el_body.classList.remove(clsname);
 				el_body.classList.add('step' + (nowPs - 1));
 			}
-
-			const arrow = doc.querySelector('.scroll-arrow');
+			
 			if (wT > 100) {
 				arrow.classList.add('off');
 				
@@ -433,8 +348,6 @@
 					const n = st - (itemTop - vh);
 					const s = 150;
 					const nn = s - n;
-					
-					
 
 					if (i === 0) {
 						if (st + (itemTop) > itemTop) {
@@ -443,7 +356,6 @@
 					} else {
 						if (st > itemTop - vh && st < itemTop - vh + s ) {
 							that.style.transform = 'translateY('+ nn +'px)';
-
 						} else if (st > itemTop - vh + s )  {
 							that.style.transform = 'translateY(0px)';
 						}
@@ -713,7 +625,6 @@
 						if (cutline > maxH - wH) {
 							if (!isReady) {
 								wrap.classList.add('ready');
-								//Global.motion.vibration();
 								header.classList.remove('type-c');
 								header.classList.add('type-b');	
 							}
@@ -754,7 +665,6 @@
 						if (cutline > maxH - wH) {
 							if (!isReady) {
 								wrap.classList.add('ready');
-								//Global.motion.vibration();
 							}
 						} 
 						if (cutline < maxH + minH) {
@@ -807,7 +717,6 @@
 						if (cutline > maxH - wH) {
 							if (!isReady) {
 								wrap.classList.add('ready');
-								//Global.motion.vibration();
 							}
 						} 
 						if (cutline < maxH + minH) {
@@ -879,39 +788,6 @@
 		}
 	}
 
-	Global.motion = {
-		vibration: function(){
-			const icons = doc.querySelectorAll('.srv-icon');
-			let timer;
-
-			for (let i = 0, len = icons.length; i < len; i++) {
-				const icon = icons[i];
-				const iconImg = icon.querySelector('img');
-				act(iconImg);
-			}
-
-			function act(that) {
-				function vib(){
-					timer = setTimeout(function(){
-						let l = Math.floor( ( Math.random() * (20 - 1) + 1 ) );
-						let t = Math.floor( ( Math.random() * (20 - 1) + 1 ) );
-						
-						if ( l > 10) {
-							l = l * -1;
-						}
-						if ( t > 10) {
-							t = t * -1;
-						}
-
-						that.style.left = l + 'px';
-						that.style.top = t + 'px';
-						vib();
-					}, 1000);
-				}
-				vib();
-			}
-		}
-	}
 	Global.number = {
 		counter: function(id , sp){
 			const counter = doc.querySelector('#' + id);
