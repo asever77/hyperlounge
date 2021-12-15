@@ -397,6 +397,14 @@
 				el_body.classList.remove(clsname);
 				el_body.classList.add('step' + (nowPs - 1));
 			}
+
+			const arrow = doc.querySelector('.scroll-arrow');
+			if (wT > 100) {
+				arrow.classList.add('off');
+				
+			} else {
+				arrow.classList.remove('off');
+			}
 			
 			//service.html
 			if (page === 'service') {
@@ -426,6 +434,8 @@
 					const s = 150;
 					const nn = s - n;
 					
+					
+
 					if (i === 0) {
 						if (st + (itemTop) > itemTop) {
 							that.style.transform = 'translateY('+ (st /2) +'px)';
@@ -433,6 +443,7 @@
 					} else {
 						if (st > itemTop - vh && st < itemTop - vh + s ) {
 							that.style.transform = 'translateY('+ nn +'px)';
+
 						} else if (st > itemTop - vh + s )  {
 							that.style.transform = 'translateY(0px)';
 						}
@@ -702,7 +713,7 @@
 						if (cutline > maxH - wH) {
 							if (!isReady) {
 								wrap.classList.add('ready');
-								Global.motion.vibration();
+								//Global.motion.vibration();
 								header.classList.remove('type-c');
 								header.classList.add('type-b');	
 							}
@@ -743,7 +754,7 @@
 						if (cutline > maxH - wH) {
 							if (!isReady) {
 								wrap.classList.add('ready');
-								Global.motion.vibration();
+								//Global.motion.vibration();
 							}
 						} 
 						if (cutline < maxH + minH) {
@@ -796,7 +807,7 @@
 						if (cutline > maxH - wH) {
 							if (!isReady) {
 								wrap.classList.add('ready');
-								Global.motion.vibration();
+								//Global.motion.vibration();
 							}
 						} 
 						if (cutline < maxH + minH) {

@@ -17,16 +17,16 @@
 			const el_body = doc.querySelector('body');
 			const el_html = doc.querySelector('html');
 			const el_header = doc.querySelector('.base-header');
+			const firstpage = 'service';
 
 			netive.ajax.init({ 
 				area: document.querySelector('.base-body'), 
-				url: 'apply.html', 
+				url: firstpage + '.html', 
 				page: true, 
 				effect: true,
 				callback: function(){
-                    netive.parallax.init('apply');
-					el_html.classList.add('page-apply');
-					//el_html.classList.add('page-service');
+                    netive.parallax.init(firstpage);
+					el_html.classList.add('page-' + firstpage);
 				}
 			});
 
@@ -39,6 +39,8 @@
 			btn_menu.addEventListener('click', netive.common.naveOpen);
 			btn_close.addEventListener('click', netive.common.naveClose);
 			el_appstore.addEventListener('click', appStoreDiv);
+
+			
 
             for (let i = 0, len = el_navbtn.length; i < len; i++) {
                 const that = el_navbtn[i];
@@ -79,24 +81,11 @@
 							top: 0,
 							left: 0,
 							behavior: 'smooth'
-						});
-                        console.log(that.dataset.link);
-                       
+						});                       
                     }
                 });
-
-
-                console.log(1111, this.dataset.link);
             }
-
-			console.log('------------------------------------------------------')	
 		},
-		
-		header: function(){
-			
-			
-		},
-
 		pageInit: function(v){
 			let jsName = null;
 
