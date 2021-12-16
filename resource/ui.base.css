@@ -2235,6 +2235,9 @@ body.step7 .srv-item.n8.on .unit-wrap {
         text-align: left;
         font-size: 2rem;
     }
+    .overview-have-item.first .overview-have-tit br {
+        display:none;
+    }
 
     .overview-item .hero h2 {
         font-size: 8vw;
