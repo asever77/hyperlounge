@@ -177,14 +177,11 @@
 			}
 
 			const xhr = new XMLHttpRequest();
-
             const area = option.area;
             const url = option.url;
-
             const loading = option.loading !== undefined ? option.loading : false;
             const effect = option.effect !== undefined ? option.effect : false;
             const type = option.type !== undefined ? option.type : 'GET';
-            
             const page = option.page !== undefined ? option.page : true;
             const add = option.add !== undefined ? option.add : false;
             const prepend = option.prepend !== undefined ? option.prepend : false;
@@ -296,7 +293,7 @@
 			const page = Global.parallax.options.page;
 			let nowPs = 0; 
 
-
+			console.log(psValue);
 			for (let i = 1, len = psValue.length; i < len; i++) {
 				if (cutline < psValue[i]){
 					nowPs = i;

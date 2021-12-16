@@ -1585,6 +1585,7 @@ body.step7 .srv-item.n8.on .unit-wrap {
 }
 
 /* apply */
+
 .apply-item .hero {
     width: 100%;
     position: relative;
@@ -2239,12 +2240,8 @@ body.step7 .srv-item.n8.on .unit-wrap {
         font-size: 8vw;
     }
 
-    .page-overview .step2 .base-header .base-nav button path,
-    .page-overview .step3 .base-header .base-nav button path,
-    .page-overview .step4 .base-header .base-nav button path,
-    .page-apply .step2 .base-header .base-nav button path,
-    .page-apply .step3 .base-header .base-nav button path,
-    .page-apply .step4 .base-header .base-nav button path {
+    .page-overview.is-bar .base-header .base-nav button path,
+    .page-apply.is-bar .base-header .base-nav button path {
         fill: #000;
     }
 
