@@ -49,9 +49,9 @@
 @font-face {
     font-family: 'Spoqa Han Sans Neo';
     src: local('Helvetica Neue'),
-        url('./fonts/HelveticaNeueLTPro-Bd.woff2') format('woff2'),
-        url('./fonts/HelveticaNeueLTPro-Bd.woff') format('woff'),
-        url('./fonts/HelveticaNeueLTPro-Bd.ttf') format('truetype');
+        url('./fonts/HelveticaNeueCyr-Bold.woff2') format('woff2'),
+        url('./fonts/HelveticaNeueCyr-Bold.woff') format('woff'),
+        url('./fonts/HelveticaNeueCyr-Bold.ttf') format('truetype');
     unicode-range: U+0041-005A, U+0061-007A;
     font-weight: 700;
 }
