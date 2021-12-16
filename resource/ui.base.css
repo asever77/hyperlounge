@@ -1262,7 +1262,7 @@ body.step7 .srv-item.n8.on .unit-wrap {
 
 /* service 9 */
 .srv-item.n9 {
-    height: calc(100vh - 33.8rem);
+    height: calc(100vh - 31.1rem);
     background: black;
     z-index: 12;
 }
