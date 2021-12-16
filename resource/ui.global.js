@@ -293,7 +293,6 @@
 			const page = Global.parallax.options.page;
 			let nowPs = 0; 
 
-			console.log(psValue);
 			for (let i = 1, len = psValue.length; i < len; i++) {
 				if (cutline < psValue[i]){
 					nowPs = i;
