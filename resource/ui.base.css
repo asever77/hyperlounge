@@ -4,9 +4,9 @@
     font-family: 'Spoqa Han Sans Neo';
     font-weight: 700;
     src: local('Spoqa Han Sans Neo Bold'),
-        url('./fonts/SpoqaHanSansNeo-Bold.woff2') format('woff2'),
-        url('./fonts/SpoqaHanSansNeo-Bold.woff') format('woff'),
-        url('./fonts/SpoqaHanSansNeo-Bold.ttf') format('truetype');
+    url('./fonts/SpoqaHanSansNeo-Bold.woff2') format('woff2'),
+    url('./fonts/SpoqaHanSansNeo-Bold.woff') format('woff'),
+    url('./fonts/SpoqaHanSansNeo-Bold.ttf') format('truetype');
 }
 
 
@@ -14,44 +14,44 @@
     font-family: 'Spoqa Han Sans Neo';
     font-weight: 500;
     src: local('Spoqa Han Sans Neo Medium'),
-        url('./fonts/SpoqaHanSansNeo-Medium.woff2') format('woff2'),
-        url('./fonts/SpoqaHanSansNeo-Medium.woff') format('woff'),
-        url('./fonts/SpoqaHanSansNeo-Medium.ttf') format('truetype');
+    url('./fonts/SpoqaHanSansNeo-Medium.woff2') format('woff2'),
+    url('./fonts/SpoqaHanSansNeo-Medium.woff') format('woff'),
+    url('./fonts/SpoqaHanSansNeo-Medium.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'Spoqa Han Sans Neo';
     font-weight: 400;
     src: local('Spoqa Han Sans Neo Regular'),
-        url('./fonts/SpoqaHanSansNeo-Regular.woff2') format('woff2'),
-        url('./fonts/SpoqaHanSansNeo-Regular.woff') format('woff'),
-        url('./fonts/SpoqaHanSansNeo-Regular.ttf') format('truetype');
+    url('./fonts/SpoqaHanSansNeo-Regular.woff2') format('woff2'),
+    url('./fonts/SpoqaHanSansNeo-Regular.woff') format('woff'),
+    url('./fonts/SpoqaHanSansNeo-Regular.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'Spoqa Han Sans Neo';
     font-weight: 300;
     src: local('Spoqa Han Sans Neo Light'),
-        url('./fonts/SpoqaHanSansNeo-Light.woff2') format('woff2'),
-        url('./fonts/SpoqaHanSansNeo-Light.woff') format('woff'),
-        url('./fonts/SpoqaHanSansNeo-Light.ttf') format('truetype');
+    url('./fonts/SpoqaHanSansNeo-Light.woff2') format('woff2'),
+    url('./fonts/SpoqaHanSansNeo-Light.woff') format('woff'),
+    url('./fonts/SpoqaHanSansNeo-Light.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'Spoqa Han Sans Neo';
     font-weight: 100;
     src: local('Spoqa Han Sans Neo Thin'),
-        url('./fonts/SpoqaHanSansNeo-Thin.woff2') format('woff2'),
-        url('./fonts/SpoqaHanSansNeo-Thin.woff') format('woff'),
-        url('./fonts/SpoqaHanSansNeo-Thin.ttf') format('truetype');
+    url('./fonts/SpoqaHanSansNeo-Thin.woff2') format('woff2'),
+    url('./fonts/SpoqaHanSansNeo-Thin.woff') format('woff'),
+    url('./fonts/SpoqaHanSansNeo-Thin.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'Spoqa Han Sans Neo';
     src: local('Helvetica Neue'),
-        url('./fonts/HelveticaNeueCyr-Bold.woff2') format('woff2'),
-        url('./fonts/HelveticaNeueCyr-Bold.woff') format('woff'),
-        url('./fonts/HelveticaNeueCyr-Bold.ttf') format('truetype');
+    url('./fonts/HelveticaNeueCyr-Bold.woff2') format('woff2'),
+    url('./fonts/HelveticaNeueCyr-Bold.woff') format('woff'),
+    url('./fonts/HelveticaNeueCyr-Bold.ttf') format('truetype');
     unicode-range: U+0041-005A, U+0061-007A;
     font-weight: 700;
 }
@@ -59,9 +59,9 @@
 @font-face {
     font-family: 'Spoqa Han Sans Neo';
     src: local('Helvetica Neue'),
-        url('./fonts/HelveticaNeueLTPro-Md.woff2') format('woff2'),
-        url('./fonts/HelveticaNeueLTPro-Md.woff') format('woff'),
-        url('./fonts/HelveticaNeueLTPro-Md.ttf') format('truetype');
+    url('./fonts/HelveticaNeueLTPro-Md.woff2') format('woff2'),
+    url('./fonts/HelveticaNeueLTPro-Md.woff') format('woff'),
+    url('./fonts/HelveticaNeueLTPro-Md.ttf') format('truetype');
     unicode-range: U+0041-005A, U+0061-007A;
     font-weight: 400;
 }
@@ -69,9 +69,9 @@
 @font-face {
     font-family: 'Spoqa Han Sans Neo';
     src: local('Helvetica Neue'),
-        url('./fonts/HelveticaNeueLTPro-Lt.woff2') format('woff2'),
-        url('./fonts/HelveticaNeueLTPro-Lt.woff') format('woff'),
-        url('./fonts/HelveticaNeueLTPro-Lt.ttf') format('truetype');
+    url('./fonts/HelveticaNeueLTPro-Lt.woff2') format('woff2'),
+    url('./fonts/HelveticaNeueLTPro-Lt.woff') format('woff'),
+    url('./fonts/HelveticaNeueLTPro-Lt.ttf') format('truetype');
     unicode-range: U+0041-005A, U+0061-007A;
     font-weight: 100;
 }
@@ -1227,7 +1227,7 @@ body.step7 .srv-item.n8.on .unit-wrap {
     background: #fff;
     border-radius: 7.2rem;
     height: 40rem;
-    ;
+;
 }
 
 .card-list-item .tit-s {
@@ -1262,22 +1262,21 @@ body.step7 .srv-item.n8.on .unit-wrap {
 
 /* service 9 */
 .srv-item.n9 {
-    height: 100vh;
+    height:100vh;
     background: black;
     z-index: 12;
-}
-
-.srv-item.n9 .unit-wrap {
-    top: 0;
-    bottom: auto;
-    position: relative;
-    height: auto;
-    padding: 20rem 0 10rem;
 }
 
 /* body.step8 .srv-item.n9.on .unit-wrap{
     position: fixed;
 } */
+.srv-item.n9 .register {
+    position: absolute;
+    top: 50%;
+    left:0;
+    right:0;
+    transform: translatey(-50%);
+}
 .unit-wrap .register {
     text-align: center;
     font-weight: 700;
@@ -1529,7 +1528,7 @@ body.step7 .srv-item.n8.on .unit-wrap {
 
 .team-img img {
     width: 100%;
-    ;
+;
 }
 
 .overview-item.n2 .unit-item,
@@ -1574,7 +1573,7 @@ body.step7 .srv-item.n8.on .unit-wrap {
 .step0 .overview-item.n1 .unit-wrap {
     position: fixed;
     bottom: auto;
-    ;
+;
     top: 0;
 }
 
@@ -1633,7 +1632,7 @@ body.step7 .srv-item.n8.on .unit-wrap {
 .step0 .apply-item.n1 .unit-wrap {
     position: fixed;
     bottom: auto;
-    ;
+;
     top: 0;
 }
 
@@ -1815,7 +1814,7 @@ body.step7 .srv-item.n8.on .unit-wrap {
         margin: 0 0 2rem;
         text-align: center;
         padding: 0;
-        ;
+    ;
     }
 
     .nav-link {
@@ -1972,6 +1971,17 @@ body.step7 .srv-item.n8.on .unit-wrap {
 
     .srv-icon.n10 {
         transform: translate(21vw, -29vh);
+    }
+    .srv-item.n9 .unit-wrap {
+        top: 0;
+        bottom: auto;
+        position: relative;
+        height: auto;
+        padding: 20rem 0 10rem;
+    }
+    .srv-item.n9 .register {
+        position: static;
+        transform: translatey(0);
     }
 
     .boxlist {
@@ -2303,7 +2313,7 @@ body.step7 .srv-item.n8.on .unit-wrap {
     .step0 .apply-item.n1 .unit-wrap {
         position: fixed;
         bottom: auto;
-        ;
+    ;
         top: 0;
     }
 
