@@ -620,68 +620,133 @@ select::-ms-expand {
     position: absolute;
     z-index: 0;
     width: 0;
-    height: 1rem;
-    background-color: #ee3224;
-    transition: width .2s ease-in;
+    height: 0;
+    border: 1rem solid none;
+    /* background-color: #ee3224; */
+    transition: width .4s ease-in, border .2s ease-out;
 }
 
-.srv-item .line::before {
+/* .srv-item .line::before {
     content: "";
     display: block;
     width: 0;
     height: 0;
     position: absolute;
+} */
+.eff-title {
+    text-align: center;
+    transform: translate(-50%, -50%);
+    transform-style: preserve-3d;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+.eff-title .text {
+    font-weight: 700;
+    font-size: 13vmin;
+    line-height: 1.0;
+    letter-spacing: -.4vmin;
 }
 
+.eff-title .write .word {
+    color: #fff;
+    transform-style: preserve-3d;
+    animation: write linear both;
+}
+
+.eff-title .laser {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.eff-title .laser .word {
+    display: inline-block;
+}
+
+.eff-title .laser .word {
+    color: #fff;
+    text-shadow: 0 0 0.1em currentColor;
+    transform: translateZ(5px);
+    animation: laser linear both;
+}
+
+.eff-title .write .word,
+.eff-title .laser .word {
+    animation-duration: 3s;
+    animation-delay: calc(0.3s + 0 * 160ms);
+    animation-iteration-count: 1;
+}
+
+.eff-title:hover .word {
+    animation-play-state: paused;
+}
+
+@keyframes write {
+from, 30% { clip-path: polygon(-20% 0%, -15% 0%, -15% 100%, -20% 100%) }
+70%, to { clip-path: polygon(-15% 0%, 120% 0%, 120% 100%, -15% 100%) }
+}
+
+@keyframes laser {
+from, 30% { clip-path: polygon(-20% 0%, -15% 0%, -15% 100%, -20% 100%) }
+70%, to { clip-path: polygon(115% 0%, 120% 0%, 120% 100%, 115% 100%) }
+}
 /* service 1 */
+html.page-service.scroll{
+    overflow: auto;
+}
+html.page-service{
+    overflow: hidden;
+}
+
 .srv-item.n1 {
-    height: 300vh;
+    height: 150vh;
     background: linear-gradient(141deg, #181818 25%, #000 92%);
     z-index: 13;
 }
 
 body.step0 .srv-item.n1 .unit-wrap {
-    position: fixed;
     top: 0;
     bottom: auto;
 }
 
-.hello {
-    position: absolute;
-    display: block;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 13vmin;
-    color: #fff;
-    z-index: 1;
-    font-weight: 700;
-    letter-spacing: -1.6vmin;
+body.step0 .srv-item.n1 .unit-wrap {
+    position: fixed;
 }
 
-.hello .unit {
-    display: inline-block;
-    opacity: 0.1;
-    transition: opacity .2s ease-in;
-}
-
-.hello .unit.on {
-    opacity: 1;
-}
 
 .page-service .srv-item.n1 .line {
     top: 50%;
-    right: -2rem;
-    transform: translate(0, -50%);
-    width: 0;
-    margin-top: 5vh;
+    left: 50%;
+    transform: translate(15vmin, 4vh);
+    border-left: 0 solid transparent;
+    border-right: 0 solid transparent;
+    border-bottom:1rem solid #ee3224;
 }
-
-.page-service .srv-item.n1 .line::before {
+.page-service .srv-item.n1 .line.act{
+    border-left: 1rem solid transparent;
+    width: 100%;
+}
+/* .helloNext{
+    position:absolute;
+    top:50%;
+    left:200vmin;
+    transform: translate(50%,-50%);
+}
+.helloNext .infotxt1{
+    position: absolute;
+    left:0;
+    top:0;
+}
+.helloNext .img{
+    margin-left: 10vmin;
+} */
+/* .page-service .srv-item.n1 .line::before {
     border-top: 1rem solid transparent;
     border-right: 1rem solid #ee3224;
     left: -1rem;
-}
+} */
 
 /* service 2 */
 .page-service .srv-item.n2 {
@@ -731,26 +796,25 @@ body.step1 .srv-item.n2.on .unit-wrap {
 }
 
 .srv-item.n2 .line {
-    top: 50%;
-    right: -2rem;
-    width: 0;
+    width: 40vw;
     margin-top: -.5rem;
+    top: 50%;
+    left: 0;
+    transform: translate(0, 4vh);
+    border-left: 0 solid transparent;
+    border-right: 1rem solid transparent;
+    border-top:1rem solid #ee3224;
 }
 
-.srv-item.n2 .line::before {
-    border-bottom: 1rem solid transparent;
-    border-left: 1rem solid #ee3224;
-    right: -1rem;
-}
-
-.srv-item.n2 .line {
+/* .srv-item.n2 .line {
     left: -2rem;
     transform: translate(0, -60%);
     margin-top: 0;
-}
+} */
 
 /* service 3 */
 .srv-item.n3 {
+    top:0;
     height: 300vh;
     background: linear-gradient(141deg, #181818 25%, #000 92%);
     z-index: 11;
@@ -782,6 +846,7 @@ body.step2 .srv-item.n3.on .unit-wrap {
     display: block;
     opacity: 0.1;
     transition: opacity .2s ease-in;
+    white-space: nowrap;
 }
 
 .infotxt2 .unit.on {
@@ -800,17 +865,16 @@ body.step2 .srv-item.n3.on .glimmer {
 }
 
 .srv-item.n3 .line {
-    top: 50%;
-    right: -2rem;
-    width: 0;
+    width: 30vw;
     margin-top: -.5rem;
+    top: 50%;
+    right: 0;
+    transform: translate(0, 4vh);
+    border-left: 1rem solid transparent;
+    border-right: 0 solid transparent;
+    border-top:1rem solid #ee3224;
 }
 
-.srv-item.n3 .line::before {
-    border-bottom: 1rem solid transparent;
-    border-right: 1rem solid #ee3224;
-    left: -1rem;
-}
 
 /* service 4 */
 .srv-item.n4 {
@@ -819,12 +883,8 @@ body.step2 .srv-item.n3.on .glimmer {
     z-index: 10;
 }
 
-/* body.step4 .srv-item.n4.off .unit-wrap{
-    background-color: #fff;
-}
-body.step4 .srv-item.n4.on .unit-wrap, */
 body.step3 .srv-item.n4.off .unit-wrap {
-    background: #ee3224;
+    background: #f4f4f4;
 }
 
 body.step4 .srv-item.n4.on .unit-wrap .numerical,
@@ -844,6 +904,14 @@ body.step3 .srv-item.n4.on .unit-wrap {
     position: fixed;
 }
 
+.srv-item.n4.on .numerical {
+    transform: translate(-50%, -50%);
+}
+
+.srv-item.n4.off .numerical {
+    opacity: 0;
+}
+
 .numerical {
     position: absolute;
     width: 100%;
@@ -858,15 +926,6 @@ body.step3 .srv-item.n4.on .unit-wrap {
     text-align: center;
     transition: transform .3s ease-out, opacity .2s ease-in;
 }
-
-.srv-item.n4.on .numerical {
-    transform: translate(-50%, -50%);
-}
-
-.srv-item.n4.off .numerical {
-    opacity: 0;
-}
-
 .numerical .unit.n1 {
     color: #666;
     font-size: 6rem;
@@ -1967,30 +2026,27 @@ body.step7 .srv-item.n8.on .unit-wrap {
         margin-top: 4rem;
     }
 
-    .page-service .srv-item .line {
-        height: .4rem;
+    .page-service .srv-item.n1 .line {
+        border-bottom: .4rem solid #ee3224;
     }
 
-    .page-service .srv-item.n1 .line::before {
-        border-top: .4rem solid transparent;
-        border-right: .4rem solid #ee3224;
-        left: -.4rem;
+    .page-service .srv-item.n2 .line {
+        border-right: .4rem solid transparent;
+        border-top: .4rem solid #ee3224;
     }
 
-    .page-service .srv-item.n2 .line::before {
-        border-bottom: .4rem solid transparent;
-        border-left: .4rem solid #ee3224;
-        right: -.4rem;
+    .page-service .srv-item.n3 .line {
+        border-top: 0;
+        border-left: .4rem solid transparent;
+        border-bottom: .4rem solid #ee3224;
     }
 
-    .page-service .srv-item.n3 .line::before {
-        border-bottom: .4rem solid transparent;
-        border-right: .4rem solid #ee3224;
-        left: -.4rem;
+    .page-service .srv-item.n1 .line.act {
+        border-left: .4rem solid transparent;
     }
 
     .page-service .srv-item.n1 .line {
-        margin-top: 5vmin;
+        margin-top: -3vmin;
     }
 
     .page-service .srv-item.n2 .img {
@@ -2007,14 +2063,19 @@ body.step7 .srv-item.n8.on .unit-wrap {
     .page-service .srv-item.n2 .img img {
         width: 100%;
     }
-
+    .page-service .infotxt2 .unit,
+    .page-service .infotxt1 .unit{
+        margin-bottom:1.2vw;
+    }
     .page-service .infotxt1 {
         transform: translate(-40vw, -35vw);
         font-size: 7vw;
     }
 
     .page-service .infotxt2 {
-        transform: translate(5vw, -35vw);
+        right:50%;
+        left:auto;
+        transform: translate(40vw, -35vw);
         font-size: 7vw;
     }
 

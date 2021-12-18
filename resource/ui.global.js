@@ -263,6 +263,7 @@
 			function calc(){
 				Global.parallax.options.psValue = [];
 				win.scrollTop = 0;
+
 				for (let i = 0, len = el_wraps.length; i < len; i++) {
 					const that = el_wraps[i];
 					let areaT = Math.floor(window.pageYOffset);
@@ -274,6 +275,15 @@
 					Global.parallax.options.psValue.push((that.getBoundingClientRect().top + areaT).toFixed(0));
 				}
 			}
+
+			if (v === 'service') {
+				setTimeout(function(){
+					console.log('line');
+					doc.querySelector('.srv-item.n1 .line').classList.add('act');
+					doc.querySelector('.page-service').classList.add('scroll')
+				},2400);
+			}
+
 			setTimeout(function(){
 				calc();
 				win.addEventListener('resize', calc);
@@ -285,7 +295,6 @@
             const el_body = doc.querySelector('body');
 			const el_html = doc.querySelector('html');
 			const clsname = el_body.getAttribute('class');
-			const arrow = doc.querySelector('.scroll-arrow');
 			const wH = window.innerHeight;
 			const wT = Math.floor(window.pageYOffset);
 			const cutline = wT + wH;
@@ -310,24 +319,13 @@
 				el_body.classList.add('step' + (nowPs - 1));
 			}
 			
-			if (wT > 100) {
-				arrow.classList.add('off');
-				
-			} else {
-				arrow.classList.remove('off');
-			}
-			
 			//service.html
 			if (page === 'service') {
 				service(cutline, nowPs);
-			}
-			if (page === 'overview' || page === 'apply') {
-
-				if (wT > wH - 120) {
-					el_html.classList.add('is-bar');
-				} else {
+			} else if (page === 'overview' || page === 'apply') {
+				(wT > wH - 120) ?
+					el_html.classList.add('is-bar'):
 					el_html.classList.remove('is-bar');
-				}
 
 				overview();
 			}
@@ -366,6 +364,7 @@
 				const wrapPrev = doc.querySelector('.ui-parallax-item.n' + (n - 1 < 0 ? 0 : n-1));
 				const wrapNext = doc.querySelector('.ui-parallax-item.n' + (n + 1));
 				const header = doc.querySelector('.base-header');
+				const unitwrap = doc.querySelector('.unit-wrap');
 				const item = wrap.querySelector('.unit-item');
                 const unit = item.querySelectorAll('.unit');
                 const line = item.querySelector('.line');
@@ -375,6 +374,10 @@
                 let minH =  Math.floor(wrap.offsetHeight);
                 let scene;
 				let cutpoint;
+				let l;
+				let opacityValue;
+				let opacityValue2;
+				let opacityValue3;
 				const isOn = wrap.classList.contains('on');
 				const isReady = wrap.classList.contains('ready');
 				const isReadyNext = wrapNext ? wrapNext.classList.contains('ready') : '';
@@ -396,47 +399,6 @@
 								wrap.classList.remove('on');
 							}
 						}
-				
-						unit[0].classList.remove('on');
-						unit[1].classList.remove('on');
-						unit[2].classList.remove('on');
-						unit[3].classList.remove('on');
-						unit[4].classList.remove('on');
-						line.style.width = 0;
-						
-						if (cutline > wH + (scene * 3)) {
-							unit[0].classList.remove('on');
-							unit[1].classList.remove('on');
-							unit[2].classList.remove('on');
-							unit[3].classList.remove('on');
-							unit[4].classList.remove('on');
-						} 
-						if (cutline > wH + (scene * 4)) {
-							unit[0].classList.add('on');
-							unit[1].classList.remove('on');
-							unit[2].classList.remove('on');
-							unit[3].classList.remove('on');
-							unit[4].classList.remove('on');
-						} 
-						if (cutline > wH + (scene * 5)) {
-							unit[1].classList.add('on');
-							unit[2].classList.remove('on');
-							unit[3].classList.remove('on');
-							unit[4].classList.remove('on');
-						} 
-						if (cutline > wH + (scene * 6)) {
-							unit[2].classList.add('on');
-							unit[3].classList.remove('on');
-							unit[4].classList.remove('on');
-						} 
-						if (cutline > wH + (scene * 7)) {
-							unit[3].classList.add('on');
-							unit[4].classList.remove('on');
-						} 
-						if (cutline > wH + (scene * 8)) {
-							unit[4].classList.add('on');
-							line.style.width = (vw / 2) - (item.querySelector('.hello').offsetWidth / 2) + 'px';
-						} 
 						break;
 
 					case 2:
@@ -467,24 +429,22 @@
 						}
 
 						cutpoint = maxH;
-						unit[0].classList.remove('on');
-						unit[1].classList.remove('on');
-						unit[2].classList.remove('on');
-						line.style.width = 0;
+						l = (cutline - cutpoint);
+						opacityValue = l * 0.005;
+						opacityValue2 = (l - 300) * 0.005;
+						opacityValue3 = (l - 600) * 0.005;
 
-						if (cutline > cutpoint + (scene * 2)) {
-							unit[0].classList.add('on');
-							unit[1].classList.remove('on');
-							unit[2].classList.remove('on');
-						} 
-						if (cutline > cutpoint + (scene * 4)) {
-							unit[1].classList.add('on');
-							unit[2].classList.remove('on');
-						} 
-						if (cutline > cutpoint + (scene * 6)) {
-							unit[2].classList.add('on');
-							line.style.width = (vw / 2.6) + 'px';
-						} 
+						opacityValue < 0 ? 
+							opacityValue = 0 : opacityValue > 1 ? opacityValue = 1 : '';
+						opacityValue2 < 0 ? 
+							opacityValue2 = 0 : opacityValue2 > 1 ? opacityValue2 = 1 : '';
+						opacityValue3 < 0 ? 
+							opacityValue3 = 0 : opacityValue3 > 1 ? opacityValue3 = 1 : '';
+
+						unit[0].style.opacity = opacityValue + 0.1;
+						unit[1].style.opacity = opacityValue2 + 0.1;
+						unit[2].style.opacity = opacityValue3 + 0.1;	
+
 						break;
 
 					case 3:
@@ -504,7 +464,6 @@
 						} 
 						if (cutline > maxH) {
 							if (!isOn) {
-								
 								wrapPrev.classList.add('off');
 								wrap.classList.remove('off');
 								wrap.classList.add('on');
@@ -517,24 +476,22 @@
 						}
 
 						cutpoint = maxH;
-						unit[0].classList.remove('on');
-						unit[1].classList.remove('on');
-						unit[2].classList.remove('on');
-						line.style.width = 0;
+						l = (cutline - cutpoint);
+						opacityValue = l * 0.005;
+						opacityValue2 = (l - 300) * 0.005;
+						opacityValue3 = (l - 600) * 0.005;
 
-						if (cutline > cutpoint + (scene * 2)) {
-							unit[0].classList.add('on');
-							unit[1].classList.remove('on');
-							unit[2].classList.remove('on');
-						} 
-						if (cutline > cutpoint + (scene * 4)) {
-							unit[1].classList.add('on');
-							unit[2].classList.remove('on');
-						} 
-						if (cutline > cutpoint + (scene * 6)) {
-							unit[2].classList.add('on');
-							line.style.width = (vw / 2.7) + 'px';
-						} 
+						opacityValue < 0 ? 
+							opacityValue = 0 : opacityValue > 1 ? opacityValue = 1 : '';
+						opacityValue2 < 0 ? 
+							opacityValue2 = 0 : opacityValue2 > 1 ? opacityValue2 = 1 : '';
+						opacityValue3 < 0 ? 
+							opacityValue3 = 0 : opacityValue3 > 1 ? opacityValue3 = 1 : '';
+
+						unit[0].style.opacity = opacityValue + 0.1;
+						unit[1].style.opacity = opacityValue2 + 0.1;
+						unit[2].style.opacity = opacityValue3 + 0.1;
+
 						break;
 
 					case 4 :
@@ -562,7 +519,6 @@
 							}
 						} else {
 							if (!!isOn) {
-								
 								wrapPrev.classList.remove('off');
 								wrap.classList.remove('on');
 							}
@@ -570,7 +526,7 @@
 
 						cutpoint = maxH;
 
-						if (cutline > cutpoint + (scene * 2)) {
+						if (cutline > cutpoint - (vw / 2)) {
 							Global.number.counter('counter1', 100);
 						} 
 						break;
@@ -610,8 +566,9 @@
 
 						cutpoint = maxH;
 
-						if (cutline > cutpoint + (scene * 1)) {
-							Global.number.counter('counter2',900);
+		
+						if (cutline > cutpoint - (vw / 2)) {
+							Global.number.counter('counter12', 900);
 						} 
 						break;
 

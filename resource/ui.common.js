@@ -22,6 +22,7 @@
 				callback: function(){
                     HyperloungeUI.parallax.init(firstpage);
 					el_html.classList.add('page-' + firstpage);
+					Splitting();
 				}
 			});
 
@@ -40,7 +41,7 @@
 				
 				wrap.classList.toggle('on');
 			}
-
+			
             function pageGO() {
                 const that = this;
                 HyperloungeUI.ajax.init({ 
@@ -56,12 +57,15 @@
                         el_html.classList.remove('page-service');
                         el_html.classList.remove('page-overview');
                         el_html.classList.remove('page-apply');
+						el_html.classList.remove('scroll');
                         el_html.classList.add('page-' + that.dataset.link);
 						el_header.classList.remove('type-b');
 						el_header.classList.remove('type-c');
 						HyperloungeUI.common.naveClose();
 						window.removeEventListener('scroll', HyperloungeUI.parallax.act);
 						HyperloungeUI.parallax.init(that.dataset.link);
+
+						that.dataset.link === 'service' ? Splitting() : '';
 						window.scrollTo({
 							top: 0,
 							left: 0,
