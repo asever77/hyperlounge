@@ -1409,6 +1409,7 @@ body.step7 .srv-item.n8.on .unit-wrap {
 .overview-item .hero h2 {
     font-size: 10rem;
     color: #fff;
+    font-weight:700;
 
 }
 
@@ -1446,6 +1447,12 @@ body.step7 .srv-item.n8.on .unit-wrap {
     letter-spacing: -.2rem;
     font-weight: 700;
     line-height: 11.5rem
+}
+.overview-title.k-logo {
+    font-size:0;
+    width:74rem;
+    height:7.4rem;
+    background:url("../resource/img/hyperlounge-kor-logo.png") no-repeat 50% 50% / 100%;
 }
 
 .overview-have-item {
@@ -1485,6 +1492,9 @@ body.step7 .srv-item.n8.on .unit-wrap {
     letter-spacing: -.3px;
     color: #000;
     margin-top: 2.4rem
+}
+.overview-have-item .overview-have-desc ~ .overview-have-desc {
+    margin-top:2rem;
 }
 
 .overview-team-desc {
@@ -1538,7 +1548,27 @@ body.step7 .srv-item.n8.on .unit-wrap {
 
 .contact-data {
     display: flex;
-    margin-top: 8rem
+    justify-content:space-between;
+    margin-top: 8rem;
+    align-items:center;
+}
+
+.contact-data .sns-box button {
+    width:4rem;
+    height:4rem;
+    margin-left:2rem;
+    background-size:100%;
+    background-position:50% 50%;
+    background-repeat:no-repeat;
+}
+.contact-data .sns-box button:hover {
+    opacity:.6;
+}
+.contact-data .sns-box .btn-facebook {
+    background-image:url("../resource/img/btn-facebook.png");
+}
+.contact-data .sns-box .btn-linkedin {
+    background-image:url("../resource/img/btn-linkedin.png");
 }
 
 .contact-data .contact-item {
@@ -1564,7 +1594,7 @@ body.step7 .srv-item.n8.on .unit-wrap {
 }
 
 .contact-map {
-    margin-top: 4rem;
+    margin-top:3.2rem;
     height: 42rem
 }
 
@@ -1690,57 +1720,55 @@ body.step7 .srv-item.n8.on .unit-wrap {
 }
 
 .apply-content {
-    max-width: 940px;
-    margin: 22rem auto
+    /*max-width: 940px;*/
+    margin: 22rem auto;
 }
 
 .apply-h3 {
     font-size: 9.6rem;
     font-weight: 600;
-    margin-bottom: 4rem;
+    max-width:94rem;
+    margin:0 auto 4rem;
 }
 
 .apply-group+.apply-group {
-    margin-top: 8rem;
+    margin-top: 16rem;
 }
 
 .apply-group {
     width: 100%;
-    position: relative;
+    max-width:94rem;
+    margin:0 auto;
+   /* position: relative;
     height: 40rem;
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: flex-end;*/
 }
 
 .apply-group .apply-img {
-    display: inline-block;
-    width: 46rem;
+    display:flex;
+    justify-content:space-between;
+}
+.apply-group .apply-img img {
+    vertical-align:top;
+    max-width:100%;
+}
+.apply-group .apply-img .img-a {
+    width:60rem;
+}
+.apply-group .apply-img .img-b {
+    width:33rem;
 }
 
-.apply-group.n2 .apply-img {
-    display: inline-block;
-    width: 42.5rem;
-}
-
-.apply-group.n1 .apply-cont {
-    display: inline-block;
-    width: 43rem;
-    margin-left: 5rem;
+.apply-group .apply-cont {
+    margin-top:4rem;
     word-break: keep-all;
 }
-
-.apply-group.n2 .apply-cont {
-    display: inline-block;
-    width: 45.5rem;
-    margin-right: 5rem;
-    word-break: keep-all;
-    text-align: right;
-}
-
 .apply-cont .apply-tit {
     font-size: 3.2rem;
     font-weight: 600;
+    line-height:4.8rem;
     margin-bottom: 3rem;
     word-break: keep-all;
 }
@@ -1749,27 +1777,72 @@ body.step7 .srv-item.n8.on .unit-wrap {
     font-size: 2rem;
 }
 
-.apply-group.n1 .apply-img img {
-    width: 60rem;
-    margin-left: -14rem
+.apply-interview-list {
+    margin-top:24rem;
+    padding:24rem 0 22rem;
+    background-color:#f4f4f4;
 }
-
-.apply-group.n2 .apply-img img {
-    width: 60rem;
-    margin-right: -12.5rem
+.interview-item {
+    text-align:center;
+    max-width:94rem;
+    margin:0 auto;
 }
-
-.apply-img img {
-    width: 100%;
-    height: 100%;
+.interview-item ~ .interview-item {
+    margin-top:14rem;
+}
+.interview-item .photo-box {
+    width:11.4rem;
+    height:11.4rem;
+    border-radius:50%;
+    overflow:hidden;
+    margin:0 auto;
+}
+.interview-item .interview-content {
+    margin-top:4rem;
+    font-size:3.2rem;
+    line-height:4.8rem;
+    font-weight:600;
+    color:#000;
+    text-align:center;
+}
+.interview-item .interview-name {
+    margin-top:4rem;
+    font-weight:600;
+    color:#000;
+    font-size:2rem;
+    text-align:center;
+    line-height:2.4rem;
+}
+.interview-item .interview-position {
+    margin-top:1.2rem;
+    color:#888;
+    font-weight:300;
+    text-align:center;
+}
+.interview-item .interview-position .interview-position-item {
+    display:inline-block;
+    margin:0 .4rem;
+    line-height:2rem;
+}
+.interview-item .interview-position .interview-position-item ~ .interview-position-item {
+    position:relative;
+    padding-left:1.2rem;
+}
+.interview-item .interview-position .interview-position-item ~ .interview-position-item:before {
+    content:'';
+    position:absolute;
+    left:0;
+    top:.8rem;
+    width:.4rem;
+    height:.4rem;
+    border-radius:50%;
+    background-color:#888;
 }
 
 .apply-gallery {
     overflow: hidden;
-    width: calc(100% + 2rem);
-    margin-left: -1rem;
+    width:100%;
 }
-
 .apply-gallery img {
     float: left;
     width: 30rem;
@@ -2170,6 +2243,10 @@ body.step7 .srv-item.n8.on .unit-wrap {
     .overview-have-item.first .overview-have-desc {
         text-align: left;
     }
+    .overview-title.k-logo {
+        width:28rem;
+        height:2.8rem;
+    }
 
     .overview-item~.overview-item {
         margin-top: 12rem;
@@ -2185,7 +2262,7 @@ body.step7 .srv-item.n8.on .unit-wrap {
     }
 
     .overview-have-item {
-        margin-top: 4rem;
+        margin-top: 4.8rem;
         display: block;
         word-break: keep-all;
     }
@@ -2206,7 +2283,7 @@ body.step7 .srv-item.n8.on .unit-wrap {
     }
 
     .overview-have-item .overview-have-tit {
-        font-size: 3.2rem;
+        font-size: 2.4rem;
         line-height: 3.6rem;
         letter-spacing: -.067rem
     }
@@ -2232,9 +2309,12 @@ body.step7 .srv-item.n8.on .unit-wrap {
     }
 
     .team-member .team-item {
-        width: calc(50% - .8rem);
+        width: 100%;
         margin: 4rem 0 0;
         padding-top: 1rem
+    }
+    .team-member .team-item ~ .team-item {
+        margin-top:2.4rem;
     }
 
     .team-member .team-name {
@@ -2276,9 +2356,20 @@ body.step7 .srv-item.n8.on .unit-wrap {
         font-size: 1.2rem;
         line-height: 2rem
     }
+    .contact-data .sns-box {
+        margin-top:2.4rem;
+        margin-left:4.8rem;
+    }
+    .contact-data .sns-box button {
+        margin-left:0;
+        margin-right:1.2rem;
+        width:2.4rem;
+        height:2.4rem;
+        vertical-align:top;
+    }
 
     .contact-map {
-        margin-top: 1.6rem;
+        margin-top: 2.4rem;
         height: 30vh
     }
 
@@ -2393,8 +2484,6 @@ body.step7 .srv-item.n8.on .unit-wrap {
         position: relative;
         height: auto;
         display: block;
-        justify-content: space-between;
-        align-items: flex-end;
     }
 
     .apply-group.n2 {
