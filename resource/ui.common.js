@@ -10,6 +10,7 @@
 			const el_nav = doc.querySelector('.nav-link');
             const el_navbtn = el_nav.querySelectorAll('button');
 			const el_appstore = doc.querySelector('#appstoreToggle');
+			const el_appstore2 = doc.querySelector('#appstoreToggle2');
 			const btn_menu = doc.querySelector('.btn-menu');
 			const btn_close = doc.querySelector('.btn-close');
 			const firstpage = 'service';
@@ -29,6 +30,7 @@
 			btn_menu.addEventListener('click', HyperloungeUI.common.naveOpen);
 			btn_close.addEventListener('click', HyperloungeUI.common.naveClose);
 			el_appstore.addEventListener('click', appStoreDiv);
+			el_appstore2.addEventListener('click', appStoreDiv);
 
             for (let i = 0, len = el_navbtn.length; i < len; i++) {
                 const that = el_navbtn[i];
@@ -36,9 +38,11 @@
                 that.addEventListener('click', pageGO);
             }
 
-			function appStoreDiv() {
-				const wrap = doc.querySelector('.appstore');
-				
+			function appStoreDiv(e) {
+				const btn = e.currentTarget;
+				const toggle = btn.dataset.toggle;
+				const wrap = doc.querySelector('.appstore[data-toggle="'+toggle+'"]');
+				console.log(wrap);
 				wrap.classList.toggle('on');
 			}
 			
