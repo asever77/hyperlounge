@@ -547,9 +547,10 @@
 							unitwrap.classList.remove('datainfo3');
 							unitwrap.classList.add('datainfo2');
 							
-							Global.number.recounterReset('counter3');
+							Global.number.counterReset('counter3');
 							Global.number.counter('counter2', 600);
 
+							header.classList.add('type-b');
 							header.classList.remove('type-c');
 						}
 
@@ -558,7 +559,7 @@
 							unitwrap.classList.remove('datainfo2');
 							unitwrap.classList.add('datainfo3');
 
-							Global.number.recounter('counter3', 90);
+							Global.number.counter('counter3', 90);
 
 							header.classList.add('type-c');
 							header.classList.remove('type-b');
@@ -574,12 +575,14 @@
 						if (cutline > maxH - wH) {
 							if (!isReady) {
 								wrap.classList.add('ready');
-								header.classList.remove('type-c');
+								console.log(1);
+								// header.classList.remove('type-c');
 							}
 						} 
 						if (cutline < maxH + minH) {
 							if (isReadyNext) {
 								wrapNext.classList.remove('ready');
+								console.log(2);
 							}
 						} 
 						if (cutline > maxH) {
@@ -591,17 +594,26 @@
 
 								header.classList.add('type-b');
 								header.classList.remove('type-c');
+								console.log(3);
 							}
 						} else {
 							if (!!isOn) {
 								wrapPrev.classList.remove('ready');
 								wrapPrev.classList.remove('off');
 								wrap.classList.remove('on');
-								header.classList.remove('type-c');
+								header.classList.add('type-c');
+								header.classList.remove('type-b');
+								console.log(4);
 							}
 						}
 
 						cutpoint = maxH;
+
+						if (cutline < cutpoint - wH + 10) {
+							header.classList.add('type-c');
+							console.log(5);
+						}
+
 						opacityValue = (wH / 5) - ((cutline - cutpoint) * 3);
 						opacityValue2 = (wH / 3) - ((cutline - cutpoint) * 2);
 						opacityValue3 = (wH / 2) - ((cutline - cutpoint) * 1.2);
@@ -708,7 +720,7 @@
 						}
 						break;
 
-					case 9:
+					case 8:
 						//scene = (pH - maxH - wH) / 10;
 
 						if (cutline > maxH - wH) {
@@ -723,12 +735,16 @@
 								wrap.classList.remove('ready');
 								wrap.classList.remove('off');
 								wrap.classList.add('on');
+
+								header.classList.remove('type-b');
 							}
 						} else {
 							if (!!isOn) {
 								wrapPrev.classList.remove('ready');
 								wrapPrev.classList.remove('off');
 								wrap.classList.remove('on');
+
+								header.classList.add('type-b');
 							}
 						}
 
