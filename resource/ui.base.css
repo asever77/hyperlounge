@@ -305,6 +305,10 @@ select::-ms-expand {
     justify-content: center;
     /* mix-blend-mode: difference; */
 }
+.appstore-group{
+    display: flex;
+    justify-content: space-between;
+}
 .base-header.type-b .logo g{
     fill:#000;
 }
@@ -312,6 +316,7 @@ select::-ms-expand {
     color:#000;
 }
 
+.size-mobile .appstore.on .btn-base path,
 .base-header.type-c .appstore .btn-base path{
     fill:#ee3224;
 }
@@ -319,6 +324,19 @@ select::-ms-expand {
     background-color: #fff;
     color:#ee3224;
 }
+
+
+.size-mobile .appstore .btn-base.primary {
+    background-color:#ee3224 !important;
+    color:#fff !important;
+    padding:0 !important;
+}
+.size-mobile .appstore.on .btn-base.primary {
+    background-color:#fff !important;
+    border:1px solid #ee3224 !important;
+    color:#ee3224 !important;
+}
+
 
 
 .base-header-wrap {
@@ -472,12 +490,13 @@ select::-ms-expand {
     border-color: #eee;
     color:#000;
 }
+.size-mobile .appstore-wrap .btn-store,
 .type-b .appstore-wrap .btn-store {
     background-color: transparent;
     border-color: #000;
     color:#000;
 }
-
+.size-mobile .appstore-wrap .btn-store:hover,
 .is-bar .appstore-wrap .btn-store:hover,
 .type-b .appstore-wrap .btn-store:hover {
     background-color: #eee;
@@ -1185,16 +1204,7 @@ body.step6 .srv-item.n7.on .unit-wrap {
     background: #ee3224;
     color: #fff;
 }
-.size-mobile .appstore .btn-base.primary {
-    background-color:#ee3224 !important;
-    color:#fff !important;
-    padding:0 !important;
-}
-.size-mobile .appstore.on .btn-base.primary {
-    background-color:#fff !important;
-    border:1px solid #ee3224 !important;
-    color:#ee3224 !important;
-}
+
 .appstore.on .btn-base,
 .btn-base.primary:hover,
 .btn-base.primary:active {
@@ -1822,7 +1832,9 @@ body.step6 .srv-item.n7.on .unit-wrap {
     .base-nav-wrap .appstore {
         margin-top: 4rem;
     }
-
+    .appstore + .appstore{
+        margin-lefT:2rem;
+    }
     .page-service .srv-item.n1 .line {
         border-bottom: .4rem solid #ee3224;
     }
@@ -2052,7 +2064,7 @@ body.step6 .srv-item.n7.on .unit-wrap {
     }
 
     .overview-have-item {
-        margin-top: 4.8rem;
+        margin-top: 8rem;
         display: block;
         word-break: keep-all;
     }
@@ -2182,7 +2194,15 @@ body.step6 .srv-item.n7.on .unit-wrap {
     .overview-item .hero h2 {
         font-size: 8vw;
     }
-
+    .size-mobile .base-header.type-c .appstore.on button path,
+    .size-mobile .base-header.type-b .appstore.on button path{
+        fill: #ee3224;
+    }
+    .size-mobile .base-header.type-c .appstore button path,
+    .size-mobile .base-header.type-b .appstore button path{
+        fill: #fff;
+    }
+    .base-header.type-b .base-nav button path,
     .page-overview.is-bar .base-header .base-nav button path,
     .page-apply.is-bar .base-header .base-nav button path {
         fill: #000;
