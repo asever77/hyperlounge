@@ -1187,6 +1187,8 @@ body.step6 .srv-item.n7.on .unit-wrap {
     border-radius: 3rem;
     padding: 0 4rem;
     transition: background .2s ease-in, border .2s ease-in;
+    display: inline-flex;
+    align-items: center;
 }
 
 .btn-base.primary {
