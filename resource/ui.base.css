@@ -1362,11 +1362,11 @@ body.step7 .srv-item.n8.on .unit-wrap {
 }
 
 .overview-have-item .overview-have-content {
-    padding-left: 3rem
+    padding-left: 3rem;
 }
 
 .overview-have-item .overview-have-img img {
-    max-width: 100%
+    max-width: 32.5rem;
 }
 
 .overview-have-item .overview-have-tit {
@@ -1425,9 +1425,9 @@ body.step7 .srv-item.n8.on .unit-wrap {
 
 .team-member .team-name .team-position {
     font-size: 1.6rem;
-    color: #888;
+    color: #666;
     margin-left: 1rem;
-    font-weight: 100
+    font-weight: 400;
 }
 
 .team-member .team-career {
