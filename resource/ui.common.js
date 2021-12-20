@@ -29,8 +29,8 @@
 
 			btn_menu.addEventListener('click', HyperloungeUI.common.naveOpen);
 			btn_close.addEventListener('click', HyperloungeUI.common.naveClose);
-			el_appstore.addEventListener('click', appStoreDiv);
-			el_appstore2.addEventListener('click', appStoreDiv);
+			el_appstore && el_appstore.addEventListener('click', appStoreDiv);
+			el_appstore2 && el_appstore2.addEventListener('click', appStoreDiv);
 
             for (let i = 0, len = el_navbtn.length; i < len; i++) {
                 const that = el_navbtn[i];
@@ -42,7 +42,7 @@
 				const btn = e.currentTarget;
 				const toggle = btn.dataset.toggle;
 				const wrap = doc.querySelector('.appstore[data-toggle="'+toggle+'"]');
-				console.log(wrap);
+
 				wrap.classList.toggle('on');
 			}
 			
