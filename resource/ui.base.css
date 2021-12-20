@@ -1787,7 +1787,7 @@ body.step7 .srv-item.n8.on .unit-wrap {
 }
 
 .scroll-arrow.off {
-    bottom: -10vh;
+    bottom: -20vh;
 }
 .scroll .scroll-arrow {
     display: block;
@@ -2551,6 +2551,14 @@ body.step7 .srv-item.n8.on .unit-wrap {
         width: 16.4rem !important;
         padding:0 !important;
         margin-top:1rem
+    }
+
+    .scroll-arrow{
+        bottom: 3vh;
+    }
+    .scroll-arrow svg{
+        width:1.2rem;
+        height:3rem;
     }
 }
 
