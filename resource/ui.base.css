@@ -1227,6 +1227,8 @@ body.step7 .srv-item.n8.on .unit-wrap {
     border-radius: 3rem;
     padding: 0 4rem;
     transition: background .2s ease-in, border .2s ease-in;
+    display: inline-flex;
+    align-items: center;
 }
 .btn-base.type-line:hover{
     background:rgba(256,256,256,.2);
@@ -2545,7 +2547,7 @@ body.step7 .srv-item.n8.on .unit-wrap {
     .btn-group{
         margin-top:2rem;
     }
-    .btn-group button{
+    .btn-group .btn-base{
         width: 16.4rem !important;
         padding:0 !important;
         margin-top:1rem
