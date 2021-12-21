@@ -329,7 +329,9 @@
 					top: 0,
 					left: 0,
 					behavior: 'smooth'
-				});    
+				});
+				doc.querySelector('.base-header').classList.remove('type-b');
+				doc.querySelector('.base-header').classList.remove('type-c');
 			});
 
 			if (wT > 100) {
