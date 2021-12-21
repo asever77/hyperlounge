@@ -1229,6 +1229,7 @@ body.step7 .srv-item.n8.on .unit-wrap {
     transition: background .2s ease-in, border .2s ease-in;
     display: inline-flex;
     align-items: center;
+    justify-content: center;
 }
 .btn-base.type-line:hover{
     background:rgba(256,256,256,.2);
@@ -1832,6 +1833,11 @@ body.step7 .srv-item.n8.on .unit-wrap {
     animation: motionArrow 1.4s ease-in-out 0s infinite alternate;
 }
 
+.btn-group{
+    margin:2rem auto 0;
+    width:34.6rem;
+    line-height: 1;
+}
 
 @media screen and (max-width: 979px) {
     .only-m {
@@ -2570,12 +2576,14 @@ body.step7 .srv-item.n8.on .unit-wrap {
         width: 100%;
     }
     .btn-group{
-        margin-top:2rem;
+        margin:2rem auto 0;
+        width:16.4rem !important;
     }
     .btn-group .btn-base{
         width: 16.4rem !important;
         padding:0 !important;
-        margin-top:1rem
+        margin-top:1rem;
+        display: inline-flex;
     }
 
     .scroll-arrow{
