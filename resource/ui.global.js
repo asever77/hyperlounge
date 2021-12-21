@@ -331,8 +331,11 @@
 					left: 0,
 					behavior: 'smooth'
 				});
-				el_header.classList.remove('type-b');
-				el_header.classList.remove('type-c');
+				setTimeout(function(){
+					el_header.classList.remove('type-b');
+					el_header.classList.remove('type-c');
+				},0);
+				
 			});
 
 			if (wT > 100) {
