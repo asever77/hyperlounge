@@ -355,8 +355,10 @@
 					} else {
 						if (st > itemTop - vh && st < itemTop - vh + s ) {
 							that.style.transform = 'translateY('+ nn +'px)';
+							that.classList.remove('on');
 						} else if (st > itemTop - vh + s )  {
 							that.style.transform = 'translateY(0px)';
+							that.classList.add('on');
 						}
 					}
 				}

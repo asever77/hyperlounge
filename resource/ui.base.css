@@ -1585,6 +1585,9 @@ body.step7 .srv-item.n8.on .unit-wrap {
     line-height: 1.6;
     padding-left: 1rem;
 }
+.apply-item .hero h2 span.m-type {
+    display:none;
+}
 
 .apply-item.n2 .unit-item,
 .apply-item.n3 .unit-item,
@@ -1693,6 +1696,11 @@ body.step7 .srv-item.n8.on .unit-wrap {
     max-width:94rem;
     margin:0 auto;
     padding-top:19.6rem;
+    opacity:0;
+    transition: opacity 1s ease-in;
+}
+.interview-item.on .interview-data {
+    opacity:1;
 }
 .interview-item .interview-content {
     font-size:4rem;
@@ -2332,7 +2340,7 @@ body.step7 .srv-item.n8.on .unit-wrap {
         justify-content: center;
         align-items: flex-end;
         text-align: center;
-        padding-bottom: 22vh;
+        padding-bottom: 18vh;
     }
 
     .apply-item .hero h2 {
@@ -2348,6 +2356,12 @@ body.step7 .srv-item.n8.on .unit-wrap {
         font-size: 4.2vw;
         padding: 0 1.6rem 0 0;
         word-break: keep-all;
+    }
+    .apply-item .hero h2 span.pc-type {
+        display:none;
+    }
+    .apply-item .hero h2 span.m-type {
+        display:block;
     }
 
     .apply-item.n2 .unit-item {
@@ -2380,13 +2394,14 @@ body.step7 .srv-item.n8.on .unit-wrap {
     }
 
     .apply-h3 {
-        font-size: 11vmin;
+        font-size: 2.8rem;
+        line-height:3.5rem;
         font-weight: 600;
-        margin-bottom: 1rem;
+        margin-bottom: 4.8rem;
     }
 
     .apply-group+.apply-group {
-        margin-top: 8rem;
+        margin-top: 5.6rem;
     }
 
     .apply-group {
@@ -2396,21 +2411,16 @@ body.step7 .srv-item.n8.on .unit-wrap {
         display: block;
     }
 
-    .apply-group.n2 {
-        display: flex;
-        flex-direction: column-reverse;
+    .apply-group.n2 .img-a {
+        width:100%;
+    }
+    .apply-group.n2 .img-b {
+        display:none;
     }
 
     .apply-group .apply-img {
         display: block;
         width: 100%;
-        margin-bottom: 1rem;
-    }
-
-    .apply-group.n2 .apply-img {
-        display: block;
-        width: 100%;
-        margin-bottom: 1rem;
     }
 
     .apply-group.n1 .apply-cont {
@@ -2418,26 +2428,29 @@ body.step7 .srv-item.n8.on .unit-wrap {
         width: 100%;
         margin-left: 0;
         word-break: keep-all;
+        margin-top:2.4rem;
     }
 
     .apply-group.n2 .apply-cont {
         display: inline-block;
         width: 100%;
         margin-right: 0;
+        margin-top:2.4rem;
         word-break: keep-all;
         text-align: left;
     }
 
     .apply-cont .apply-tit {
-        font-size: 6vw;
-        line-height: 1.4;
+        font-size: 2rem;
+        line-height: 3.2rem;
         font-weight: 600;
-        margin-bottom: 1.6rem;
+        margin-bottom: 2.4rem;
         word-break: keep-all;
     }
 
     .apply-cont .apply-txt {
         font-size: 1.6rem;
+        line-height:2.8rem;
     }
 
     .apply-group.n1 .apply-img img {
@@ -2453,6 +2466,35 @@ body.step7 .srv-item.n8.on .unit-wrap {
     .apply-img img {
         width: 100%;
         height: 100%;
+    }
+
+    .apply-interview-list {
+        margin:8rem -2rem 0;
+    }
+    .interview-item {
+        height:32.7rem;
+    }
+    .interview-item .interview-data {
+        margin:0 1.6rem;
+        padding-top:4rem;
+    }
+    .interview-item .interview-content {
+        font-size:1.6rem;
+        line-height:2.4rem;
+        padding-left:1rem;
+        text-indent:-1rem;
+    }
+    .interview-item .interview-position {
+        margin-left:.7rem;
+        margin-top:1rem;
+        font-size:1.2rem;
+        line-height:1.4rem;
+    }
+    .interview-item .spacing {
+        width:1rem;
+    }
+    .interview-item:nth-of-type(even) .interview-position {
+        margin-right:.7rem;
     }
 
     .apply-gallery {
