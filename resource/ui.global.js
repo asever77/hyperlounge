@@ -296,6 +296,7 @@
 		act: function(){
             const el_body = doc.querySelector('body');
 			const el_html = doc.querySelector('html');
+			const el_header = doc.querySelector('.base-header');
 			const clsname = el_body.getAttribute('class');
 			const wH = window.innerHeight;
 			const wT = Math.floor(window.pageYOffset);
@@ -330,8 +331,8 @@
 					left: 0,
 					behavior: 'smooth'
 				});
-				doc.querySelector('.base-header').classList.remove('type-b');
-				doc.querySelector('.base-header').classList.remove('type-c');
+				el_header.classList.remove('type-b');
+				el_header.classList.remove('type-c');
 			});
 
 			if (wT > 100) {
