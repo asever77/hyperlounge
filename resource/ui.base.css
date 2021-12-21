@@ -2321,7 +2321,12 @@ body.step7 .srv-item.n8.on .unit-wrap {
     .page-apply.is-bar .base-header .base-nav .appstore path {
         fill: #fff;
     }
-
+    .page-overview.is-bar .base-header .base-nav .appstore.on path,
+    .page-apply.is-bar .base-header .base-nav .appstore.on path,
+    .page-overview.is-bar .base-header .base-nav .appstore path:hover,
+    .page-apply.is-bar .base-header .base-nav .appstore path:hover {
+        fill: #ee3224;
+    }
     .overview-item.n5 {
         margin-bottom: 12rem;
     }
@@ -2665,7 +2670,7 @@ body.step7 .srv-item.n8.on .unit-wrap {
         right:1.6rem;
         width:4rem;
         height: 4rem;
-        z-index: 1000;
+        z-index: 1;
         transition: bottom .2s ease-in;
     }
 }
