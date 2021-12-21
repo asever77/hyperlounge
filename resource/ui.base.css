@@ -1823,6 +1823,8 @@ body.step7 .srv-item.n8.on .unit-wrap {
 .scroll-arrow.off {
     bottom: -20vh;
 }
+.page-apply .scroll-arrow,
+.page-overview .scroll-arrow,
 .scroll .scroll-arrow {
     display: block;
 }
@@ -2314,6 +2316,10 @@ body.step7 .srv-item.n8.on .unit-wrap {
     .page-overview.is-bar .base-header .base-nav button path,
     .page-apply.is-bar .base-header .base-nav button path {
         fill: #000;
+    }
+    .page-overview.is-bar .base-header .base-nav .appstore path,
+    .page-apply.is-bar .base-header .base-nav .appstore path {
+        fill: #fff;
     }
 
     .overview-item.n5 {
