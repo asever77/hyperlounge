@@ -2098,9 +2098,9 @@ body.step7 .srv-item.n8.on .unit-wrap {
     }
 
     .btn-base {
-        font-size: 1.6rem;
+        font-size: 1.4rem;
         height: 4rem;
-        padding: 0 2rem;
+        padding: 0 2.6rem;
     }
 
     .base-footer {
@@ -2395,8 +2395,22 @@ body.step7 .srv-item.n8.on .unit-wrap {
 
     .apply-content {
         max-width: 100%;
-        margin: 12rem auto 12rem;
+        /*margin: 12rem auto 12rem;*/
         padding: 0 2rem;
+    }
+    .apply-item.n3 {
+        padding:8rem 0;
+    }
+    .apply-item.n3 .apply-content {
+        margin-top:0;
+    }
+    .apply-txt-a {
+        font-size:2rem;
+        line-height:3.2rem;
+        word-break:keep-all;
+    }
+    .apply-txt-a br {
+        display:none;
     }
 
     .apply-h3 {
