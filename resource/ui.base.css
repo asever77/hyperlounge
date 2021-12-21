@@ -2317,6 +2317,10 @@ body.step7 .srv-item.n8.on .unit-wrap {
     .page-apply.is-bar .base-header .base-nav button path {
         fill: #000;
     }
+    .page-overview.is-bar .base-header .base-nav .appstore path,
+    .page-apply.is-bar .base-header .base-nav .appstore path {
+        fill: #fff;
+    }
 
     .overview-item.n5 {
         margin-bottom: 12rem;
