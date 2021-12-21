@@ -1611,51 +1611,49 @@ body.step7 .srv-item.n8.on .unit-wrap {
 }
 
 .apply-h3 {
-    font-size: 9.6rem;
+    font-size: 8.4rem;
     font-weight: 600;
     max-width:94rem;
-    margin:0 auto 4rem;
+    line-height:10.4rem;
+    margin:0 auto 8.4rem;
 }
 
 .apply-group+.apply-group {
-    margin-top: 16rem;
+    margin-top: 12rem;
 }
 
 .apply-group {
     width: 100%;
     max-width:94rem;
     margin:0 auto;
-   /* position: relative;
-    height: 40rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;*/
 }
 
 .apply-group .apply-img {
-    display:flex;
-    justify-content:space-between;
+    position:relative;
 }
 .apply-group .apply-img img {
     vertical-align:top;
     max-width:100%;
 }
 .apply-group .apply-img .img-a {
-    width:60rem;
+    width:72.34042553191%;
 }
 .apply-group .apply-img .img-b {
-    width:33rem;
+    width:44.68085106383%;
+    position:absolute;
+    right:0;
+    top:13.7rem;
 }
 
 .apply-group .apply-cont {
-    margin-top:4rem;
+    margin-top:6rem;
     word-break: keep-all;
 }
 .apply-cont .apply-tit {
     font-size: 3.2rem;
     font-weight: 600;
     line-height:4.8rem;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     word-break: keep-all;
 }
 
@@ -1665,49 +1663,64 @@ body.step7 .srv-item.n8.on .unit-wrap {
 
 .apply-interview-list {
     margin-top:24rem;
-    padding:24rem 0 22rem;
-    background-color:#f4f4f4;
 }
 .interview-item {
-    text-align:center;
+    height:87.2rem;
+    background-repeat:no-repeat;
+    background-position:50% 50%;
+    background-size:cover;
+}
+.interview-item.n1 {
+    background-image:url("../resource/img/img-apply-11.png");
+}
+.interview-item.n2 {
+    background-image:url("../resource/img/img-apply-12.png");
+}
+.interview-item.n3 {
+    background-image:url("../resource/img/img-apply-13.png");
+}
+.interview-item.n4 {
+    background-image:url("../resource/img/img-apply-14.png");
+}
+.interview-item.n5 {
+    background-image:url("../resource/img/img-apply-15.png");
+}
+.interview-item.n6 {
+    background-image:url("../resource/img/img-apply-16.png");
+}
+.interview-item .interview-data {
     max-width:94rem;
     margin:0 auto;
-}
-.interview-item ~ .interview-item {
-    margin-top:14rem;
-}
-.interview-item .photo-box {
-    width:11.4rem;
-    height:11.4rem;
-    border-radius:50%;
-    overflow:hidden;
-    margin:0 auto;
+    padding-top:19.6rem;
 }
 .interview-item .interview-content {
-    margin-top:4rem;
-    font-size:3.2rem;
+    font-size:4rem;
     line-height:4.8rem;
     font-weight:600;
-    color:#000;
-    text-align:center;
-}
-.interview-item .interview-name {
-    margin-top:4rem;
-    font-weight:600;
-    color:#000;
-    font-size:2rem;
-    text-align:center;
-    line-height:2.4rem;
+    color:#fff;
+    padding-left:2rem;
+    text-indent:-2rem;
 }
 .interview-item .interview-position {
-    margin-top:1.2rem;
-    color:#888;
+    margin:2rem 0 0 2rem;
+    color:#fff;
     font-weight:300;
-    text-align:center;
+    font-size:2rem;
+}
+.interview-item .spacing {
+    display:inline-block;
+    width:2rem;
+}
+.interview-item:nth-of-type(even) .interview-content ,
+.interview-item:nth-of-type(even) .interview-position {
+    text-align:right;
+}
+.interview-item:nth-of-type(even) .interview-position {
+    margin-right:2rem;
 }
 .interview-item .interview-position .interview-position-item {
     display:inline-block;
-    margin:0 .4rem;
+    margin:0 .3rem;
     line-height:2rem;
 }
 .interview-item .interview-position .interview-position-item ~ .interview-position-item {
@@ -1719,12 +1732,24 @@ body.step7 .srv-item.n8.on .unit-wrap {
     position:absolute;
     left:0;
     top:.8rem;
-    width:.4rem;
-    height:.4rem;
+    width:.3rem;
+    height:.3rem;
     border-radius:50%;
-    background-color:#888;
+    background-color:#fff;
 }
 
+.apply-txt-a {
+    font-size:4rem;
+    color:#000;
+    line-height:1.6;
+    text-align:center;
+    font-weight:600;
+    margin-bottom:4rem;
+}
+.apply-item.n3 {
+    text-align:center;
+    padding:25.8rem 0;
+}
 .apply-gallery {
     overflow: hidden;
     width:100%;
