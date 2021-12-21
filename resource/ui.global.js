@@ -324,9 +324,19 @@
 			const scrollarrow = doc.querySelector('.scroll-arrow');
 			const topbtn = doc.querySelector('.btn-top');
 
+			topbtn && topbtn.addEventListener('click', function(){
+				window.scrollTo({
+					top: 0,
+					left: 0,
+					behavior: 'smooth'
+				});    
+			});
+
 			if (wT > 100) {
+				scrollarrow.classList.add('off');
 				topbtn.classList.add('on');
 			} else {
+				scrollarrow.classList.remove('off');
 				topbtn.classList.remove('on');
 			}  
 			//service.html
