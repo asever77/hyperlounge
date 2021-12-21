@@ -1848,7 +1848,7 @@ body.step7 .srv-item.n8.on .unit-wrap {
     width:34.6rem;
     line-height: 1;
 }
-
+.btn-top{display: none;}
 @media screen and (max-width: 979px) {
     .only-m {
         display: block;
@@ -2640,6 +2640,19 @@ body.step7 .srv-item.n8.on .unit-wrap {
     .scroll-arrow svg{
         width:1.2rem;
         height:3rem;
+    }
+    .btn-top.on{
+        bottom:2rem;
+    }
+    .btn-top{
+        display: block;
+        position: fixed;
+        bottom:-7rem;
+        right:1.6rem;
+        width:4rem;
+        height: 4rem;
+        z-index: 1000;
+        transition: bottom .2s ease-in;
     }
 }
 

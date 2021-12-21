@@ -322,8 +322,13 @@
 			}
 			
 			const scrollarrow = doc.querySelector('.scroll-arrow');
+			const topbtn = doc.querySelector('.btn-top');
 
-			(wT > 100) ? scrollarrow.classList.add('off') : scrollarrow.classList.remove('off');
+			if (wT > 100) {
+				topbtn.classList.add('on');
+			} else {
+				topbtn.classList.remove('on');
+			}  
 			//service.html
 			if (page === 'service') {
 				service(cutline, nowPs);
