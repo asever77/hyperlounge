@@ -9,6 +9,7 @@
 			const el_header = doc.querySelector('.base-header');
 			const el_nav = doc.querySelector('.nav-link');
             const el_navbtn = el_nav.querySelectorAll('button');
+			const el_home = doc.querySelector('.logo button');
 			const el_appstore = doc.querySelector('#appstoreToggle');
 			const el_appstore2 = doc.querySelector('#appstoreToggle2');
 			const btn_menu = doc.querySelector('.btn-menu');
@@ -31,7 +32,8 @@
 			btn_close.addEventListener('click', HyperloungeUI.common.naveClose);
 			el_appstore && el_appstore.addEventListener('click', appStoreDiv);
 			el_appstore2 && el_appstore2.addEventListener('click', appStoreDiv);
-
+			el_home.addEventListener('click', pageGO);
+			
             for (let i = 0, len = el_navbtn.length; i < len; i++) {
                 const that = el_navbtn[i];
 
