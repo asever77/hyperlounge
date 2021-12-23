@@ -90,7 +90,7 @@ body {
     color: #222;
     font-size: 1.6rem;
     line-height: 1.6;
-    unit-break: keep-all;
+    word-break: keep-all;
     -webkit-text-size-adjust: none;
     -moz-osx-font-smoothing: grayscale;
     -webkit-overflow-scrolling: touch;
@@ -101,7 +101,6 @@ body {
     user-select: none;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     -webkit-tap-highlight-color: transparent;
-    unit-break: keep-all;
     -webkit-font-smoothing: subpixel-antialiased;
 }
 
