@@ -46,6 +46,15 @@
     url('./fonts/SpoqaHanSansNeo-Thin.ttf') format('truetype');
 }
 
+
+@font-face {
+    font-family: 'helveticaneuecyrbold';
+    src: url('./fonts/HelveticaNeueCyr-Bold.woff2') format('woff2'),
+    url('./fonts/HelveticaNeueCyr-Bold.woff') format('woff'),
+    url('./fonts/HelveticaNeueCyr-Bold.ttf') format('truetype');
+    font-weight: 700;
+}
+
 @font-face {
     font-family: 'Spoqa Han Sans Neo';
     src: url('./fonts/HelveticaNeueCyr-Bold.woff2') format('woff2'),
@@ -103,6 +112,7 @@ body {
     -webkit-tap-highlight-color: transparent;
     unit-break: keep-all;
     -webkit-font-smoothing: subpixel-antialiased;
+    -webkit-text-stroke:1px transparent;
 }
 
 body,
@@ -680,6 +690,7 @@ select::-ms-expand {
     font-size: 13vmin;
     line-height: 1.0;
     letter-spacing: -.4vmin;
+    font-family: 'helveticaneuecyrbold';
 }
 
 .eff-title .write .word {
@@ -1396,6 +1407,9 @@ body.step7 .srv-item.n8.on .unit-wrap {
 .box-team {
     margin-top: 8rem
 }
+.box-team .team-img .m-type {
+    display:none;
+}
 
 .team-member {
     display: flex;
@@ -1432,7 +1446,8 @@ body.step7 .srv-item.n8.on .unit-wrap {
     font-size: 1.7rem;
     color: #888;
     line-height: 2.8rem;
-    margin-top: 1.6rem
+    margin-top: 1.6rem;
+    word-break: keep-all;
 }
 
 .contact-data {
@@ -1672,22 +1687,22 @@ body.step7 .srv-item.n8.on .unit-wrap {
     background-size:cover;
 }
 .interview-item.n1 {
-    background-image:url("../resource/img/img-apply-11.png");
+    background-image:url("../resource/img/img-apply-11.jpg");
 }
 .interview-item.n2 {
-    background-image:url("../resource/img/img-apply-12.png");
+    background-image:url("../resource/img/img-apply-12.jpg");
 }
 .interview-item.n3 {
-    background-image:url("../resource/img/img-apply-13.png");
+    background-image:url("../resource/img/img-apply-13.jpg");
 }
 .interview-item.n4 {
-    background-image:url("../resource/img/img-apply-14.png");
+    background-image:url("../resource/img/img-apply-14.jpg");
 }
 .interview-item.n5 {
-    background-image:url("../resource/img/img-apply-15.png");
+    background-image:url("../resource/img/img-apply-15.jpg");
 }
 .interview-item.n6 {
-    background-image:url("../resource/img/img-apply-16.png");
+    background-image:url("../resource/img/img-apply-16.jpg");
 }
 .interview-item .interview-data {
     max-width:94rem;
@@ -2211,6 +2226,16 @@ body.step7 .srv-item.n8.on .unit-wrap {
 
     .box-team {
         margin-top: 2.4rem
+    }
+    .box-team .team-img {
+        margin:0 -1.6rem;
+        height:auto;
+    }
+    .box-team .team-img .m-type {
+        display:block;
+    }
+    .box-team .team-img .pc-type {
+        display:none;
     }
 
     .team-member {
