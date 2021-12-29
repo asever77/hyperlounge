@@ -278,7 +278,7 @@
 
 			if (v === 'service') {
 				setTimeout(function(){
-					doc.querySelector('.srv-item.n1 .line').classList.add('act');
+					doc.querySelector('.service-item.n1 .line').classList.add('act');
 					setTimeout(function(){
 						doc.querySelector('.page-service').classList.add('scroll');
 					},600);
@@ -347,7 +347,9 @@
 			}  
 			//service.html
 			if (page === 'service') {
-				service(cutline, nowPs);
+				//service(cutline, nowPs);
+				overview();
+
 			} else if (page === 'overview' || page === 'apply') {
 				(wT > wH - 120) ?
 					el_html.classList.add('is-bar'):
@@ -360,28 +362,87 @@
 				const parallax = doc.querySelector('.ui-parallax');
 				const st = window.scrollY || document.documentElement.scrollTop;
 				const item = parallax.querySelectorAll('.unit-item');
+				const itemFix = parallax.querySelectorAll('.unit-fix');
 				const vh = window.innerHeight;
+
+
+				if (!!itemFix) {
+					for (let i = 0, len = itemFix.length; i < len; i++) {
+						const that = itemFix[i];
+						const itemTop = that.getBoundingClientRect().top + st;
+						const card = that.querySelector('.card-list');
+						let cardw = 1010;
+						const ch = that.offsetHeight;
+						console.log(st.toFixed(0), itemTop.toFixed(0))
+
+						if (st > itemTop) {
+							that.classList.add('fix');
+
+							card.style.transform = 'translateX('+ (cardw * 0) +')';
+
+							if (st - itemTop > (ch / 8) * 1) {
+								card.style.transform = 'translateX('+ (cardw * -1) +'px)';
+							} 
+							if (st - itemTop > (ch / 8) * 2) {
+								card.style.transform = 'translateX('+ (cardw * -2) +'px)';
+							}
+							if (st - itemTop > (ch / 8) * 3) {
+								card.style.transform = 'translateX('+ (cardw * -3) +'px)';
+							}
+							if (st - itemTop > (ch / 8) * 4) {
+								card.style.transform = 'translateX('+ (cardw * -4) +'px)';
+							}
+
+						} else {
+							that.classList.remove('fix');
+						}
+					}
+	
+				}
 				
 				for (let i = 0, len = item.length; i < len; i++) {
 					const that = item[i];
+					const delay = Number(that.dataset.delay);
+					const counter = that.dataset.conuteritem;
+					const reverse = that.dataset.reverse;
+					const speed = that.dataset.speed;
 					const itemTop = that.getBoundingClientRect().top + st;
 					const n = st - (itemTop - vh);
 					const s = 150;
-					const nn = s - n;
+					let nn = s - n;
 
-					if (i === 0) {
-						if (st + (itemTop) > itemTop) {
-							that.style.transform = 'translateY('+ (st /2) +'px)';
-						}
-					} else {
-						if (st > itemTop - vh && st < itemTop - vh + s ) {
+					// if (i === 0) {
+					// 	if (st + (itemTop) > itemTop) {
+					// 		that.style.transform = 'translateY('+ (st / 2) +'px)';
+					// 	}
+					// } else {
+						if (st > itemTop - (vh + (vh / 10)) && st < itemTop - (vh + (vh / 10)) + s ) {
+							if (!!delay) {
+								nn = nn * delay;
+							}
+
+							if (!!counter) {
+								Global.number.counterReset(counter);
+							}
 							that.style.transform = 'translateY('+ nn +'px)';
 							that.classList.remove('on');
-						} else if (st > itemTop - vh + s )  {
+							
+
+
+						} else if (st > itemTop - (vh + (vh / 10)) + s )  {
 							that.style.transform = 'translateY(0px)';
 							that.classList.add('on');
+
+							
+
+							if (!!counter) {
+								Global.number.counter(counter, speed);
+							}
 						}
-					}
+
+						
+
+					// }
 				}
                   
             }
