@@ -321,7 +321,6 @@
 			for (let i = 1, len = psValue.length; i < len; i++) {
 				if (cutline < Number(psValue[i]) + wH){
 					if (page === 'service') {
-						console.log(i);
 						switch(i) {
 							case 1:
 								el_header.classList.remove('type-b');
@@ -380,18 +379,14 @@
 				scrollarrow.classList.remove('off');
 				topbtn.classList.remove('on');
 			}  
-			//service.html
-			if (page === 'service') {
-				//service(cutline, nowPs);
-				overview();
 
-			} else if (page === 'overview' || page === 'apply') {
+			if (page === 'overview' || page === 'apply') {
 				(wT > wH - 120) ?
 					el_html.classList.add('is-bar'):
 					el_html.classList.remove('is-bar');
-
-				overview();
 			}
+
+			overview();
 
 			function overview(){
 				const parallax = doc.querySelector('.ui-parallax');
@@ -399,7 +394,6 @@
 				const item = parallax.querySelectorAll('.unit-item');
 				const itemFix = parallax.querySelectorAll('.unit-fix');
 				const vh = window.innerHeight;
-
 
 				if (!!itemFix) {
 					for (let i = 0, len = itemFix.length; i < len; i++) {
@@ -411,7 +405,6 @@
 
 						if (st > itemTop) {
 							that.classList.add('fix');
-
 							card.style.transform = 'translateX('+ (cardw * 0) +')';
 
 							if (st - itemTop > (ch / 8) * 1) {
@@ -426,55 +419,40 @@
 							if (st - itemTop > (ch / 8) * 4) {
 								card.style.transform = 'translateX('+ (cardw * -4) +'px)';
 							}
-
 						} else {
 							that.classList.remove('fix');
 						}
 					}
-	
 				}
 				
 				for (let i = 0, len = item.length; i < len; i++) {
 					const that = item[i];
 					const delay = Number(that.dataset.delay);
 					const counter = that.dataset.conuteritem;
-					const reverse = that.dataset.reverse;
 					const speed = that.dataset.speed;
 					const itemTop = that.getBoundingClientRect().top + st;
 					const n = st - (itemTop - vh);
 					const s = 150;
 					let nn = s - n;
 
-
 					if (st > itemTop - (vh + (vh / 10)) && st < itemTop - (vh + (vh / 10)) + s ) {
 						if (!!delay) {
 							nn = nn * delay;
 						}
 
-						if (!!counter) {
-							Global.number.counterReset(counter);
-						}
+						(!!counter) && Global.number.counterReset(counter);
+
 						that.style.transform = 'translateY('+ nn +'px)';
 						that.classList.remove('on');
-						
-
 
 					} else if (st > itemTop - (vh + (vh / 10)) + s )  {
 						that.style.transform = 'translateY(0px)';
 						that.classList.add('on');
 
-						
-
-						if (!!counter) {
-							Global.number.counter(counter, speed);
-						}
+						(!!counter) && Global.number.counter(counter, speed);
 					}
-
 				}
-                  
             }
-
-
 		}
 	}
 
