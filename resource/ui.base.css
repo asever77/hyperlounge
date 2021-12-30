@@ -1917,6 +1917,7 @@ from, 30% { clip-path: polygon(-20% 0%, -15% 0%, -15% 100%, -20% 100%) }
         height: auto;
         padding: 8rem 0;
     }
+    .service-item.n1 .service-item-group{overflow:visible;}
     .service-item-group{overflow: hidden;}
     
     .info-box-a {
