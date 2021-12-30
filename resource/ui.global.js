@@ -276,7 +276,6 @@
 				}
 			}
 
-
 			setTimeout(function(){
 				calc();
 				win.addEventListener('resize', calc);
@@ -422,54 +421,27 @@
 					const speed = that.dataset.speed;
 					const itemTop = that.getBoundingClientRect().top + st;
 					const n = st - (itemTop - vh);
-					const s = 300;
-					let nn = s - n;
+					let s = vh / 10;
 
-					const x = vh / 5;
-
-					if (Global.state.device.mobile) {
-						if (i === 0) {
-							console.log(st, itemTop - vh - x ,  itemTop - vh + x)
-						}
-						
-						if (st > itemTop - vh && st < itemTop - vh + x ) {
-
-							// if (!!delay) {
-							// 	nn = nn * delay;
-							// }
-	
-							(!!counter) && Global.number.counterReset(counter);
-	
-							that.style.transform = 'translateY('+ nn +'px)';
-							that.classList.remove('on');
-	
-						} else if (st > itemTop - vh + x )  {
-							that.style.transform = 'translateY(0px)';
-							that.classList.add('on');
-	
-							(!!counter) && Global.number.counter(counter, speed);
-						}
-					} else {
-						if (st > itemTop - (vh ) && st < itemTop - (vh ) + x ) {
-
-							if (!!delay) {
-								nn = nn * delay;
-							}
-	
-							(!!counter) && Global.number.counterReset(counter);
-	
-							that.style.transform = 'translateY('+ nn +'px)';
-							that.classList.remove('on');
-	
-						} else if (st > itemTop - (vh + (vh / 10)) + x )  {
-							that.style.transform = 'translateY(0px)';
-							that.classList.add('on');
-	
-							(!!counter) && Global.number.counter(counter, speed);
-						}
+					if (!!delay) {
+						s = vh / delay;
 					}
-
 					
+					let nn = s - n;
+					nn < 0 ? nn = 0 : '';
+
+					if (st > itemTop - vh && st < itemTop - vh + s) {
+						(!!counter) && Global.number.counterReset(counter);
+
+						that.style.transform = 'translateY('+ nn +'px)';
+						that.classList.remove('on');
+
+					} else if (st > itemTop - vh + s) {
+						that.style.transform = 'translateY(0px)';
+						that.classList.add('on');
+
+						(!!counter) && Global.number.counter(counter, speed);
+					}
 				}
             }
 		}

@@ -1828,12 +1828,15 @@ from, 30% { clip-path: polygon(-20% 0%, -15% 0%, -15% 100%, -20% 100%) }
     }
     
     /* service 2 */
-    .service-item.n1 .unit-item,
+    .service-item.n1 .unit-item{
+        transform: translateY(0);
+        transition: transform .2s ease-out;
+    }
     .service-item.n2 .unit-item,
     .service-item.n5 .unit-item,
     .service-item.n6 .unit-item,
     .service-item.n5 .unit-item {
-        transform: translateY(40rem);
+        transform: translateY(0);
         transition: transform .2s ease-out;
        
     }
