@@ -375,9 +375,9 @@
 					el_html.classList.remove('is-bar');
 			}
 
-			overview();
+			act();
 
-			function overview(){
+			function act(){
 				const parallax = doc.querySelector('.ui-parallax');
 				const st = window.scrollY || document.documentElement.scrollTop;
 				const item = parallax.querySelectorAll('.unit-item');
