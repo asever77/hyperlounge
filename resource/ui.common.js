@@ -25,6 +25,12 @@
                     HyperloungeUI.parallax.init(firstpage);
 					el_html.classList.add('page-' + firstpage);
 					Splitting();
+					setTimeout(function(){
+						doc.querySelector('.service-item.n1 .line').classList.add('act');
+						setTimeout(function(){
+							doc.querySelector('.page-service').classList.add('scroll');
+						},600);
+					},2500);
 				}
 			});
 
@@ -71,7 +77,15 @@
 						window.removeEventListener('scroll', HyperloungeUI.parallax.act);
 						HyperloungeUI.parallax.init(that.dataset.link);
 
-						that.dataset.link === 'service' ? Splitting() : '';
+						if (that.dataset.link === 'service') {
+							Splitting();
+							setTimeout(function(){
+								doc.querySelector('.service-item.n1 .line').classList.add('act');
+								setTimeout(function(){
+									doc.querySelector('.page-service').classList.add('scroll');
+								},600);
+							},2400);
+						}  
 						window.scrollTo({
 							top: 0,
 							left: 0

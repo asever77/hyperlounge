@@ -276,15 +276,6 @@
 				}
 			}
 
-			if (v === 'service') {
-				setTimeout(function(){
-					doc.querySelector('.service-item.n1 .line').classList.add('act');
-					setTimeout(function(){
-						doc.querySelector('.page-service').classList.add('scroll');
-					},600);
-				},2400);
-				
-			}
 
 			setTimeout(function(){
 				calc();
@@ -306,7 +297,6 @@
 			let nowPs = 0; 
 
 			for (let i = 1, len = psValue.length; i < len; i++) {
-				
 				if (cutline < psValue[i]){
 					nowPs = i;
 					break;
