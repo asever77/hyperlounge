@@ -437,12 +437,11 @@
 
 
 					if (Global.state.device.mobile) {
-						if (st > itemTop - (vh - (vh / 50)) && st < itemTop - (vh - (vh / 100)) + s ) {
+						if (st > itemTop - (vh ) && st < itemTop - (vh ) + s ) {
 
-							// if (!!delay) {
-							// 	//(Global.state.device.mobile) ? delay = 0 : '';
-							// 	nn = nn * delay;
-							// }
+							if (!!delay) {
+								nn = nn * delay;
+							}
 	
 							(!!counter) && Global.number.counterReset(counter);
 	
