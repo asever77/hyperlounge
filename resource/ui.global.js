@@ -435,9 +435,14 @@
 					const s = 300;
 					let nn = s - n;
 
+					const x = vh / 5;
 
 					if (Global.state.device.mobile) {
-						if (st > itemTop - (vh + (vh / 10)) && st < itemTop - (vh + (vh / 50)) + s ) {
+						if (i === 0) {
+							console.log(st, itemTop - vh - x ,  itemTop - vh + x)
+						}
+						
+						if (st > itemTop - vh && st < itemTop - vh + x ) {
 
 							// if (!!delay) {
 							// 	nn = nn * delay;
@@ -448,14 +453,14 @@
 							that.style.transform = 'translateY('+ nn +'px)';
 							that.classList.remove('on');
 	
-						} else if (st > itemTop - (vh + (vh / 50)) + s )  {
+						} else if (st > itemTop - vh + x )  {
 							that.style.transform = 'translateY(0px)';
 							that.classList.add('on');
 	
 							(!!counter) && Global.number.counter(counter, speed);
 						}
 					} else {
-						if (st > itemTop - (vh ) && st < itemTop - (vh ) + s ) {
+						if (st > itemTop - (vh ) && st < itemTop - (vh ) + x ) {
 
 							if (!!delay) {
 								nn = nn * delay;
@@ -466,7 +471,7 @@
 							that.style.transform = 'translateY('+ nn +'px)';
 							that.classList.remove('on');
 	
-						} else if (st > itemTop - (vh + (vh / 10)) + s )  {
+						} else if (st > itemTop - (vh + (vh / 10)) + x )  {
 							that.style.transform = 'translateY(0px)';
 							that.classList.add('on');
 	
